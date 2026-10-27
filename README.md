@@ -31,6 +31,10 @@ Refresh downloads, validates and rebuilds; it does not deploy. Review the output
 
 Keep future statistics as separate datasets and pages, with their own reference year, definitions and source metadata. The page shell and typography can be shared. Avoid combining different years or accounting scopes in the same total.
 
+## Design direction
+
+Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal black-on-white palette and restrained typography. Do not use eyebrows (small introductory labels above headings) anywhere on this website. Keep the hero supporting sentence and chart heading/helper sentence visually hidden. Show the reference year in parentheses after “spesa totale”.
+
 ## Sources
 
 - [Eurostat dataset](https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en)
