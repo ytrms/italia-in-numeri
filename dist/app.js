@@ -171,7 +171,7 @@ compactNavigation.addEventListener('change', syncNavigationLayout);
 let navigationFrame;
 function updateSectionNavigation() {
   navigationFrame = undefined;
-  const readingLine = Math.min(160, window.innerHeight * .2);
+  const readingLine = Math.max(Math.min(160, window.innerHeight * .2), compactNavigation.matches ? navToggle.getBoundingClientRect().bottom + 24 : 0);
   let current = sections[0];
   for (const section of sections) {
     if (section.getBoundingClientRect().top <= readingLine) current = section;

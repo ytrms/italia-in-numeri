@@ -168,13 +168,14 @@ details[open] > summary .plus::after { display: none; }
   .regional-layout.is-interactive { gap: 40px; }
 }
 @media (max-width: 1100px) {
+  html { scroll-padding-top: 73px; }
   .page { display: block; max-width: 960px; }
   .section-nav { position: static; margin: 0; padding: 20px 0; border-bottom: 1px solid var(--ink); }
   .section-nav ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 12px; }
   .section-nav a { height: 100%; display: flex; align-items: center; }
-  .section-nav.is-collapsible { padding: 0; }
+  .section-nav.is-collapsible { position: sticky; top: 0; z-index: 10; padding: 0; background: #fff; }
   .nav-toggle { display: flex; align-items: center; justify-content: space-between; min-height: 52px; }
-  .section-nav.is-collapsible ul { padding-bottom: 16px; }
+  .section-nav.is-collapsible ul { position: absolute; top: 100%; left: 0; right: 0; padding: 8px 4px 16px; background: #fff; border-bottom: 1px solid var(--ink); max-height: calc(100vh - 73px); max-height: calc(100dvh - 73px); overflow-y: auto; overscroll-behavior-y: contain; }
   .nav-toggle[aria-expanded="false"] + ul { display: none; }
 }
 @media (max-width: 720px) {
