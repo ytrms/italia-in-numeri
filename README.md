@@ -52,6 +52,8 @@ Use the name “italia in numeri” without punctuation, keeping “italia” bo
 
 ## Sources
 
+“Fonti e metodo.” uses the same native chevron disclosure as the data sections but starts collapsed. Links to the methodology open both this section and the targeted explanation automatically.
+
 - [Eurostat dataset](https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en)
 - [Eurostat methodology](https://ec.europa.eu/eurostat/en/web/government-finance-statistics/methodology)
 - [Istat quality report](https://www.istat.it/scheda-qualita/spese-della-pubblica-amministrazione-per-funzione/)

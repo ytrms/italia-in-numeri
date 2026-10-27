@@ -103,8 +103,9 @@ details[open] > summary .plus::after { display: none; }
 .regional-table thead th { color: var(--muted); font-size: 11px; }
 .regional-table td { white-space: nowrap; }
 .method + .method { border-top: 0; }
-.sources { padding-top: 31px; display: grid; grid-template-columns: 1fr 2fr; gap: 50px; }
-.sources-heading h2 { margin: 0; font-size: 28px; line-height: 1.15; letter-spacing: -.8px; }
+.sources > .section-heading { padding: 31px 0; }
+.sources .section-heading h2 { font-size: 28px; line-height: 1.15; letter-spacing: -.8px; }
+.source-content { width: calc((100% - 50px) * .666667); margin-left: auto; }
 .source-links > a { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-top: 1px solid var(--line); font-size: 14px; text-decoration: none; }
 .source-links > a:hover small { color: var(--ink); }
 .source-links small { color: var(--muted); font-size: 11px; margin-left: 20px; }
@@ -152,7 +153,8 @@ details[open] > summary .plus::after { display: none; }
   .chart-total { padding-right: 22px; }
   .chart-caption { flex-direction: column; gap: 18px; margin-top: 22px; font-size: 10px; }
   .download-link { min-height: 32px; display: inline-flex; align-items: center; font-size: 12px; }
-  .sources { grid-template-columns: 1fr; gap: 25px; padding-top: 27px; }
+  .sources > .section-heading { padding: 27px 0; }
+  .source-content { width: 100%; }
   .regional-layout.is-interactive { grid-template-columns: 1fr; gap: 30px; margin-top: 10px; }
   .italy-map { max-height: 450px; }
   .map-legend { width: min(100%, 300px); margin-top: 23px; }
@@ -164,8 +166,7 @@ details[open] > summary .plus::after { display: none; }
   .regional-caption .chart-caption { gap: 12px; }
   .regional-table { font-size: 11px; }
   .regional-table th, .regional-table td { padding: 11px 5px; }
-  .sources-heading h2 { font-size: 26px; }
-  .sources-heading h2 br { display: none; }
+  .sources .section-heading h2 { font-size: 26px; }
   .source-links small { display: inline; margin-left: 12px; font-size: 10px; }
   .site-footer { padding: 45px 0 25px; font-size: 10px; }
 }
@@ -187,7 +188,7 @@ details[open] > summary .plus::after { display: none; }
   .italy-map, .legend-gradient { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   #regioni { break-before: page; }
   .map-hint { display: none; }
-  .sources { padding-top: 30px; }
+  .sources > .section-heading { padding: 25px 0; }
   .site-footer { padding-top: 30px; }
   details, .sources { break-inside: avoid; }
   .stat-section { break-inside: auto; }
