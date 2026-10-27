@@ -48,7 +48,7 @@ Hover, keyboard focus/Enter/Space, touch/click and a native region selector upda
 
 ## Real wages
 
-“Il potere d’acquisto dei salari.” is a peer disclosure, expanded by default. Two distinct series are provided, never spliced:
+“Il potere d’acquisto dei salari” is a peer disclosure, expanded by default. Two distinct series are provided, never spliced:
 
 - **OECD, 1990–2025 (default):** Average annual gross wages, whole economy, full-time equivalent. Select `ITA.WG.EUR.A.Q.MEAN._Z` from `DSD_EARNINGS@AV_AN_WAGE`, constant 2025 EUR, status A and multiplier 0. The private-consumption deflator is already applied by OECD; do not deflate again. Annual EUR values and the index are shown.
 - **AMECO, 1960–2025:** `ITA.3.1.0.0.RWCDC`, real compensation per employee using the private-consumption deflator. Includes employer social contributions, so it is broader than wages. Spring 2026 vintage (3 June update), with forecasts for 2026–2027 excluded explicitly. Earlier history is backcast across accounting standards, with lower comparability. Older Istat contractual/category-specific wage series are not concatenated with this aggregate.
@@ -66,11 +66,11 @@ The refresh deliberately requires review when adopting a new AMECO vintage: upda
 
 ## Design direction
 
-Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal black-on-white palette and restrained typography. Do not use eyebrows (small introductory labels above headings) anywhere on this website. “Dove vanno le tue tasse?” and “Il saldo delle regioni.” are equal peer sections: share their heading scale, spacing, dividers and right-aligned chevron. Both start expanded and collapse independently using native details/summary, including without JavaScript. Retain chart units and regional selection when collapsing. Keep introductory supporting copy absent and the chart helper sentence visually hidden. Show the latest-year/retrieval note in the sources section. The default chart unit is billions of euros. Do not add a spending-total callout, header sources link, generic sources introduction or footer tagline.
+Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal black-on-white palette and restrained typography. Do not use eyebrows (small introductory labels above headings) anywhere on this website. Do not end section titles with periods; retain question marks where appropriate. “Dove vanno le tue tasse?” and “Il saldo delle regioni” are equal peer sections: share their heading scale, spacing, dividers and right-aligned chevron. Both start expanded and collapse independently using native details/summary, including without JavaScript. Retain chart units and regional selection when collapsing. Keep introductory supporting copy absent and the chart helper sentence visually hidden. Show the latest-year/retrieval note in the sources section. The default chart unit is billions of euros. Do not add a spending-total callout, header sources link, generic sources introduction or footer tagline.
 
 ## Sources
 
-“Fonti e metodo.” uses the same native chevron disclosure as the data sections but starts collapsed. Links to the methodology open both this section and the targeted explanation automatically.
+“Fonti e metodo” uses the same native chevron disclosure as the data sections but starts collapsed. Links to the methodology open both this section and the targeted explanation automatically.
 
 - [Eurostat dataset](https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en)
 - [Eurostat methodology](https://ec.europa.eu/eurostat/en/web/government-finance-statistics/methodology)
