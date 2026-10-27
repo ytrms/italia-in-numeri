@@ -48,7 +48,7 @@ Hover, keyboard focus/Enter/Space, touch/click and a native region selector upda
 
 ## Design direction
 
-Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal black-on-white palette and restrained typography. Do not use eyebrows (small introductory labels above headings) anywhere on this website. Use the heading “Dove vanno le tue tasse?” with no spending-total callout beside it. Keep the hero supporting sentence and chart heading/helper sentence visually hidden. Show the latest-year/retrieval note in the sources section. The default chart unit is billions of euros. Do not add a header sources link, generic sources introduction or footer tagline.
+Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal black-on-white palette and restrained typography. Do not use eyebrows (small introductory labels above headings) anywhere on this website. “Dove vanno le tue tasse?” and “Il saldo delle regioni.” are equal peer sections: share their heading scale, spacing, dividers and right-aligned chevron. Both start expanded and collapse independently using native details/summary, including without JavaScript. Retain chart units and regional selection when collapsing. Keep introductory supporting copy absent and the chart helper sentence visually hidden. Show the latest-year/retrieval note in the sources section. The default chart unit is billions of euros. Do not add a spending-total callout, header sources link, generic sources introduction or footer tagline.
 
 ## Sources
 

@@ -87,6 +87,16 @@ selectRegion(regionSelect.value);
 document.querySelector('.region-panel').hidden = false;
 document.querySelector('.regional-layout').classList.add('is-interactive');
 
-document.querySelector('a[href="#metodo-regioni"]').addEventListener('click', () => {
-  document.querySelector('#metodo-regioni').open = true;
+function revealLinkedDetails(hash) {
+  let target = document.getElementById(hash.slice(1));
+  while (target) {
+    if (target.tagName === 'DETAILS') target.open = true;
+    target = target.parentElement;
+  }
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', () => revealLinkedDetails(link.hash));
 });
+window.addEventListener('hashchange', () => revealLinkedDetails(window.location.hash));
+revealLinkedDetails(window.location.hash);

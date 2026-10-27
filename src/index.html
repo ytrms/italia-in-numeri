@@ -23,19 +23,14 @@
       </header>
 
       <main>
-        <section class="intro" aria-labelledby="page-title">
-          <div class="intro-copy">
-            <h1 id="page-title">Dove vanno<br />le tue tasse?</h1>
-            <p class="dek" hidden>Le uscite delle amministrazioni pubbliche italiane,<br class="desktop-break" /> una voce alla volta.</p>
-          </div>
-        </section>
-
-        <section class="chart-section" id="grafico" aria-labelledby="chart-title">
-          <div class="chart-heading">
-            <div class="sr-only">
-              <h2 id="chart-title">La spesa, voce per voce.</h2>
-              <p id="chart-description">Miliardi di euro, a prezzi correnti. Seleziona una voce per approfondire.</p>
-            </div>
+        <h1 class="sr-only">Italia in numeri</h1>
+        <details class="stat-section" id="grafico" open>
+          <summary class="section-heading">
+            <h2 id="page-title"><span>Dove vanno le tue tasse?</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
+          </summary>
+          <div class="section-content">
+          <div class="section-toolbar">
+            <p id="chart-description" class="sr-only">Miliardi di euro, a prezzi correnti. Seleziona una voce per approfondire.</p>
             <div class="unit-switch" role="group" aria-label="Unità del grafico" hidden>
               <button type="button" data-unit="share" aria-pressed="false">% del totale</button>
               <button type="button" data-unit="amount" aria-pressed="true">Miliardi €</button>
@@ -55,11 +50,15 @@
             <a class="download-link" href="./data/spesa-pubblica.csv" download="spesa-pubblica-italia-{{YEAR}}.csv">Scarica i dati <span aria-hidden="true">↓</span></a>
           </div>
           <p class="sr-only" id="unit-announcement" aria-live="polite"></p>
-        </section>
+          </div>
+        </details>
 
-        <section class="regional-section" id="regioni" aria-labelledby="regional-title">
-          <div class="regional-heading">
-            <h2 id="regional-title">Il saldo delle regioni.</h2>
+        <details class="stat-section" id="regioni" open>
+          <summary class="section-heading">
+            <h2 id="regional-title"><span>Il saldo delle regioni.</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
+          </summary>
+          <div class="section-content">
+          <div class="section-toolbar">
             <p>Entrate − spese della PA · {{REGIONAL_YEAR}}</p>
           </div>
           <div class="regional-layout">
@@ -107,7 +106,8 @@
               </table>
             </div>
           </details>
-        </section>
+          </div>
+        </details>
 
         <section class="sources" id="fonti" aria-labelledby="sources-title">
           <div class="sources-heading"><h2 id="sources-title">Fonti e metodo.</h2></div>
