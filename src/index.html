@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Dove vanno i soldi pubblici — italia in numeri</title>
+    <meta name="description" content="La spesa pubblica italiana, voce per voce. Un grafico essenziale con dati Eurostat, spiegazioni e fonti verificabili." />
+    <meta property="og:title" content="Dove vanno i soldi pubblici — italia in numeri" />
+    <meta property="og:description" content="Pensioni, sanità, istruzione e le altre voci della spesa pubblica italiana. Dati Eurostat, in chiaro." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:url" content="https://italia-in-numeri.trms.chatgpt.site" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#grafico">Vai al grafico</a>
+    <div class="page">
+      <header class="site-header">
+        <a class="wordmark" href="./" aria-label="italia in numeri — pagina iniziale">italia <span>in numeri</span></a>
+        <a class="source-nav" href="#fonti">Fonti e metodo <span aria-hidden="true">↘</span></a>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <div class="intro-copy">
+            <p class="eyebrow" hidden><span class="issue-number">01</span> La spesa pubblica</p>
+            <h1 id="page-title">Dove vanno<br />i soldi pubblici.</h1>
+            <p class="dek" hidden>Le uscite delle amministrazioni pubbliche italiane,<br class="desktop-break" /> una voce alla volta.</p>
+          </div>
+          <div class="total-block">
+            <p class="year-label"><span hidden>Italia / </span>{{YEAR}}</p>
+            <p class="total-number">{{TOTAL_BILLIONS}}</p>
+            <p class="total-unit">miliardi di euro di spesa totale</p>
+            <p class="latest-note">Ultimo anno completo disponibile<br />alla verifica del {{RETRIEVED_DATE}}.</p>
+          </div>
+        </section>
+
+        <section class="chart-section" id="grafico" aria-labelledby="chart-title">
+          <div class="chart-heading">
+            <div>
+              <h2 id="chart-title">La spesa, voce per voce.</h2>
+              <p id="chart-description">Quota sul totale. Seleziona una voce per approfondire.</p>
+            </div>
+            <div class="unit-switch" role="group" aria-label="Unità del grafico" hidden>
+              <button type="button" data-unit="share" aria-pressed="true">% del totale</button>
+              <button type="button" data-unit="amount" aria-pressed="false">Miliardi €</button>
+            </div>
+          </div>
+          <div class="chart" aria-describedby="chart-description">
+            <div class="chart-axis" aria-hidden="true">
+              <span class="axis-label">Destinazione</span>
+              <div class="axis-ticks">{{AXIS}}</div>
+              <span class="axis-unit">%</span><span></span>
+            </div>
+            <div class="chart-rows">{{ROWS}}</div>
+            <div class="chart-total"><span>Totale</span><span id="chart-total-value">100<span class="number-unit">%</span></span></div>
+          </div>
+          <div class="chart-caption">
+            <p>Fonte: <a href="https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en" target="_blank" rel="noopener noreferrer">Eurostat, {{YEAR}} <span aria-hidden="true">↗</span></a> · Valori a prezzi correnti.</p>
+            <a class="download-link" href="./data/spesa-pubblica.csv" download="spesa-pubblica-italia-{{YEAR}}.csv">Scarica i dati <span aria-hidden="true">↓</span></a>
+          </div>
+          <p class="sr-only" id="unit-announcement" aria-live="polite"></p>
+        </section>
+
+        <section class="sources" id="fonti" aria-labelledby="sources-title">
+          <div class="sources-heading"><span class="eyebrow">Dietro i numeri</span><h2 id="sources-title">Fonti e metodo.</h2></div>
+          <div class="source-content">
+            <p class="source-intro">Ogni voce del grafico rimanda alla stessa fonte e allo stesso anno. Qui trovi i dati originali e i criteri di lettura.</p>
+            <div class="source-links">
+              <a href="https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en" target="_blank" rel="noopener noreferrer"><span>Eurostat <small>Spesa per funzione · gov_10a_exp</small></span><span aria-hidden="true">↗</span></a>
+              <a href="https://www.istat.it/scheda-qualita/spese-della-pubblica-amministrazione-per-funzione/" target="_blank" rel="noopener noreferrer"><span>Istat <small>Come vengono prodotti i dati italiani</small></span><span aria-hidden="true">↗</span></a>
+            </div>
+            <details class="method">
+              <summary>Come leggere il grafico <span class="plus" aria-hidden="true"></span></summary>
+              <div class="method-body">
+                <p><strong>Il perimetro.</strong> Tutte le amministrazioni pubbliche italiane (settore S.13): amministrazioni centrali, locali ed enti di previdenza. Sono dati di spesa consolidata per competenza economica, non il solo bilancio dello Stato né una previsione di bilancio.</p>
+                <p><strong>Perché {{YEAR}}.</strong> È l’ultimo anno con un dettaglio completo per le voci utilizzate, disponibile nella fonte alla verifica del {{RETRIEVED_DATE}}. Il dettaglio per funzione arriva dopo i dati aggregati. Questa pagina usa una copia verificata, non dati aggiornati in tempo reale.</p>
+                <p><strong>Le categorie.</strong> La classificazione COFOG contiene dieci funzioni. Qui la protezione sociale è divisa in «Vecchiaia e superstiti» e «Altra protezione sociale»; i servizi generali in «Interessi e spese sul debito» e «Altri servizi pubblici generali». Le dodici voci si escludono a vicenda e ricompongono il totale. Le etichette sono abbreviate; in ogni voce trovi i codici originali.</p>
+                <p><strong>Pensioni.</strong> Vecchiaia e superstiti (GF1002 + GF1003) comprendono soprattutto pensioni, ma anche altri servizi e prestazioni. Non sono il totale di tutte le pensioni: quelle di invalidità, per esempio, sono incluse nell’altra protezione sociale. <a href="https://unstats.un.org/unsd/publication/seriesm/seriesm_84e.pdf" target="_blank" rel="noopener noreferrer">Definizioni ONU, sezioni 10.2 e 10.3 ↗</a></p>
+                <p><strong>Importi e percentuali.</strong> Valori nominali, a prezzi correnti, pubblicati in milioni di euro e qui convertiti in miliardi. Ogni quota è calcolata come importo della voce ÷ totale × 100. Le barre partono da zero; la scala si adatta all’unità selezionata. Gli arrotondamenti possono far differire la somma dei valori mostrati dal totale.</p>
+                <p><strong>Il debito.</strong> Gli interessi e le spese di emissione sono spesa pubblica; il rimborso del capitale è un’operazione finanziaria e non fa parte di questo totale. <a href="https://ec.europa.eu/eurostat/en/web/government-finance-statistics/methodology" target="_blank" rel="noopener noreferrer">Metodo Eurostat ↗</a></p>
+                <p class="snapshot-note">Verifica: {{RETRIEVED_DATE}}. Aggiornamento del dataset Eurostat: {{UPDATED_DATE}}. Questa data riguarda il dataset, non necessariamente ogni singola osservazione italiana.</p>
+                <p class="raw-links"><a href="./data/eurostat-raw.json" download>Snapshot originale (JSON) ↓</a><a href="{{API_URL}}" target="_blank" rel="noopener noreferrer">Query Eurostat ↗</a></p>
+              </div>
+            </details>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer"><span>italia in numeri</span><span>Un dato alla volta.</span></footer>
+    </div>
+  </body>
+</html>

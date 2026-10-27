@@ -1,0 +1,316 @@
+{
+  "year": 2024,
+  "total": 1109154,
+  "unit": "MIO_EUR",
+  "retrievedAt": "2026-10-27",
+  "datasetUpdated": "2026-10-21T23:00:00+0200",
+  "apiUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_exp?lang=EN&freq=A&unit=MIO_EUR&sector=S13&na_item=TE&geo=IT&sinceTimePeriod=2024",
+  "sourceUrl": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en",
+  "categories": [
+    {
+      "id": "vecchiaia-superstiti",
+      "label": "Vecchiaia e superstiti",
+      "note": "Principalmente pensioni",
+      "terms": [
+        [
+          "GF1002",
+          1
+        ],
+        [
+          "GF1003",
+          1
+        ]
+      ],
+      "formula": "GF1002 + GF1003",
+      "description": "Pensioni di vecchiaia, anticipate e ai superstiti, ma anche assistenza e servizi agli anziani. Questa voce non coincide con il totale di tutte le pensioni: per esempio, quelle di invalidità rientrano nell’altra protezione sociale.",
+      "amount": 359572,
+      "share": 32.4185820904942,
+      "observations": [
+        {
+          "code": "GF1002",
+          "multiplier": 1,
+          "value": 306359,
+          "status": null
+        },
+        {
+          "code": "GF1003",
+          "multiplier": 1,
+          "value": 53213,
+          "status": null
+        }
+      ]
+    },
+    {
+      "id": "sanita",
+      "label": "Sanità",
+      "terms": [
+        [
+          "GF07",
+          1
+        ]
+      ],
+      "formula": "GF07",
+      "description": "Ospedali, assistenza ambulatoriale, medicinali, prevenzione e ricerca sanitaria. È la spesa pubblica per la funzione sanità; non comprende la spesa sanitaria privata delle famiglie.",
+      "amount": 146075,
+      "share": 13.169947545606833,
+      "observations": [
+        {
+          "code": "GF07",
+          "multiplier": 1,
+          "value": 146075,
+          "status": null
+        }
+      ]
+    },
+    {
+      "id": "economia",
+      "label": "Economia e trasporti",
+      "terms": [
+        [
+          "GF04",
+          1
+        ]
+      ],
+      "formula": "GF04",
+      "description": "La funzione «Affari economici»: trasporti e infrastrutture, agricoltura, energia, industria, attività commerciali, politiche del lavoro e ricerca collegata.",
+      "amount": 112380.8,
+      "share": 10.132118713902669,
+      "observations": [
+        {
+          "code": "GF04",
+          "multiplier": 1,
+          "value": 112380.8,
+          "status": null
+        }
+      ]
+    },
+    {
+      "id": "protezione-sociale",
+      "label": "Altra protezione sociale",
+      "terms": [
+        [
+          "GF10",
+          1
+        ],
+        [
+          "GF1002",
+          -1
+        ],
+        [
+          "GF1003",
+          -1
+        ]
+      ],
+      "formula": "GF10 − GF1002 − GF1003",
+      "description": "Malattia e invalidità, famiglia e figli, disoccupazione, sostegni per l’abitazione, esclusione sociale e altre prestazioni. Comprende le pensioni di invalidità. Esclude vecchiaia e superstiti, mostrati separatamente.",
+      "amount": 108563,
+      "share": 9.787910425423341,
+      "observations": [
+        {
+          "code": "GF10",
+          "multiplier": 1,
+          "value": 468135,
+          "status": null
+        },
+        {
+          "code": "GF1002",
+          "multiplier": -1,
+          "value": 306359,
+          "status": null
+        },
+        {
+          "code": "GF1003",
+          "multiplier": -1,
+          "value": 53213,
+          "status": null
+        }
+      ]
+    },
+    {
+      "id": "istruzione",
+      "label": "Istruzione",
+      "terms": [
+        [
+          "GF09",
+          1
+        ]
+      ],
+      "formula": "GF09",
+      "description": "Scuole di ogni grado, università, servizi di supporto agli studenti, amministrazione e ricerca nel campo dell’istruzione.",
+      "amount": 89179.9,
+      "share": 8.040353278264334,
+      "observations": [
+        {
+          "code": "GF09",
+          "multiplier": 1,
+          "value": 89179.9,
+          "status": null
+        }
+      ]
+    },
+    {
+      "id": "debito",
+      "label": "Interessi e spese sul debito",
+      "terms": [
+        [
+          "GF0107",
+          1
+        ]
+      ],
+      "formula": "GF0107",
+      "description": "Interessi sul debito pubblico e spese per la sottoscrizione e l’emissione dei prestiti. Non include il rimborso del capitale, né i costi amministrativi della gestione del debito, classificati nei servizi generali.",
+      "amount": 87789,
+      "share": 7.914951395387836,
+      "observations": [
+        {
+          "code": "GF0107",
+          "multiplier": 1,
+          "value": 87789,
+          "status": null
+        }
+      ]
+    },
+    {
+      "id": "servizi-generali",
+      "label": "Altri servizi pubblici generali",
+      "terms": [
+        [
+          "GF01",
+          1
+        ],
+        [
+          "GF0107",
+          -1
+        ]
+      ],
+      "formula": "GF01 − GF0107",
+      "description": "Organi legislativi ed esecutivi, amministrazione finanziaria e fiscale, affari esteri, aiuti internazionali, servizi generali e ricerca di base. Esclude la voce sul debito, mostrata separatamente.",
+      "amount": 82625,
+      "share": 7.449371322647711,
+      "observations": [
+        {
+          "code": "GF01",
+          "multiplier": 1,
+          "value": 170414,
+          "status": null
+        },
+        {
+          "code": "GF0107",
+          "multiplier": -1,
+          "value": 87789,
+          "status": null
+        }
+      ]
+    },
+    {
+      "id": "sicurezza",
+      "label": "Ordine pubblico e sicurezza",
+      "terms": [
+        [
+          "GF03",
+          1
+        ]
+      ],
+      "formula": "GF03",
+      "description": "Forze di polizia, vigili del fuoco, tribunali, carceri e altri servizi per l’ordine pubblico e la sicurezza.",
+      "amount": 39094,
+      "share": 3.5246683508331573,
+      "observations": [
+        {
+          "code": "GF03",
+          "multiplier": 1,
+          "value": 39094,
+          "status": null
+        }
+      ]
+    },
+    {
+      "id": "difesa",
+      "label": "Difesa",
+      "terms": [
+        [
+          "GF02",
+          1
+        ]
+      ],
+      "formula": "GF02",
+      "description": "Difesa militare e civile, aiuti militari all’estero e ricerca collegata. Il perimetro COFOG è diverso da quello utilizzato dalla NATO: i due valori non sono direttamente confrontabili.",
+      "amount": 28301,
+      "share": 2.5515843606929245,
+      "observations": [
+        {
+          "code": "GF02",
+          "multiplier": 1,
+          "value": 28301,
+          "status": null
+        }
+      ]
+    },
+    {
+      "id": "ambiente",
+      "label": "Protezione dell’ambiente",
+      "terms": [
+        [
+          "GF05",
+          1
+        ]
+      ],
+      "formula": "GF05",
+      "description": "Gestione dei rifiuti e delle acque reflue, riduzione dell’inquinamento, tutela della biodiversità e del paesaggio e ricerca ambientale.",
+      "amount": 19828,
+      "share": 1.78766879982401,
+      "observations": [
+        {
+          "code": "GF05",
+          "multiplier": 1,
+          "value": 19828,
+          "status": null
+        }
+      ]
+    },
+    {
+      "id": "cultura",
+      "label": "Cultura, sport e culto",
+      "terms": [
+        [
+          "GF08",
+          1
+        ]
+      ],
+      "formula": "GF08",
+      "description": "Attività ricreative e sportive, servizi culturali, radiotelevisione ed editoria, servizi religiosi e altri servizi per la comunità.",
+      "amount": 18773.6,
+      "share": 1.6926053550724245,
+      "observations": [
+        {
+          "code": "GF08",
+          "multiplier": 1,
+          "value": 18773.6,
+          "status": null
+        }
+      ]
+    },
+    {
+      "id": "territorio",
+      "label": "Abitazioni e territorio",
+      "terms": [
+        [
+          "GF06",
+          1
+        ]
+      ],
+      "formula": "GF06",
+      "description": "Sviluppo delle abitazioni e del territorio, approvvigionamento idrico, illuminazione stradale e servizi connessi.",
+      "amount": 16972.7,
+      "share": 1.5302383618505637,
+      "observations": [
+        {
+          "code": "GF06",
+          "multiplier": 1,
+          "value": 16972.7,
+          "status": null
+        }
+      ]
+    }
+  ]
+}
