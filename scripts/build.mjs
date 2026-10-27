@@ -30,7 +30,7 @@ const mapPaths = regional.regions.map(region => {
   const shape = geometry.regions.find(shape => shape.id === region.id);
   if (!shape) throw new Error(`Missing geometry for ${region.name}`);
   const label = `${region.name}: saldo ${signed(region.balance)} miliardi di euro`;
-  return `<path class="map-region" data-region="${region.id}" data-name="${escape(region.name)}" data-revenue="${region.revenue}" data-spending="${region.spending}" data-balance="${region.balance}" d="${shape.path}" fill="${balanceColor(region.balance, mapMaximum)}" fill-rule="evenodd"><title>${escape(label)}</title></path>`;
+  return `<path class="map-region" data-region="${region.id}" data-name="${escape(region.name)}" data-revenue="${region.revenue}" data-spending="${region.spending}" data-balance="${region.balance}" d="${shape.path}" fill="${balanceColor(region.balance, mapMaximum)}" style="--region-fill-dark: ${balanceColor(region.balance, mapMaximum, 'dark')}" fill-rule="evenodd"><title>${escape(label)}</title></path>`;
 }).join('\n');
 const shareMaximum = Math.ceil(Math.max(...data.categories.map(c => c.share)) / 10) * 10;
 const amountMaximum = Math.ceil(Math.max(...data.categories.map(c => c.amount / 1000)) / 100) * 100;
@@ -74,7 +74,7 @@ html = html.replace(/\{\{([A-Z_]+)\}\}/g, (_, key) => {
 html = html.replace('class="chart"', `class="chart" data-share-maximum="${shareMaximum}" data-amount-maximum="${amountMaximum}" data-total="${data.total / 1000}"`);
 await mkdir(new URL('../dist', import.meta.url), { recursive: true });
 await writeFile(new URL('../dist/index.html', import.meta.url), html);
-for (const name of ['styles.css', 'app.js', 'favicon.svg']) await copyFile(new URL(`../src/${name}`, import.meta.url), new URL(`../dist/${name}`, import.meta.url));
+for (const name of ['styles.css', 'app.js', 'theme.js', 'favicon.svg']) await copyFile(new URL(`../src/${name}`, import.meta.url), new URL(`../dist/${name}`, import.meta.url));
 await writeFile(new URL('../dist/data/spending.json', import.meta.url), JSON.stringify(data, null, 2) + '\n');
 await writeFile(new URL('../dist/data/regions.json', import.meta.url), JSON.stringify(regional, null, 2) + '\n');
 await writeFile(new URL('../dist/data/wages.json', import.meta.url), JSON.stringify(wages, null, 2) + '\n');

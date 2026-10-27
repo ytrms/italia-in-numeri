@@ -59,9 +59,11 @@ export function prepareRegionalData(revenueCsv, spendingCsv, retrievedAt) {
 export function balanceScale(regions) {
   return Math.ceil(Math.max(...regions.map(r => Math.abs(r.balance))) / 10000) * 10;
 }
-export function balanceColor(balance, maximum) {
-  const neutral = [246, 245, 242];
-  const end = balance >= 0 ? [38, 113, 82] : [164, 57, 50];
+export function balanceColor(balance, maximum, theme = 'light') {
+  const neutral = theme === 'dark' ? [104, 104, 99] : [246, 245, 242];
+  const end = theme === 'dark'
+    ? (balance >= 0 ? [103, 184, 146] : [222, 122, 111])
+    : (balance >= 0 ? [38, 113, 82] : [164, 57, 50]);
   const weight = Math.min(Math.abs(balance) / 1000 / maximum, 1);
   return `rgb(${neutral.map((value, i) => Math.round(value + (end[i] - value) * weight)).join(', ')})`;
 }

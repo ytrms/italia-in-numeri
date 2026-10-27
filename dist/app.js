@@ -58,7 +58,7 @@ function selectRegion(id) {
   outline.setAttribute('class', 'region-outline');
   outline.setAttribute('aria-hidden', 'true');
   outline.setAttribute('fill', 'none');
-  outline.setAttribute('stroke', '#181818');
+  outline.setAttribute('stroke', 'var(--ink)');
   outline.setAttribute('stroke-width', '1.5');
   outline.setAttribute('vector-effect', 'non-scaling-stroke');
   outline.style.pointerEvents = 'none';
