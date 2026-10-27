@@ -60,6 +60,48 @@ details[open] > summary .plus::after { display: none; }
 .chart-caption p a { text-decoration-color: #b5b5b5; }
 .download-link { flex-shrink: 0; text-decoration: none; color: var(--ink); }
 .download-link span { margin-left: 15px; }
+.regional-section { margin-top: 76px; border-top: 1px solid var(--ink); padding-top: 31px; }
+.regional-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
+.regional-heading h2 { font-size: 28px; letter-spacing: -.8px; }
+.regional-heading > p { margin: 0; font-size: 12px; color: var(--muted); }
+.regional-layout { margin: 30px 0 32px; }
+.regional-layout.is-interactive { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 90px; align-items: center; }
+.map-column { max-width: 510px; margin: 0 auto; width: 100%; }
+.italy-map { width: 100%; display: block; max-height: 560px; overflow: visible; }
+.map-region { stroke: #fff; stroke-width: 1.1; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.map-region[role="button"] { cursor: pointer; touch-action: manipulation; }
+.map-region.is-active { stroke: var(--ink); stroke-width: 1.5; }
+.map-region:focus-visible { outline: none; stroke: var(--ink); stroke-width: 3; }
+.map-legend { max-width: 340px; margin: 28px auto 0; font-size: 11px; }
+.legend-labels, .legend-values { display: flex; justify-content: space-between; gap: 12px; }
+.legend-labels { margin-bottom: 9px; }
+.legend-gradient { height: 7px; background: linear-gradient(to right, rgb(164,57,50), rgb(246,245,242) 50%, rgb(38,113,82)); }
+.legend-values { position: relative; margin-top: 9px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.legend-values span:nth-child(2) { position: absolute; left: 50%; transform: translateX(-50%); }
+.region-panel { min-width: 0; padding-bottom: 30px; }
+#region-select { width: 100%; min-height: 48px; padding: 10px 24px 10px 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background-color: white; color: var(--ink); font-family: inherit; font-size: 20px; letter-spacing: -.4px; cursor: pointer; text-overflow: ellipsis; }
+.regional-balance { font-size: clamp(45px, 5vw, 64px); font-weight: 400; line-height: 1.1; letter-spacing: -.05em; margin: 34px 0 4px; font-variant-numeric: tabular-nums; }
+.balance-unit { margin: 0; font-size: 12px; color: var(--muted); }
+#region-status { font-size: 14px; margin: 21px 0 29px; }
+.regional-figures { margin: 0; font-size: 13px; }
+.regional-figures > div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px solid var(--line); padding: 15px 0; }
+.regional-figures > div:last-child { border-bottom: 1px solid var(--line); }
+.regional-figures dd { margin: 0; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.map-hint { font-size: 11px; color: var(--muted); line-height: 1.65; max-width: 280px; margin: 21px 0 0; }
+.regional-caption > p { max-width: 640px; font-size: 12px; color: var(--muted); line-height: 1.65; margin: 0; }
+.regional-caption > p a { white-space: nowrap; }
+.regional-caption .chart-caption { margin-top: 15px; }
+.regional-table-details { margin-top: 23px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.regional-table-details > summary { list-style: none; display: flex; align-items: center; justify-content: space-between; min-height: 48px; font-size: 12px; cursor: pointer; }
+.regional-table-wrap { overflow-x: auto; margin-bottom: 20px; }
+.regional-table { width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.4; font-variant-numeric: tabular-nums; }
+.regional-table caption { text-align: left; font-size: 11px; color: var(--muted); padding: 4px 0 20px; }
+.regional-table th, .regional-table td { padding: 12px 10px; border-bottom: 1px solid var(--line); text-align: right; }
+.regional-table th:first-child { padding-left: 0; text-align: left; }
+.regional-table th { font-weight: 400; }
+.regional-table thead th { color: var(--muted); font-size: 11px; }
+.regional-table td { white-space: nowrap; }
+.method + .method { border-top: 0; }
 .sources { margin-top: 76px; padding-top: 31px; border-top: 1px solid var(--ink); display: grid; grid-template-columns: 1fr 2fr; gap: 50px; }
 .sources-heading h2 { margin: 0; font-size: 28px; line-height: 1.15; letter-spacing: -.8px; }
 .source-links > a { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-top: 1px solid var(--line); font-size: 14px; text-decoration: none; }
@@ -83,6 +125,7 @@ details[open] > summary .plus::after { display: none; }
   h1 { font-size: 62px; }
   .row-label { font-size: 13px; }
   .source-links small { display: block; margin: 5px 0 0; }
+  .regional-layout.is-interactive { gap: 40px; }
 }
 @media (max-width: 720px) {
   .page { width: calc(100% - 40px); }
@@ -110,6 +153,21 @@ details[open] > summary .plus::after { display: none; }
   .chart-caption { flex-direction: column; gap: 18px; margin-top: 22px; font-size: 10px; }
   .download-link { min-height: 32px; display: inline-flex; align-items: center; font-size: 12px; }
   .sources { grid-template-columns: 1fr; gap: 25px; margin-top: 42px; padding-top: 27px; }
+  .regional-section { margin-top: 42px; padding-top: 27px; }
+  .regional-heading { display: block; }
+  .regional-heading h2 { font-size: 26px; }
+  .regional-heading > p { margin-top: 10px; }
+  .regional-layout.is-interactive { grid-template-columns: 1fr; gap: 30px; margin-top: 25px; }
+  .italy-map { max-height: 450px; }
+  .map-legend { width: min(100%, 300px); margin-top: 23px; }
+  .region-panel { padding: 0; }
+  #region-select { font-size: 18px; }
+  .regional-balance { margin-top: 24px; font-size: 52px; }
+  #region-status { margin: 15px 0 21px; }
+  .map-hint { max-width: none; margin-top: 15px; }
+  .regional-caption .chart-caption { gap: 12px; }
+  .regional-table { font-size: 11px; }
+  .regional-table th, .regional-table td { padding: 11px 5px; }
   .sources-heading h2 { font-size: 26px; }
   .sources-heading h2 br { display: none; }
   .source-links small { display: inline; margin-left: 12px; font-size: 10px; }
@@ -131,6 +189,9 @@ details[open] > summary .plus::after { display: none; }
   .spending-row summary { min-height: 40px; }
   .bar-track { height: 40px; }
   .bar { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .italy-map, .legend-gradient { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .regional-section { break-before: page; }
+  .map-hint { display: none; }
   .sources { margin-top: 30px; }
   .site-footer { padding-top: 30px; }
   details, .sources { break-inside: avoid; }

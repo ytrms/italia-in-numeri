@@ -29,3 +29,64 @@ function setUnit(unit) {
 
 buttons.forEach(button => button.addEventListener('click', () => setUnit(button.dataset.unit)));
 document.querySelector('.unit-switch').hidden = false;
+
+const regions = [...document.querySelectorAll('.map-region')];
+const regionSelect = document.querySelector('#region-select');
+let activeRegion;
+
+function selectRegion(id) {
+  const region = regions.find(path => path.dataset.region === String(id));
+  if (!region || region === activeRegion) return;
+  activeRegion = region;
+  const { balance, revenue, spending } = region.dataset;
+  const amount = Number(balance);
+  const signedBalance = `${amount > 0 ? '+' : amount < 0 ? '−' : ''}${number.format(Math.abs(amount) / 1000)}`;
+  regionSelect.value = id;
+  document.querySelector('#region-balance').textContent = signedBalance;
+  document.querySelector('#region-status').textContent = amount > 0 ? 'Entrate superiori alle spese' : amount < 0 ? 'Spese superiori alle entrate' : 'Entrate e spese in equilibrio';
+  document.querySelector('#region-revenue').textContent = `${number.format(Number(revenue) / 1000)} mld €`;
+  document.querySelector('#region-spending').textContent = `${number.format(Number(spending) / 1000)} mld €`;
+  regions.forEach(path => {
+    path.classList.toggle('is-active', path === region);
+    path.setAttribute('aria-pressed', String(path === region));
+  });
+  // Paint the active outline above its neighbours without changing keyboard order.
+  const oldOutline = document.querySelector('.region-outline');
+  oldOutline?.remove();
+  const outline = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  outline.setAttribute('d', region.getAttribute('d'));
+  outline.setAttribute('class', 'region-outline');
+  outline.setAttribute('aria-hidden', 'true');
+  outline.setAttribute('fill', 'none');
+  outline.setAttribute('stroke', '#181818');
+  outline.setAttribute('stroke-width', '1.5');
+  outline.setAttribute('vector-effect', 'non-scaling-stroke');
+  outline.style.pointerEvents = 'none';
+  region.parentElement.append(outline);
+}
+
+regions.forEach(region => {
+  region.setAttribute('tabindex', '0');
+  region.setAttribute('role', 'button');
+  region.setAttribute('aria-label', region.querySelector('title').textContent);
+  region.setAttribute('aria-controls', 'region-balance');
+  region.addEventListener('pointerenter', event => {
+    if (event.pointerType === 'mouse' || event.pointerType === 'pen') selectRegion(region.dataset.region);
+  });
+  region.addEventListener('focus', () => selectRegion(region.dataset.region));
+  region.addEventListener('click', () => selectRegion(region.dataset.region));
+  region.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      selectRegion(region.dataset.region);
+    }
+  });
+});
+regionSelect.addEventListener('change', () => selectRegion(regionSelect.value));
+selectRegion(regionSelect.value);
+document.querySelector('.region-panel').hidden = false;
+document.querySelector('.regional-layout').classList.add('is-interactive');
+
+document.querySelector('a[href="#metodo-regioni"]').addEventListener('click', () => {
+  document.querySelector('#metodo-regioni').open = true;
+});

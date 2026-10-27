@@ -1,0 +1,217 @@
+{
+  "year": 2023,
+  "retrievedAt": "2026-10-27",
+  "unit": "million EUR",
+  "basis": "cash",
+  "scope": "PA",
+  "formula": "E163 − S445",
+  "sources": {
+    "catalog": "https://www.politichecoesione.governo.it/it/politica-di-coesione/misurazione-valutazione-e-trasparenza/la-misurazione-delle-politiche-di-coesione/conti-pubblici-territoriali-cpt/i-dati/catalogo-open-cpt/",
+    "revenue": "https://www.politichecoesione.governo.it/media/yhqdfy5d/en_pa_cemacro.csv",
+    "spending": "https://www.politichecoesione.governo.it/media/e31aeyon/sp_pa_cemacro.csv",
+    "method": "https://www.politichecoesione.governo.it/media/lvijyngd/guida-ai-conti-pubblici-territoriali-cpt.pdf#page=98"
+  },
+  "regions": [
+    {
+      "id": 1,
+      "name": "Piemonte",
+      "sourceTerritories": [
+        1
+      ],
+      "revenue": 86600.41642,
+      "spending": 87959.28247,
+      "balance": -1358.8660500000115
+    },
+    {
+      "id": 2,
+      "name": "Valle d’Aosta",
+      "sourceTerritories": [
+        2
+      ],
+      "revenue": 3752.26837,
+      "spending": 3173.84629,
+      "balance": 578.4220799999998
+    },
+    {
+      "id": 3,
+      "name": "Lombardia",
+      "sourceTerritories": [
+        3
+      ],
+      "revenue": 249402.87464,
+      "spending": 196886.24617,
+      "balance": 52516.628469999996
+    },
+    {
+      "id": 4,
+      "name": "Trentino-Alto Adige / Südtirol",
+      "sourceTerritories": [
+        21,
+        22
+      ],
+      "revenue": 27736.02205,
+      "spending": 28145.71318,
+      "balance": -409.69112999999925
+    },
+    {
+      "id": 5,
+      "name": "Veneto",
+      "sourceTerritories": [
+        5
+      ],
+      "revenue": 98095.61036,
+      "spending": 84850.53973,
+      "balance": 13245.070630000002
+    },
+    {
+      "id": 6,
+      "name": "Friuli-Venezia Giulia",
+      "sourceTerritories": [
+        6
+      ],
+      "revenue": 25847.00645,
+      "spending": 28203.03768,
+      "balance": -2356.0312300000005
+    },
+    {
+      "id": 7,
+      "name": "Liguria",
+      "sourceTerritories": [
+        7
+      ],
+      "revenue": 31634.2155,
+      "spending": 30416.32758,
+      "balance": 1217.8879199999974
+    },
+    {
+      "id": 8,
+      "name": "Emilia-Romagna",
+      "sourceTerritories": [
+        8
+      ],
+      "revenue": 101840.56242,
+      "spending": 88494.0911,
+      "balance": 13346.471319999997
+    },
+    {
+      "id": 9,
+      "name": "Toscana",
+      "sourceTerritories": [
+        9
+      ],
+      "revenue": 71969.18481,
+      "spending": 64945.47684,
+      "balance": 7023.707970000003
+    },
+    {
+      "id": 10,
+      "name": "Umbria",
+      "sourceTerritories": [
+        10
+      ],
+      "revenue": 15144.64308,
+      "spending": 14794.15467,
+      "balance": 350.48840999999993
+    },
+    {
+      "id": 11,
+      "name": "Marche",
+      "sourceTerritories": [
+        11
+      ],
+      "revenue": 26507.58546,
+      "spending": 25892.29545,
+      "balance": 615.290009999997
+    },
+    {
+      "id": 12,
+      "name": "Lazio",
+      "sourceTerritories": [
+        12
+      ],
+      "revenue": 122085.42023,
+      "spending": 132015.5991,
+      "balance": -9930.178869999989
+    },
+    {
+      "id": 13,
+      "name": "Abruzzo",
+      "sourceTerritories": [
+        13
+      ],
+      "revenue": 19986.91639,
+      "spending": 21456.12288,
+      "balance": -1469.2064900000005
+    },
+    {
+      "id": 14,
+      "name": "Molise",
+      "sourceTerritories": [
+        14
+      ],
+      "revenue": 4690.87671,
+      "spending": 5028.78292,
+      "balance": -337.9062100000001
+    },
+    {
+      "id": 15,
+      "name": "Campania",
+      "sourceTerritories": [
+        15
+      ],
+      "revenue": 68783.14601,
+      "spending": 78099.39596,
+      "balance": -9316.249949999998
+    },
+    {
+      "id": 16,
+      "name": "Puglia",
+      "sourceTerritories": [
+        16
+      ],
+      "revenue": 48843.24819,
+      "spending": 57051.25118,
+      "balance": -8208.00299
+    },
+    {
+      "id": 17,
+      "name": "Basilicata",
+      "sourceTerritories": [
+        17
+      ],
+      "revenue": 7638.67487,
+      "spending": 8762.71391,
+      "balance": -1124.0390400000006
+    },
+    {
+      "id": 18,
+      "name": "Calabria",
+      "sourceTerritories": [
+        18
+      ],
+      "revenue": 21773.30663,
+      "spending": 27477.50186,
+      "balance": -5704.195230000001
+    },
+    {
+      "id": 19,
+      "name": "Sicilia",
+      "sourceTerritories": [
+        19
+      ],
+      "revenue": 56989.95934,
+      "spending": 74537.78326,
+      "balance": -17547.823919999995
+    },
+    {
+      "id": 20,
+      "name": "Sardegna",
+      "sourceTerritories": [
+        20
+      ],
+      "revenue": 21909.21912,
+      "spending": 29095.06951,
+      "balance": -7185.85039
+    }
+  ]
+}

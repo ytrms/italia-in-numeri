@@ -57,13 +57,66 @@
           <p class="sr-only" id="unit-announcement" aria-live="polite"></p>
         </section>
 
+        <section class="regional-section" id="regioni" aria-labelledby="regional-title">
+          <div class="regional-heading">
+            <h2 id="regional-title">Il saldo delle regioni.</h2>
+            <p>Entrate − spese della PA · {{REGIONAL_YEAR}}</p>
+          </div>
+          <div class="regional-layout">
+            <div class="map-column">
+              <svg class="italy-map" viewBox="{{MAP_VIEWBOX}}" role="group" aria-labelledby="map-title map-description">
+                <title id="map-title">Saldo territoriale delle amministrazioni pubbliche, {{REGIONAL_YEAR}}</title>
+                <desc id="map-description">Verde: entrate superiori alle spese. Rosso: spese superiori alle entrate. Importi in miliardi di euro. I valori di tutte le regioni sono disponibili nella tabella sotto la mappa.</desc>
+                {{MAP_PATHS}}
+              </svg>
+              <div class="map-legend" aria-label="Scala lineare simmetrica del saldo, in miliardi di euro">
+                <div class="legend-labels"><span>Più spese</span><span>Più entrate</span></div>
+                <div class="legend-gradient" aria-hidden="true"></div>
+                <div class="legend-values"><span>−{{MAP_MAXIMUM}}</span><span>0</span><span>+{{MAP_MAXIMUM}} mld €</span></div>
+              </div>
+            </div>
+            <div class="region-panel" hidden>
+              <label class="sr-only" for="region-select">Seleziona una regione</label>
+              <select id="region-select">{{REGION_OPTIONS}}</select>
+              <div class="region-readout" aria-live="polite" aria-atomic="true">
+                <p class="regional-balance" id="region-balance"></p>
+                <p class="balance-unit">miliardi di euro di saldo</p>
+                <p id="region-status"></p>
+                <dl class="regional-figures">
+                  <div><dt>Entrate pubbliche</dt><dd id="region-revenue"></dd></div>
+                  <div><dt>Spesa pubblica</dt><dd id="region-spending"></dd></div>
+                </dl>
+              </div>
+              <p class="map-hint">Esplora la mappa con il mouse, tocca una regione o sceglila dall’elenco.</p>
+            </div>
+          </div>
+          <div class="regional-caption">
+            <p>Il saldo dei flussi attribuiti al territorio non misura i trasferimenti tra regioni. <a href="#metodo-regioni">Come leggerlo</a></p>
+            <div class="chart-caption">
+              <p>Fonte: <a href="{{CPT_CATALOG}}" target="_blank" rel="noopener noreferrer">Conti Pubblici Territoriali, {{REGIONAL_YEAR}} ↗</a> · Prezzi correnti.</p>
+              <a class="download-link" href="./data/saldi-regionali.csv" download="saldi-territoriali-{{REGIONAL_YEAR}}.csv">Scarica i dati <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+          <details class="regional-table-details">
+            <summary>Tutte le regioni <span class="plus" aria-hidden="true"></span></summary>
+            <div class="regional-table-wrap" tabindex="0" role="region" aria-label="Dati regionali, tabella scorrevole">
+              <table class="regional-table">
+                <caption>Pubblica Amministrazione, {{REGIONAL_YEAR}} · miliardi di euro</caption>
+                <thead><tr><th scope="col">Regione</th><th scope="col">Entrate</th><th scope="col">Spese</th><th scope="col">Saldo</th></tr></thead>
+                <tbody>{{REGIONAL_ROWS}}</tbody>
+              </table>
+            </div>
+          </details>
+        </section>
+
         <section class="sources" id="fonti" aria-labelledby="sources-title">
           <div class="sources-heading"><h2 id="sources-title">Fonti e metodo.</h2></div>
           <div class="source-content">
-            <p class="latest-note">Dati {{YEAR}}, ultimo anno completo disponibile alla verifica del {{RETRIEVED_DATE}}.</p>
+            <p class="latest-note">Spesa nazionale: {{YEAR}}, verifica del {{RETRIEVED_DATE}}.<br />Saldi territoriali: {{REGIONAL_YEAR}}, verifica del {{REGIONAL_RETRIEVED_DATE}}.<br />Ultimi anni completi nelle rispettive fonti.</p>
             <div class="source-links">
               <a href="https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en" target="_blank" rel="noopener noreferrer"><span>Eurostat <small>Spesa per funzione · gov_10a_exp</small></span><span aria-hidden="true">↗</span></a>
               <a href="https://www.istat.it/scheda-qualita/spese-della-pubblica-amministrazione-per-funzione/" target="_blank" rel="noopener noreferrer"><span>Istat <small>Come vengono prodotti i dati italiani</small></span><span aria-hidden="true">↗</span></a>
+              <a href="{{CPT_CATALOG}}" target="_blank" rel="noopener noreferrer"><span>Conti Pubblici Territoriali <small>Entrate e spese per regione</small></span><span aria-hidden="true">↗</span></a>
             </div>
             <details class="method">
               <summary>Come leggere il grafico <span class="plus" aria-hidden="true"></span></summary>
@@ -76,6 +129,18 @@
                 <p><strong>Il debito.</strong> Gli interessi e le spese di emissione sono spesa pubblica; il rimborso del capitale è un’operazione finanziaria e non fa parte di questo totale. <a href="https://ec.europa.eu/eurostat/en/web/government-finance-statistics/methodology" target="_blank" rel="noopener noreferrer">Metodo Eurostat ↗</a></p>
                 <p class="snapshot-note">Verifica: {{RETRIEVED_DATE}}. Aggiornamento del dataset Eurostat: {{UPDATED_DATE}}. Questa data riguarda il dataset, non necessariamente ogni singola osservazione italiana.</p>
                 <p class="raw-links"><a href="./data/eurostat-raw.json" download>Snapshot originale (JSON) ↓</a><a href="{{API_URL}}" target="_blank" rel="noopener noreferrer">Query Eurostat ↗</a></p>
+              </div>
+            </details>
+            <details class="method" id="metodo-regioni">
+              <summary>Come leggere la mappa <span class="plus" aria-hidden="true"></span></summary>
+              <div class="method-body">
+                <p><strong>Il saldo territoriale.</strong> Entrate totali meno spese totali della Pubblica Amministrazione (PA) attribuite a ogni territorio dai CPT. Verde: entrate maggiori delle spese; rosso: spese maggiori delle entrate. La scala è lineare, simmetrica e centrata su zero; rappresenta importi assoluti, non valori per abitante.</p>
+                <p><strong>Che cosa comprende.</strong> Sono flussi consolidati di cassa di tutte le amministrazioni pubbliche, non i soli bilanci delle Regioni. Le entrate comprendono tributi, contributi sociali e altri incassi; i totali includono anche interessi e operazioni finanziarie. Non rappresentano soltanto le tasse versate e i servizi ricevuti dai residenti.</p>
+                <p><strong>Il limite del confronto.</strong> I CPT attribuiscono entrate e spese con criteri territoriali diversi. Il saldo qui calcolato non è un residuo fiscale corretto per i benefici dei servizi pubblici, né una misura dei trasferimenti tra regioni. <a href="{{CPT_METHOD}}" target="_blank" rel="noopener noreferrer">Guida CPT, § 5.3, pp. 98–99 ↗</a></p>
+                <p><strong>Dati e calcolo.</strong> Anno {{REGIONAL_YEAR}}, ultimo completo nei due file alla verifica del {{REGIONAL_RETRIEVED_DATE}}. Entrate: EN_PA_CEMACRO, voce E163; spese: SP_PA_CEMACRO, voce S445. I valori originali in milioni sono divisi per 1.000. Trento e Bolzano sono sommati per rappresentare il Trentino-Alto Adige / Südtirol. Gli arrotondamenti sono applicati solo alla visualizzazione.</p>
+                <p><strong>Due statistiche distinte.</strong> La mappa CPT usa dati di cassa del {{REGIONAL_YEAR}}; il grafico Eurostat usa la competenza economica del {{YEAR}}. I due perimetri contabili non coincidono e i totali non sono direttamente confrontabili.</p>
+                <p><strong>Confini.</strong> <a href="https://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/2023/Limiti01012023_g.zip">Istat, confini regionali al 1° gennaio 2023</a>, semplificati per la visualizzazione. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0 ↗</a>.</p>
+                <p class="raw-links"><a href="{{CPT_CATALOG}}" target="_blank" rel="noopener noreferrer">Catalogo Open CPT ↗</a><a href="./data/cpt/entrate.csv" download>Entrate originali (CSV) ↓</a><a href="./data/cpt/spese.csv" download>Spese originali (CSV) ↓</a></p>
               </div>
             </details>
           </div>
