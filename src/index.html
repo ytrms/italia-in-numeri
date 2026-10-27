@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#ffffff" />
-    <title>Dove vanno le tue tasse? — italia in numeri</title>
+    <title>A cosa vanno le tue tasse — italia in numeri</title>
     <meta name="description" content="Spesa pubblica, saldi delle regioni e potere d’acquisto dei salari italiani. Grafici interattivi, dati scaricabili e fonti verificabili." />
-    <meta property="og:title" content="Dove vanno le tue tasse? — italia in numeri" />
+    <meta property="og:title" content="A cosa vanno le tue tasse — italia in numeri" />
     <meta property="og:description" content="Spesa pubblica, saldi regionali e salari reali italiani. Dati Eurostat, CPT, OCSE e Commissione europea, in chiaro." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
@@ -25,9 +25,9 @@
       <nav class="section-nav" aria-label="Statistiche e fonti">
         <button class="nav-toggle" type="button" aria-expanded="true" aria-controls="section-nav-links" hidden><span>Indice</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></button>
         <ul id="section-nav-links">
-          <li><a href="#grafico">Dove vanno le tue tasse?</a></li>
-          <li><a href="#regioni">Il saldo delle regioni</a></li>
-          <li><a href="#salari">Il potere d’acquisto dei salari</a></li>
+          <li><a href="#grafico">A cosa vanno le tue tasse</a></li>
+          <li><a href="#salari">Il potere d'acquisto del tuo stipendio</a></li>
+          <li><a href="#regioni">Regioni che danno e che prendono</a></li>
           <li><a href="#fonti">Fonti e metodo</a></li>
         </ul>
       </nav>
@@ -36,7 +36,7 @@
         <h1 class="sr-only">Italia in numeri</h1>
         <details class="stat-section" id="grafico" open>
           <summary class="section-heading">
-            <h2 id="page-title"><span>Dove vanno le tue tasse?</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
+            <h2 id="page-title"><span>A cosa vanno le tue tasse</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
           </summary>
           <div class="section-content">
           <div class="section-toolbar">
@@ -63,9 +63,24 @@
           </div>
         </details>
 
+        <details class="stat-section" id="salari" open>
+          <summary class="section-heading">
+            <h2 id="wage-title"><span>Il potere d'acquisto del tuo stipendio</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
+          </summary>
+          <div class="section-content">
+            <div class="section-toolbar wage-toolbar" hidden>
+              <div class="unit-switch" role="group" aria-label="Misura delle retribuzioni">
+                <button type="button" data-wage-series="oecd" aria-pressed="true" aria-controls="wage-charts">Salari · dal 1990</button>
+                <button type="button" data-wage-series="ameco" aria-pressed="false" aria-controls="wage-charts">Salari e contributi · dal 1960</button>
+              </div>
+            </div>
+            <div id="wage-charts">{{WAGE_CHARTS}}</div>
+          </div>
+        </details>
+
         <details class="stat-section" id="regioni" open>
           <summary class="section-heading">
-            <h2 id="regional-title"><span>Il saldo delle regioni</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
+            <h2 id="regional-title"><span>Regioni che danno e che prendono</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
           </summary>
           <div class="section-content">
           <div class="section-toolbar">
@@ -116,21 +131,6 @@
               </table>
             </div>
           </details>
-          </div>
-        </details>
-
-        <details class="stat-section" id="salari" open>
-          <summary class="section-heading">
-            <h2 id="wage-title"><span>Il potere d’acquisto dei salari</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
-          </summary>
-          <div class="section-content">
-            <div class="section-toolbar wage-toolbar" hidden>
-              <div class="unit-switch" role="group" aria-label="Misura delle retribuzioni">
-                <button type="button" data-wage-series="oecd" aria-pressed="true" aria-controls="wage-charts">Salari · dal 1990</button>
-                <button type="button" data-wage-series="ameco" aria-pressed="false" aria-controls="wage-charts">Salari e contributi · dal 1960</button>
-              </div>
-            </div>
-            <div id="wage-charts">{{WAGE_CHARTS}}</div>
           </div>
         </details>
 

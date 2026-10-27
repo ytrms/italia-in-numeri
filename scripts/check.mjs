@@ -53,7 +53,7 @@ assert.equal(balanceColor(0, maximum), 'rgb(246, 245, 242)');
 assert.equal(balanceColor(maximum * 1000, maximum), 'rgb(38, 113, 82)');
 assert.equal(balanceColor(-maximum * 1000, maximum), 'rgb(164, 57, 50)');
 assert.equal((html.match(/class="map-region"/g) || []).length, 20);
-assert.equal((html.split('id="regioni"')[1].split('id="salari"')[0].match(/<tr><th scope="row">/g) || []).length, 20);
+assert.equal((html.split('<table class="regional-table">')[1].split('</table>')[0].match(/<tr><th scope="row">/g) || []).length, 20);
 console.log(`Regional checks passed: ${regional.year}, 20 regions from 21 territories, reconciled source totals, correct sign and scale, missing-data and duplicate rejection.`);
 
 const oecd = await readFile(new URL('../dist/data/wages/oecd.csv', import.meta.url), 'utf8');
