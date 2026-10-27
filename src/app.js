@@ -143,8 +143,47 @@ function revealLinkedDetails(hash) {
   }
 }
 
+const sectionLinks = [...document.querySelectorAll('.section-nav a')];
+const sections = sectionLinks.map(link => document.getElementById(link.hash.slice(1)));
+let navigationFrame;
+function updateSectionNavigation() {
+  navigationFrame = undefined;
+  const readingLine = Math.min(160, window.innerHeight * .2);
+  let current = sections[0];
+  for (const section of sections) {
+    if (section.getBoundingClientRect().top <= readingLine) current = section;
+  }
+  // The final, shorter section may reach the bottom before its heading can
+  // reach the reading line. It should still become the current destination.
+  if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) current = sections.at(-1);
+  sectionLinks.forEach(link => {
+    if (link.hash === `#${current.id}`) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
+}
+function scheduleNavigationUpdate() {
+  if (navigationFrame === undefined) navigationFrame = requestAnimationFrame(updateSectionNavigation);
+}
 document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', () => revealLinkedDetails(link.hash));
+  link.addEventListener('click', event => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    revealLinkedDetails(link.hash);
+    if (link.closest('.section-nav')) {
+      event.preventDefault();
+      const target = document.getElementById(link.hash.slice(1));
+      if (window.location.hash !== link.hash) history.pushState(null, '', link.hash);
+      target.scrollIntoView({ block: 'start' });
+      target.querySelector(':scope > summary').focus({ preventScroll: true });
+    }
+    scheduleNavigationUpdate();
+  });
 });
-window.addEventListener('hashchange', () => revealLinkedDetails(window.location.hash));
+window.addEventListener('hashchange', () => {
+  revealLinkedDetails(window.location.hash);
+  scheduleNavigationUpdate();
+});
+window.addEventListener('scroll', scheduleNavigationUpdate, { passive: true });
+window.addEventListener('resize', scheduleNavigationUpdate);
+sections.forEach(section => section.addEventListener('toggle', scheduleNavigationUpdate));
 revealLinkedDetails(window.location.hash);
+updateSectionNavigation();

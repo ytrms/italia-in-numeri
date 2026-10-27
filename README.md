@@ -68,6 +68,10 @@ The refresh deliberately requires review when adopting a new AMECO vintage: upda
 
 Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal black-on-white palette and restrained typography. Do not use eyebrows (small introductory labels above headings) anywhere on this website. Do not end section titles with periods; retain question marks where appropriate. “Dove vanno le tue tasse?” and “Il saldo delle regioni” are equal peer sections: share their heading scale, spacing, dividers and right-aligned chevron. Both start expanded and collapse independently using native details/summary, including without JavaScript. Retain chart units and regional selection when collapsing. Keep introductory supporting copy absent and the chart helper sentence visually hidden. Show the latest-year/retrieval note in the sources section. The default chart unit is billions of euros. Do not add a spending-total callout, header sources link, generic sources introduction or footer tagline.
 
+## Section navigation
+
+A left-hand contents menu lists the exact section headings, including sources. Above 1100px it stays beside the content while scrolling; at narrower widths all links are visible above the charts (two columns on tablets, one on phones). The current reading section has a pale grey background and `aria-current="location"`. Links open the destination disclosure, update the URL fragment, scroll to the heading and move keyboard focus to its summary. Browser back/forward and direct methodology fragments remain supported. Smooth scrolling respects reduced-motion preferences. The navigation is omitted from print layouts.
+
 ## Sources
 
 “Fonti e metodo” uses the same native chevron disclosure as the data sections but starts collapsed. Links to the methodology open both this section and the targeted explanation automatically.
