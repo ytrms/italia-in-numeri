@@ -20,7 +20,6 @@
     <div class="page">
       <header class="site-header">
         <a class="wordmark" href="./" aria-label="italia in numeri — pagina iniziale">italia <span>in numeri</span></a>
-        <a class="source-nav" href="#fonti">Fonti e metodo <span aria-hidden="true">↘</span></a>
       </header>
 
       <main>
@@ -32,7 +31,6 @@
           <div class="total-block">
             <p class="total-number">{{TOTAL_BILLIONS}}</p>
             <p class="total-unit">miliardi di euro di spesa totale ({{YEAR}})</p>
-            <p class="latest-note">Ultimo anno completo disponibile<br />alla verifica del {{RETRIEVED_DATE}}.</p>
           </div>
         </section>
 
@@ -40,21 +38,21 @@
           <div class="chart-heading">
             <div class="sr-only">
               <h2 id="chart-title">La spesa, voce per voce.</h2>
-              <p id="chart-description">Quota sul totale. Seleziona una voce per approfondire.</p>
+              <p id="chart-description">Miliardi di euro, a prezzi correnti. Seleziona una voce per approfondire.</p>
             </div>
             <div class="unit-switch" role="group" aria-label="Unità del grafico" hidden>
-              <button type="button" data-unit="share" aria-pressed="true">% del totale</button>
-              <button type="button" data-unit="amount" aria-pressed="false">Miliardi €</button>
+              <button type="button" data-unit="share" aria-pressed="false">% del totale</button>
+              <button type="button" data-unit="amount" aria-pressed="true">Miliardi €</button>
             </div>
           </div>
           <div class="chart" aria-describedby="chart-description">
             <div class="chart-axis" aria-hidden="true">
               <span class="axis-label">Destinazione</span>
               <div class="axis-ticks">{{AXIS}}</div>
-              <span class="axis-unit">%</span><span></span>
+              <span class="axis-unit">mld €</span><span></span>
             </div>
             <div class="chart-rows">{{ROWS}}</div>
-            <div class="chart-total"><span>Totale</span><span id="chart-total-value">100<span class="number-unit">%</span></span></div>
+            <div class="chart-total"><span>Totale</span><span id="chart-total-value">{{TOTAL_BILLIONS}}<span class="number-unit">mld €</span></span></div>
           </div>
           <div class="chart-caption">
             <p>Fonte: <a href="https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en" target="_blank" rel="noopener noreferrer">Eurostat, {{YEAR}} <span aria-hidden="true">↗</span></a> · Valori a prezzi correnti.</p>
@@ -66,7 +64,7 @@
         <section class="sources" id="fonti" aria-labelledby="sources-title">
           <div class="sources-heading"><h2 id="sources-title">Fonti e metodo.</h2></div>
           <div class="source-content">
-            <p class="source-intro">Ogni voce del grafico rimanda alla stessa fonte e allo stesso anno. Qui trovi i dati originali e i criteri di lettura.</p>
+            <p class="latest-note">Dati {{YEAR}}, ultimo anno completo disponibile alla verifica del {{RETRIEVED_DATE}}.</p>
             <div class="source-links">
               <a href="https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en" target="_blank" rel="noopener noreferrer"><span>Eurostat <small>Spesa per funzione · gov_10a_exp</small></span><span aria-hidden="true">↗</span></a>
               <a href="https://www.istat.it/scheda-qualita/spese-della-pubblica-amministrazione-per-funzione/" target="_blank" rel="noopener noreferrer"><span>Istat <small>Come vengono prodotti i dati italiani</small></span><span aria-hidden="true">↗</span></a>
@@ -88,7 +86,7 @@
         </section>
       </main>
 
-      <footer class="site-footer"><span>italia in numeri</span><span>Un dato alla volta.</span></footer>
+      <footer class="site-footer"><span>italia in numeri</span></footer>
     </div>
   </body>
 </html>

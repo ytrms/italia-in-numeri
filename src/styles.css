@@ -13,16 +13,14 @@ button, summary { touch-action: manipulation; }
 .site-header { height: 95px; border-bottom: 1px solid var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .wordmark { font-size: 22px; font-weight: 650; letter-spacing: -1px; text-decoration: none; }
 .wordmark span { font-weight: 400; }
-.source-nav { font-size: 13px; text-decoration: none; }
-.source-nav span { margin-left: 22px; font-size: 20px; }
-.source-nav:hover, .download-link:hover { text-decoration: underline; }
+.download-link:hover { text-decoration: underline; }
 .intro { display: grid; grid-template-columns: 1fr 305px; column-gap: 48px; padding: 57px 0 59px; align-items: end; }
 h1 { margin: 0; font-size: clamp(48px, 5.5vw, 76px); line-height: .99; letter-spacing: -.063em; font-weight: 500; }
 .dek { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
 .total-block { padding-bottom: 1px; }
 .total-number { margin: 0 0 5px; font-size: 63px; line-height: 1; letter-spacing: -.055em; font-weight: 400; font-variant-numeric: tabular-nums; }
 .total-unit { margin: 0; font-size: 13px; }
-.latest-note { margin: 21px 0 0; font-size: 11px; color: var(--muted); line-height: 1.65; }
+.latest-note { margin: 0 0 23px; font-size: 12px; color: var(--muted); line-height: 1.65; max-width: 520px; }
 .chart-section { border-top: 1px solid var(--ink); }
 .chart-heading { display: flex; justify-content: flex-end; align-items: center; padding: 18px 0 20px; gap: 24px; }
 h2 { font-size: 23px; font-weight: 500; letter-spacing: -.6px; line-height: 1.2; margin: 0; }
@@ -67,7 +65,6 @@ details[open] > summary .plus::after { display: none; }
 .download-link span { margin-left: 15px; }
 .sources { margin-top: 76px; padding-top: 31px; border-top: 1px solid var(--ink); display: grid; grid-template-columns: 1fr 2fr; gap: 50px; }
 .sources-heading h2 { margin: 0; font-size: 28px; line-height: 1.15; letter-spacing: -.8px; }
-.source-intro { margin: 0 0 25px; font-size: 14px; line-height: 1.65; max-width: 490px; color: var(--muted); }
 .source-links > a { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-top: 1px solid var(--line); font-size: 14px; text-decoration: none; }
 .source-links > a:hover small { color: var(--ink); }
 .source-links small { color: var(--muted); font-size: 11px; margin-left: 20px; }
@@ -96,15 +93,12 @@ details[open] > summary .plus::after { display: none; }
   .page { width: calc(100% - 40px); }
   .site-header { height: 75px; }
   .wordmark { font-size: 20px; }
-  .source-nav { font-size: 11px; }
-  .source-nav span { margin-left: 7px; font-size: 17px; }
   .intro { grid-template-columns: 1fr; padding: 35px 0 32px; gap: 30px; }
   h1 { font-size: clamp(48px, 9.3vw, 64px); margin: 0; }
   .dek { font-size: 13px; }
-  .total-block { display: grid; grid-template-columns: 1fr 1fr; column-gap: 20px; align-items: end; }
-  .total-number { grid-column: 1; grid-row: 1; font-size: 42px; }
-  .total-unit { grid-column: 1; grid-row: 2; font-size: 10px; align-self: start; margin-top: 4px; }
-  .latest-note { grid-column: 2; grid-row: 1 / 3; align-self: center; margin: 0; font-size: 10px; }
+  .total-block { display: block; }
+  .total-number { font-size: 42px; }
+  .total-unit { font-size: 11px; margin-top: 4px; }
   .chart-heading { padding: 14px 0 20px; }
   h2 { font-size: 21px; }
   .chart-heading p { font-size: 11px; }
@@ -126,14 +120,12 @@ details[open] > summary .plus::after { display: none; }
   .sources { grid-template-columns: 1fr; gap: 25px; margin-top: 42px; padding-top: 27px; }
   .sources-heading h2 { font-size: 26px; }
   .sources-heading h2 br { display: none; }
-  .source-intro { font-size: 13px; }
   .source-links small { display: inline; margin-left: 12px; font-size: 10px; }
   .site-footer { padding: 45px 0 25px; font-size: 10px; }
 }
 @media (max-width: 360px) {
   .page { width: calc(100% - 32px); }
   .wordmark { font-size: 18px; }
-  .source-nav { font-size: 10px; }
   h1 { font-size: 45px; }
   .total-number { font-size: 37px; }
   .desktop-break { display: none; }
@@ -144,7 +136,7 @@ details[open] > summary .plus::after { display: none; }
   .page { width: 100%; }
   .site-header { height: 60px; }
   .intro { padding: 25px 0; }
-  .unit-switch, .plus, .download-link, .source-nav { display: none !important; }
+  .unit-switch, .plus, .download-link { display: none !important; }
   .spending-row summary { min-height: 40px; }
   .bar-track { height: 40px; }
   .bar { print-color-adjust: exact; -webkit-print-color-adjust: exact; }

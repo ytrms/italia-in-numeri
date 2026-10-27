@@ -33,7 +33,7 @@ Keep future statistics as separate datasets and pages, with their own reference 
 
 ## Design direction
 
-Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal black-on-white palette and restrained typography. Do not use eyebrows (small introductory labels above headings) anywhere on this website. Keep the hero supporting sentence and chart heading/helper sentence visually hidden. Show the reference year in parentheses after “spesa totale”.
+Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal black-on-white palette and restrained typography. Do not use eyebrows (small introductory labels above headings) anywhere on this website. Keep the hero supporting sentence and chart heading/helper sentence visually hidden. Show the reference year in parentheses after “spesa totale”, and the latest-year/retrieval note in the sources section. The default chart unit is billions of euros. Do not add a header sources link, generic sources introduction or footer tagline.
 
 ## Sources
 

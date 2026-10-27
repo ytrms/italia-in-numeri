@@ -14,8 +14,8 @@ const rows = data.categories.map(category => {
   return `<details class="spending-row" id="${category.id}" data-share="${category.share}" data-amount="${category.amount / 1000}">
   <summary>
     <span class="row-label">${escape(category.label)}${category.note ? `<span class="row-note">${escape(category.note)}</span>` : ''}</span>
-    <span class="bar-track" aria-hidden="true"><span class="bar" style="--bar-width: ${category.share / shareMaximum * 100}%"></span></span>
-    <span class="row-value" aria-label="${n(category.share)} per cento del totale">${n(category.share)}<span class="number-unit">%</span></span>
+    <span class="bar-track" aria-hidden="true"><span class="bar" style="--bar-width: ${category.amount / 1000 / amountMaximum * 100}%"></span></span>
+    <span class="row-value" aria-label="${n(category.amount / 1000)} miliardi di euro">${n(category.amount / 1000)}</span>
     <span class="plus" aria-hidden="true"></span>
   </summary>
   <div class="row-detail">
@@ -31,7 +31,7 @@ let html = await readFile(new URL('../src/index.html', import.meta.url), 'utf8')
 const replacements = {
   YEAR: String(data.year), TOTAL_BILLIONS: n(data.total / 1000), ROWS: rows,
   RETRIEVED_DATE: date(retrievedAt), UPDATED_DATE: date(data.datasetUpdated), API_URL: escape(data.apiUrl),
-  AXIS: Array.from({ length: 5 }, (_, i) => `<span>${shareMaximum * i / 4}</span>`).join(''),
+  AXIS: Array.from({ length: 5 }, (_, i) => `<span>${amountMaximum * i / 4}</span>`).join(''),
 };
 html = html.replace(/\{\{([A-Z_]+)\}\}/g, (_, key) => {
   if (!(key in replacements)) throw new Error(`Unknown template key: ${key}`);
