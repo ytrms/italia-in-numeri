@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#ffffff" />
     <title>Dove vanno le tue tasse? — italia in numeri</title>
-    <meta name="description" content="La spesa pubblica italiana, voce per voce. Un grafico essenziale con dati Eurostat, spiegazioni e fonti verificabili." />
+    <meta name="description" content="Spesa pubblica, saldi delle regioni e potere d’acquisto dei salari italiani. Grafici interattivi, dati scaricabili e fonti verificabili." />
     <meta property="og:title" content="Dove vanno le tue tasse? — italia in numeri" />
-    <meta property="og:description" content="Pensioni, sanità, istruzione e le altre voci della spesa pubblica italiana. Dati Eurostat, in chiaro." />
+    <meta property="og:description" content="Spesa pubblica, saldi regionali e salari reali italiani. Dati Eurostat, CPT, OCSE e Commissione europea, in chiaro." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta property="og:url" content="https://italia-in-numeri.trms.chatgpt.site" />
@@ -109,16 +109,33 @@
           </div>
         </details>
 
+        <details class="stat-section" id="salari" open>
+          <summary class="section-heading">
+            <h2 id="wage-title"><span>Il potere d’acquisto dei salari.</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
+          </summary>
+          <div class="section-content">
+            <div class="section-toolbar wage-toolbar" hidden>
+              <div class="unit-switch" role="group" aria-label="Misura delle retribuzioni">
+                <button type="button" data-wage-series="oecd" aria-pressed="true" aria-controls="wage-charts">Salari · dal 1990</button>
+                <button type="button" data-wage-series="ameco" aria-pressed="false" aria-controls="wage-charts">Salari e contributi · dal 1960</button>
+              </div>
+            </div>
+            <div id="wage-charts">{{WAGE_CHARTS}}</div>
+          </div>
+        </details>
+
         <details class="stat-section sources" id="fonti">
           <summary class="section-heading">
             <h2 id="sources-title"><span>Fonti e metodo.</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
           </summary>
           <div class="source-content section-content">
-            <p class="latest-note">Spesa nazionale: {{YEAR}}, verifica del {{RETRIEVED_DATE}}.<br />Saldi territoriali: {{REGIONAL_YEAR}}, verifica del {{REGIONAL_RETRIEVED_DATE}}.<br />Ultimi anni completi nelle rispettive fonti.</p>
+            <p class="latest-note">Spesa nazionale: {{YEAR}}, verifica del {{RETRIEVED_DATE}}.<br />Saldi territoriali: {{REGIONAL_YEAR}}, verifica del {{REGIONAL_RETRIEVED_DATE}}.<br />Salari: fino al {{WAGE_LAST_YEAR}}, verifica del {{WAGE_RETRIEVED_DATE}}.<br />Ultimi anni completi nelle rispettive fonti.</p>
             <div class="source-links">
               <a href="https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en" target="_blank" rel="noopener noreferrer"><span>Eurostat <small>Spesa per funzione · gov_10a_exp</small></span><span aria-hidden="true">↗</span></a>
               <a href="https://www.istat.it/scheda-qualita/spese-della-pubblica-amministrazione-per-funzione/" target="_blank" rel="noopener noreferrer"><span>Istat <small>Come vengono prodotti i dati italiani</small></span><span aria-hidden="true">↗</span></a>
               <a href="{{CPT_CATALOG}}" target="_blank" rel="noopener noreferrer"><span>Conti Pubblici Territoriali <small>Entrate e spese per regione</small></span><span aria-hidden="true">↗</span></a>
+              <a href="{{WAGE_OECD_SOURCE}}" target="_blank" rel="noopener noreferrer"><span>OCSE <small>Salari medi annui reali · dal 1990</small></span><span aria-hidden="true">↗</span></a>
+              <a href="{{WAGE_AMECO_SOURCE}}" target="_blank" rel="noopener noreferrer"><span>Commissione europea <small>AMECO · redditi reali per dipendente dal 1960</small></span><span aria-hidden="true">↗</span></a>
             </div>
             <details class="method">
               <summary>Come leggere il grafico <span class="plus" aria-hidden="true"></span></summary>
@@ -143,6 +160,18 @@
                 <p><strong>Due statistiche distinte.</strong> La mappa CPT usa dati di cassa del {{REGIONAL_YEAR}}; il grafico Eurostat usa la competenza economica del {{YEAR}}. I due perimetri contabili non coincidono e i totali non sono direttamente confrontabili.</p>
                 <p><strong>Confini.</strong> <a href="https://www.istat.it/storage/cartografia/confini_amministrativi/generalizzati/2023/Limiti01012023_g.zip">Istat, confini regionali al 1° gennaio 2023</a>, semplificati per la visualizzazione. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0 ↗</a>.</p>
                 <p class="raw-links"><a href="{{CPT_CATALOG}}" target="_blank" rel="noopener noreferrer">Catalogo Open CPT ↗</a><a href="./data/cpt/entrate.csv" download>Entrate originali (CSV) ↓</a><a href="./data/cpt/spese.csv" download>Spese originali (CSV) ↓</a></p>
+              </div>
+            </details>
+            <details class="method" id="metodo-salari">
+              <summary>Come leggere i salari reali <span class="plus" aria-hidden="true"></span></summary>
+              <div class="method-body">
+                <p><strong>Il potere d’acquisto.</strong> Entrambe le serie sono già corrette per l’inflazione con il deflatore dei consumi privati. Le ribasiamo al 1990: valore reale dell’anno ÷ valore reale del 1990 × 100. Un indice di 98 indica il 2% in meno rispetto al 1990. Non applichiamo una seconda correzione per i prezzi.</p>
+                <p><strong>Salari dal 1990 · OCSE.</strong> Media annua lorda dell’intera economia, prima di imposte e contributi del lavoratore, riportata a tempo pieno equivalente. Non è la mediana né il netto in busta paga. Gli euro mostrati sono tutti a prezzi {{WAGE_PRICE_YEAR}}. Il 1990 è il primo anno italiano del dataset Average annual wages; l’ultimo è il {{WAGE_LAST_YEAR}}. La media può cambiare anche con la composizione degli occupati.</p>
+                <p><strong>La serie dal 1960 · AMECO.</strong> Il reddito da lavoro per dipendente comprende anche i contributi sociali del datore. Usiamo RWCDC (deflatore dei consumi privati), non la variante deflazionata con il PIL. Questa misura differisce dal salario OCSE: le due linee non vengono concatenate. È una media per dipendente secondo la contabilità nazionale; non misura il salario orario o netto.</p>
+                <p><strong>Quanto possiamo andare indietro.</strong> AMECO copre il 1960–2025 nell’edizione di primavera 2026, aggiornata il 3 giugno. Escludiamo le previsioni 2026–2027. Le parti più antiche sono raccordate da precedenti sistemi contabili e sono meno comparabili dei dati recenti. Esistono serie Istat anteriori, ma riguardano retribuzioni contrattuali o categorie specifiche: non le uniamo a questa media nazionale. <a href="{{WAGE_AMECO_METADATA}}" target="_blank" rel="noopener noreferrer">Metadati AMECO, pp. 1–3 ↗</a> · <a href="https://seriestoriche.istat.it/fileadmin/documenti/10_Storia%20delle%20fonti_Mercato%20del%20lavoro.pdf" target="_blank" rel="noopener noreferrer">Serie storiche Istat ↗</a></p>
+                <p><strong>Scala e interazione.</strong> L’asse verticale si adatta alla serie ed è etichettato; la linea tratteggiata segna il livello del 1990. Passa sul grafico, tocca un punto o usa il cursore con i tasti freccia per leggere ogni anno. Gli importi e gli indici sono arrotondati solo nella visualizzazione. Le statistiche possono essere riviste dalla fonte.</p>
+                <p class="snapshot-note">Verifica delle fonti: {{WAGE_RETRIEVED_DATE}}. I dati scaricati sono disponibili qui sotto.</p>
+                <p class="raw-links"><a href="./data/wages/oecd.csv" download>Originale OCSE (CSV) ↓</a><a href="./data/wages/ameco7.txt" download>AMECO, capitolo 7 (TXT UTF-8) ↓</a><a href="./data/wages/RWCDC.txt" download>Definizione AMECO RWCDC ↓</a></p>
               </div>
             </details>
           </div>

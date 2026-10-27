@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { prepareData, observation } from '../src/data.mjs';
 import { prepareRegionalData, parseCpt, balanceScale, balanceColor } from '../src/regional-data.mjs';
+import { prepareWageData } from '../src/wage-data.mjs';
 
 const raw = JSON.parse(await readFile(new URL('../dist/data/eurostat-raw.json', import.meta.url), 'utf8'));
 const published = JSON.parse(await readFile(new URL('../dist/data/spending.json', import.meta.url), 'utf8'));
@@ -52,5 +53,34 @@ assert.equal(balanceColor(0, maximum), 'rgb(246, 245, 242)');
 assert.equal(balanceColor(maximum * 1000, maximum), 'rgb(38, 113, 82)');
 assert.equal(balanceColor(-maximum * 1000, maximum), 'rgb(164, 57, 50)');
 assert.equal((html.match(/class="map-region"/g) || []).length, 20);
-assert.equal((html.match(/<tr><th scope="row">/g) || []).length, 20);
+assert.equal((html.split('id="regioni"')[1].split('id="salari"')[0].match(/<tr><th scope="row">/g) || []).length, 20);
 console.log(`Regional checks passed: ${regional.year}, 20 regions from 21 territories, reconciled source totals, correct sign and scale, missing-data and duplicate rejection.`);
+
+const oecd = await readFile(new URL('../dist/data/wages/oecd.csv', import.meta.url), 'utf8');
+const ameco = await readFile(new URL('../dist/data/wages/ameco7.txt', import.meta.url), 'utf8');
+const wageMetadata = JSON.parse(await readFile(new URL('../dist/data/wages/retrieval.json', import.meta.url), 'utf8'));
+const wages = prepareWageData(oecd, ameco, wageMetadata);
+assert.deepEqual(JSON.parse(await readFile(new URL('../dist/data/wages.json', import.meta.url), 'utf8')), wages);
+for (const series of Object.values(wages.series)) {
+  assert.equal(series.find(p => p.year === 1990).index, 100);
+  const base = series.find(p => p.year === 1990).value;
+  assert.ok(series.every(p => Math.abs(p.index / 100 - p.value / base) < 1e-12), 'Rebasing preserves real growth ratios');
+}
+assert.equal(wages.series.oecd[0].year, 1990);
+assert.equal(wages.series.ameco[0].year, 1960);
+assert.equal(wages.series.ameco.at(-1).year, wageMetadata.amecoLastHistoricalYear, 'No forecast years displayed');
+if (wages.priceYear === 2025) {
+  assert.equal(wages.series.oecd[0].value, 35461.897, 'Verified OECD EUR constant-price observation');
+  assert.equal(wages.series.oecd.find(p => p.year === 2025).value, 34732.901);
+  assert.ok(Math.abs(wages.series.oecd.at(-1).index - 97.9442836910304) < 1e-6);
+}
+assert.equal(wages.series.ameco[0].value, 39.42823);
+assert.equal(wages.series.ameco.find(p => p.year === 1990).value, 112.1829);
+const wageLine = oecd.split(/\r?\n/).find(line => line.includes('ITA,WG,EUR,A,Q,MEAN,_Z,1990,'));
+assert.throws(() => prepareWageData(oecd + '\n' + wageLine, ameco, wageMetadata), /Duplicate/);
+assert.throws(() => prepareWageData(oecd.replace(wageLine, ''), ameco, wageMetadata), /Missing 1990/);
+assert.throws(() => prepareWageData(oecd.replace(wageLine, wageLine.replace('35461.897', '')), ameco, wageMetadata), /missing value/);
+assert.throws(() => prepareWageData(oecd.replace(wageLine, wageLine.replace(',A,0,0', ',F,0,0')), ameco, wageMetadata), /Unexpected wage status/);
+assert.throws(() => prepareWageData(oecd, ameco.replace('ITA.3.1.0.0.RWCDC;', 'ITA.WRONG;'), wageMetadata), /Unexpected AMECO/);
+assert.throws(() => prepareWageData(oecd, ameco, { ...wageMetadata, amecoLastHistoricalYear: 2026 }), /forecast cutoff/);
+console.log(`Wage checks passed: OECD ${wages.series.oecd[0].year}–${wages.series.oecd.at(-1).year}, AMECO ${wages.series.ameco[0].year}–${wages.series.ameco.at(-1).year}, source values, constant-price selection, rebasing, forecast exclusion and invalid-data rejection.`);

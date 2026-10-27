@@ -1,6 +1,6 @@
 # italia in numeri
 
-A minimal Italian-language website about public spending. Static HTML, CSS and JavaScript; no runtime dependencies, third-party fonts, tracking or external requests on page load. The graph, map, table, sources and category details work without JavaScript. JavaScript adds the unit switch and interactive regional selection.
+A minimal Italian-language website about public spending, regional balances and real wages. Static HTML, CSS and JavaScript; no runtime dependencies, third-party fonts, tracking or external requests on page load. Charts, map, tables, sources and category details work without JavaScript. JavaScript adds the unit switch, interactive regional selection and wage-series/year controls.
 
 ## Local development
 
@@ -45,6 +45,24 @@ npm run check
 The checked-in `src/italy-regions.json` contains SVG display geometry derived from Istat's generalised 2023 regional boundaries (CC BY4.0). `scripts/prepare-map.py` documents optional, pinned development dependencies and regenerates it from the official archive. No geometry library or network request is needed in the website or build. Source geometry remains in WGS84 / UTM32N, uniformly scaled and simplified at 600m; minor invalid rings are repaired. License, original URL, archive hash and modifications are embedded in the asset.
 
 Hover, keyboard focus/Enter/Space, touch/click and a native region selector update the detail panel. A collapsible semantic table and downloadable CSV provide all exact underlying values without relying on colors or pointer interaction.
+
+## Real wages
+
+“Il potere d’acquisto dei salari.” is a peer disclosure, expanded by default. Two distinct series are provided, never spliced:
+
+- **OECD, 1990–2025 (default):** Average annual gross wages, whole economy, full-time equivalent. Select `ITA.WG.EUR.A.Q.MEAN._Z` from `DSD_EARNINGS@AV_AN_WAGE`, constant 2025 EUR, status A and multiplier 0. The private-consumption deflator is already applied by OECD; do not deflate again. Annual EUR values and the index are shown.
+- **AMECO, 1960–2025:** `ITA.3.1.0.0.RWCDC`, real compensation per employee using the private-consumption deflator. Includes employer social contributions, so it is broader than wages. Spring 2026 vintage (3 June update), with forecasts for 2026–2027 excluded explicitly. Earlier history is backcast across accounting standards, with lower comparability. Older Istat contractual/category-specific wage series are not concatenated with this aggregate.
+
+Both are rebased separately to 1990 = 100, preserving each source's growth rates. The labelled vertical scale adapts to the series; a dashed baseline marks 100. The readout shows the selected year's index and change against 1990. Hover, click/tap, or the labelled native year slider (arrows/Home/End) update the chart. Each series retains its year on switching/collapse. Tables and CSVs provide all years; without JavaScript both series remain visible.
+
+`dist/data/wages/oecd.csv` preserves the OECD response. `ameco7.txt` is the full official chapter 7 export transcoded from Windows-1252 to UTF-8; `retrieval.json` records the official ZIP SHA-256 and release. `RWCDC.txt` is the official variable definition transcoded to UTF-8. `wages.json` and both CSV downloads derive from these snapshots in the build. Refresh requires Node 22+ and `unzip`:
+
+```sh
+npm run refresh-wage-data -- --release 2026-06-03 --last-historical-year 2025
+npm run check
+```
+
+The refresh deliberately requires review when adopting a new AMECO vintage: update the explicit forecast cutoff, on-page vintage text, and guard in the script together. AMECO text files do not distinguish forecasts per observation. OECD price-base changes update the page automatically; unexpected statuses, missing years, duplicates or units fail the build.
 
 ## Design direction
 

@@ -8,6 +8,7 @@
     "dev": "node scripts/serve.mjs",
     "check": "node scripts/check.mjs",
     "refresh-data": "node scripts/refresh-data.mjs",
-    "refresh-regional-data": "node scripts/refresh-regional-data.mjs"
+    "refresh-regional-data": "node scripts/refresh-regional-data.mjs",
+    "refresh-wage-data": "node scripts/refresh-wage-data.mjs"
   }
 }

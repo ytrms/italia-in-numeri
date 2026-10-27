@@ -102,6 +102,33 @@ details[open] > summary .plus::after { display: none; }
 .regional-table th { font-weight: 400; }
 .regional-table thead th { color: var(--muted); font-size: 11px; }
 .regional-table td { white-space: nowrap; }
+.wage-definition { font-size: 13px; line-height: 1.65; color: var(--muted); margin: 0; }
+.wage-definition a { margin-left: 8px; font-size: 11px; }
+.wage-readout { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin: 30px 0 40px; font-variant-numeric: tabular-nums; }
+.wage-selected-year { font-size: 14px; }
+.wage-value { font-size: clamp(40px, 5vw, 60px); line-height: 1.1; letter-spacing: -.045em; margin: 9px 0 6px; }
+.wage-value > span { font-size: 18px; color: var(--muted); letter-spacing: -.3px; }
+.wage-euros, .wage-change > p:last-child { margin: 0; font-size: 12px; line-height: 1.5; color: var(--muted); }
+.wage-change { text-align: right; }
+.wage-difference { font-size: 32px; letter-spacing: -1px; margin: 0 0 5px; }
+.wage-axis-caption { font-size: 11px; color: var(--muted); margin: 0 0 24px; }
+.wage-chart { padding: 0 18px 32px 42px; }
+.wage-plot { position: relative; height: 300px; cursor: crosshair; }
+.wage-plot > svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.wage-line { fill: none; stroke: var(--ink); stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.wage-grid { position: absolute; width: 100%; border-top: 1px solid var(--line); }
+.wage-grid > span { position: absolute; right: calc(100% + 16px); transform: translateY(-50%); font-size: 11px; color: var(--muted); }
+.wage-baseline { border-top: 1px dashed #8a8a87; }
+.wage-crosshair { position: absolute; top: 0; height: 100%; border-left: 1px solid #adadaa; pointer-events: none; }
+.wage-crosshair > span { position: absolute; left: -4.5px; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); outline: 3px solid white; transform: translateY(-50%); }
+.wage-x-axis { position: absolute; top: calc(100% + 15px); width: 100%; }
+.wage-x-axis > span { position: absolute; transform: translateX(-50%); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.wage-year-control { display: flex; align-items: center; gap: 16px; margin: 22px 0 0; font-size: 11px; color: var(--muted); }
+.wage-year-control input { width: 180px; max-width: 50%; height: 24px; accent-color: var(--ink); cursor: pointer; }
+.wage-year-control output { min-width: 28px; font-variant-numeric: tabular-nums; }
+.wage-caveat { font-size: 11px; color: var(--muted); line-height: 1.65; max-width: 760px; margin: 16px 0 0; }
+.wage-view + .wage-view { margin-top: 48px; }
+.wage-view[hidden] + .wage-view { margin-top: 0; }
 .method + .method { border-top: 0; }
 .sources > .section-heading { padding: 31px 0; }
 .sources .section-heading h2 { font-size: 28px; line-height: 1.15; letter-spacing: -.8px; }
@@ -166,6 +193,22 @@ details[open] > summary .plus::after { display: none; }
   .regional-caption .chart-caption { gap: 12px; }
   .regional-table { font-size: 11px; }
   .regional-table th, .regional-table td { padding: 11px 5px; }
+  .wage-toolbar { justify-content: flex-start; }
+  .wage-toolbar .unit-switch { width: 100%; justify-content: space-between; }
+  .wage-toolbar .unit-switch button { margin-left: 12px; font-size: 11px; }
+  .wage-toolbar .unit-switch button:first-child { margin-left: 0; }
+  .wage-readout { margin: 26px 0 30px; gap: 18px; }
+  .wage-value { font-size: 44px; }
+  .wage-difference { font-size: 26px; }
+  .wage-euros { max-width: 190px; font-size: 11px; }
+  .wage-definition { font-size: 12px; }
+  .wage-plot { height: 240px; }
+  .wage-chart { padding-left: 34px; padding-right: 14px; }
+  .wage-grid > span { right: calc(100% + 10px); }
+  .wage-x-axis > span { font-size: 10px; }
+  .wage-view[data-wage-view="ameco"] .wage-x-axis > span:nth-child(even):not(:last-child) { display: none; }
+  .wage-view[data-wage-view="ameco"] .wage-x-axis > span:nth-last-child(2) { display: none; }
+  .wage-year-control { gap: 10px; }
   .sources .section-heading h2 { font-size: 26px; }
   .source-links small { display: inline; margin-left: 12px; font-size: 10px; }
   .site-footer { padding: 45px 0 25px; font-size: 10px; }

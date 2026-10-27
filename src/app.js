@@ -87,6 +87,54 @@ selectRegion(regionSelect.value);
 document.querySelector('.region-panel').hidden = false;
 document.querySelector('.regional-layout').classList.add('is-interactive');
 
+const wageViews = [...document.querySelectorAll('[data-wage-view]')];
+const wageButtons = [...document.querySelectorAll('[data-wage-series]')];
+function setWageSeries(id) {
+  wageViews.forEach(view => { view.hidden = view.dataset.wageView !== id; });
+  wageButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.wageSeries === id)));
+}
+wageButtons.forEach(button => button.addEventListener('click', () => setWageSeries(button.dataset.wageSeries)));
+wageViews.forEach(view => {
+  const points = [...view.querySelectorAll('tbody tr')].map(row => ({ year: Number(row.dataset.year), value: Number(row.dataset.value), index: Number(row.dataset.index) }));
+  const slider = view.querySelector('input[type="range"]');
+  const plot = view.querySelector('.wage-plot');
+  const lower = Number(view.dataset.lower), upper = Number(view.dataset.upper);
+  const firstYear = points[0].year, lastYear = points.at(-1).year;
+  const priceYear = view.dataset.priceYear;
+  function selectYear(year) {
+    const point = points.find(p => p.year === Number(year));
+    if (!point) return;
+    slider.value = point.year;
+    slider.setAttribute('aria-valuetext', `${point.year}: indice ${number.format(point.index)}, ${number.format(point.index - 100)} per cento rispetto al 1990`);
+    view.querySelector('output').textContent = point.year;
+    view.querySelector('.wage-selected-year').textContent = point.year;
+    view.querySelector('.wage-value').replaceChildren(document.createTextNode(number.format(point.index)));
+    const unit = document.createElement('span');
+    unit.textContent = ' / 100';
+    view.querySelector('.wage-value').append(unit);
+    const change = point.index - 100;
+    view.querySelector('.wage-difference').textContent = `${change < 0 ? '−' : change > 0 ? '+' : ''}${number.format(Math.abs(change))}%`;
+    if (view.dataset.wageView === 'oecd') view.querySelector('.wage-euros').textContent = `${integer.format(point.value)} € lordi annui, a prezzi ${priceYear}`;
+    const cursor = view.querySelector('.wage-crosshair');
+    cursor.style.left = `${(point.year - firstYear) / (lastYear - firstYear) * 100}%`;
+    cursor.querySelector('span').style.top = `${(upper - point.index) / (upper - lower) * 100}%`;
+  }
+  function selectAtPointer(event) {
+    const rect = plot.getBoundingClientRect();
+    const fraction = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width));
+    selectYear(Math.round(firstYear + fraction * (lastYear - firstYear)));
+  }
+  plot.addEventListener('pointermove', event => {
+    if (event.pointerType === 'mouse' || event.pointerType === 'pen') selectAtPointer(event);
+  });
+  plot.addEventListener('click', selectAtPointer);
+  slider.addEventListener('input', () => selectYear(slider.value));
+  selectYear(lastYear);
+  view.querySelector('.wage-year-control').hidden = false;
+});
+setWageSeries('oecd');
+document.querySelector('.wage-toolbar').hidden = false;
+
 function revealLinkedDetails(hash) {
   let target = document.getElementById(hash.slice(1));
   while (target) {

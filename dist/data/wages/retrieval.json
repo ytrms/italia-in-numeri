@@ -1,0 +1,10 @@
+{
+  "retrievedAt": "2026-10-27T14:59:05.021Z",
+  "oecdUrl": "https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_EARNINGS@AV_AN_WAGE,1.0/ITA......?format=csvfile",
+  "amecoUrl": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco7.zip",
+  "amecoRelease": "2026-06-03",
+  "amecoLastHistoricalYear": 2025,
+  "amecoOriginalEncoding": "windows-1252",
+  "amecoZipSha256": "a8bb87e2bb9f3a7ba84ab28f71cc898bfc7eb55a3fd7f501586b17d4bc4b3d49",
+  "amecoHelpUrl": "https://economy-finance.ec.europa.eu/document/download/ee1f3fdc-bef6-498e-9de0-d57257186a66_en?filename=Ameco+help+files+%282026_05%29.zip"
+}

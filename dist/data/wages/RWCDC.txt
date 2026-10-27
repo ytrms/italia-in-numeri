@@ -1,0 +1,34 @@
+Real compensation per employee, deflator private consumption; total economy    (RWCDC)                                  
+                                                                                                                        
+RWCDC t = [[[(UWCD t : NWTD t) : PCPH t] × 100] : (UWCD 95 : NWTD 95)] × 100                                            
+                                                                                                                        
+UWCD = 	Compensation of employees; total economy                                                                        
+        	ESA 95-code: D.1                                                                                               
+        	Sector affected: Total economy (S.1)                                                                           
+        	Definition (ESA 95): 4.02 f                                                                                    
+        	Source: National accounts; Eurostat or National                                                                
+                                                                                                                        
+NWTD = 	Employees, persons; all domestic industries (National accounts)                                                 
+        	No ESA 95-code                                                                                                 
+        	Sector affected: Total economy (S.1)                                                                           
+        	Definition (ESA 95): 11.12 - 11.14                                                                             
+        	Source: National accounts; National, OECD or Eurostat                                                          
+                                                                                                                        
+PCPH = 	Price deflator private final consumption expenditure                                                            
+        	Source: AMECO                                                                                                  
+                                                                                                                        
+        	Where available- full-time equivalents are used-:                                                              
+                                                                                                                        
+FWTD = 	Employees, full-time equivalents; total economy (National accounts)                                             
+        	No ESA 95-code                                                                                                 
+        	Sector affected: Total economy (S.1)                                                                           
+        	Definition (ESA 95):                                                                                           
+           		- Employees: 11.12 - 11.14                                                                                 
+           		- Full-time equivalence: 11.32                                                                             
+        	Source: National accounts; Eurostat or National                                                                
+                                                                                                                        
+t = year under review                                                                                                   
+                                                                                                                        
+Annotation:                                                                                                             
+UWCD: Domestic concept, included are residents as well as non-residents working for resident producer units.            
+Compensation of employees includes wages and salaries (D.11) and employers' social contributions (D.12).                 
