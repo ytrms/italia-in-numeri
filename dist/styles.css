@@ -19,6 +19,10 @@ button, summary { touch-action: manipulation; }
 .section-nav a:hover { color: var(--ink); background: #f8f8f6; }
 .section-nav a[aria-current="location"] { color: var(--ink); background: #f0f0ed; }
 .section-nav a:focus-visible { outline-offset: 2px; }
+.nav-toggle { display: none; width: 100%; padding: 0; border: 0; background: none; color: var(--ink); font-size: 14px; text-align: left; cursor: pointer; }
+.nav-toggle:focus-visible { outline-offset: -4px; }
+.nav-chevron { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; transition: transform 180ms ease; }
+.nav-toggle[aria-expanded="true"] .nav-chevron { transform: rotate(180deg); }
 .wordmark { font-size: 22px; font-weight: 650; letter-spacing: -1px; text-decoration: none; }
 .wordmark span { font-weight: 400; }
 .download-link:hover { text-decoration: underline; }
@@ -168,6 +172,10 @@ details[open] > summary .plus::after { display: none; }
   .section-nav { position: static; margin: 0; padding: 20px 0; border-bottom: 1px solid var(--ink); }
   .section-nav ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 12px; }
   .section-nav a { height: 100%; display: flex; align-items: center; }
+  .section-nav.is-collapsible { padding: 0; }
+  .nav-toggle { display: flex; align-items: center; justify-content: space-between; min-height: 52px; }
+  .section-nav.is-collapsible ul { padding-bottom: 16px; }
+  .nav-toggle[aria-expanded="false"] + ul { display: none; }
 }
 @media (max-width: 720px) {
   .page { width: calc(100% - 40px); }
@@ -237,7 +245,7 @@ details[open] > summary .plus::after { display: none; }
   .section-nav { padding: 14px 0; }
   .section-nav a { padding: 11px 12px; font-size: 13px; min-height: 42px; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .bar, .section-chevron, .section-nav a { transition: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .bar, .section-chevron, .section-nav a, .nav-chevron { transition: none; } }
 @media print {
   .page { width: 100%; display: block; }
   .section-nav { display: none; }

@@ -145,6 +145,29 @@ function revealLinkedDetails(hash) {
 
 const sectionLinks = [...document.querySelectorAll('.section-nav a')];
 const sections = sectionLinks.map(link => document.getElementById(link.hash.slice(1)));
+const sectionNavigation = document.querySelector('.section-nav');
+const navToggle = sectionNavigation.querySelector('.nav-toggle');
+const compactNavigation = window.matchMedia('(max-width: 1100px)');
+function setNavigationOpen(open) {
+  navToggle.setAttribute('aria-expanded', String(open));
+}
+function syncNavigationLayout() {
+  const focused = document.activeElement;
+  setNavigationOpen(!compactNavigation.matches);
+  if (compactNavigation.matches && sectionNavigation.contains(focused)) navToggle.focus({ preventScroll: true });
+  else if (!compactNavigation.matches && focused === navToggle) (sectionNavigation.querySelector('[aria-current]') || sectionLinks[0]).focus({ preventScroll: true });
+}
+navToggle.addEventListener('click', () => setNavigationOpen(navToggle.getAttribute('aria-expanded') !== 'true'));
+sectionNavigation.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && compactNavigation.matches && navToggle.getAttribute('aria-expanded') === 'true') {
+    setNavigationOpen(false);
+    navToggle.focus({ preventScroll: true });
+  }
+});
+navToggle.hidden = false;
+sectionNavigation.classList.add('is-collapsible');
+syncNavigationLayout();
+compactNavigation.addEventListener('change', syncNavigationLayout);
 let navigationFrame;
 function updateSectionNavigation() {
   navigationFrame = undefined;
@@ -171,6 +194,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     if (link.closest('.section-nav')) {
       event.preventDefault();
       const target = document.getElementById(link.hash.slice(1));
+      if (compactNavigation.matches) setNavigationOpen(false);
       if (window.location.hash !== link.hash) history.pushState(null, '', link.hash);
       target.scrollIntoView({ block: 'start' });
       target.querySelector(':scope > summary').focus({ preventScroll: true });

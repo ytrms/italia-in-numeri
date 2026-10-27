@@ -70,7 +70,7 @@ Use the name “italia in numeri” without punctuation, keeping “italia” bo
 
 ## Section navigation
 
-A left-hand contents menu lists the exact section headings, including sources. Above 1100px it stays beside the content while scrolling; at narrower widths all links are visible above the charts (two columns on tablets, one on phones). The current reading section has a pale grey background and `aria-current="location"`. Links open the destination disclosure, update the URL fragment, scroll to the heading and move keyboard focus to its summary. Browser back/forward and direct methodology fragments remain supported. Smooth scrolling respects reduced-motion preferences. The navigation is omitted from print layouts.
+A left-hand contents menu lists the exact section headings, including sources. Above 1100px it stays beside the content while scrolling. At narrower widths, an “Indice” disclosure starts collapsed above the charts; its button exposes `aria-expanded` and `aria-controls`. Opening it reveals two columns on tablets or one on phones. Selecting a link closes the compact menu before scrolling; Escape closes it and restores focus to the button. Switching to a wide layout always shows the sidebar, and returning to compact starts collapsed. Without JavaScript, all navigation links remain visible. The current reading section has a pale grey background and `aria-current="location"`. Links open the destination disclosure, update the URL fragment, scroll to the heading and move keyboard focus to its summary. Browser back/forward and direct methodology fragments remain supported. Smooth scrolling respects reduced-motion preferences. The navigation is omitted from print layouts.
 
 ## Sources
 
