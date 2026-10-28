@@ -130,7 +130,6 @@ wageViews.forEach(view => {
   plot.addEventListener('click', selectAtPointer);
   slider.addEventListener('input', () => selectYear(slider.value));
   selectYear(lastYear);
-  view.querySelector('.wage-year-control').hidden = false;
 });
 setWageSeries('oecd');
 document.querySelector('.wage-toolbar').hidden = false;

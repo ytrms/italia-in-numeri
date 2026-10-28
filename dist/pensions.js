@@ -37,5 +37,4 @@ if (view) {
   plot.addEventListener('click', selectAtPointer);
   slider.addEventListener('input', () => selectYear(slider.value));
   selectYear(Number(view.dataset.commonYear));
-  view.querySelector('.pension-year-control').hidden = false;
 }
