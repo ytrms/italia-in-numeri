@@ -3,6 +3,9 @@ import { readFile } from 'node:fs/promises';
 import { prepareData, observation } from '../src/data.mjs';
 import { prepareRegionalData, parseCpt, balanceScale, balanceColor } from '../src/regional-data.mjs';
 import { prepareWageData } from '../src/wage-data.mjs';
+import { createHash } from 'node:crypto';
+import { preparePensionData, pensionCsv } from '../src/pension-data.mjs';
+import { pensionPath, renderPensionChart } from '../src/pension-chart.mjs';
 
 const raw = JSON.parse(await readFile(new URL('../dist/data/eurostat-raw.json', import.meta.url), 'utf8'));
 const published = JSON.parse(await readFile(new URL('../dist/data/spending.json', import.meta.url), 'utf8'));
@@ -84,3 +87,33 @@ assert.throws(() => prepareWageData(oecd.replace(wageLine, wageLine.replace(',A,
 assert.throws(() => prepareWageData(oecd, ameco.replace('ITA.3.1.0.0.RWCDC;', 'ITA.WRONG;'), wageMetadata), /Unexpected AMECO/);
 assert.throws(() => prepareWageData(oecd, ameco, { ...wageMetadata, amecoLastHistoricalYear: 2026 }), /forecast cutoff/);
 console.log(`Wage checks passed: OECD ${wages.series.oecd[0].year}–${wages.series.oecd.at(-1).year}, AMECO ${wages.series.ameco[0].year}–${wages.series.ameco.at(-1).year}, source values, constant-price selection, rebasing, forecast exclusion and invalid-data rejection.`);
+
+const pensionSource = await readFile(new URL('../dist/data/pensions/oecd.csv', import.meta.url), 'utf8');
+const pensionMetadata = JSON.parse(await readFile(new URL('../dist/data/pensions/retrieval.json', import.meta.url), 'utf8'));
+assert.equal(createHash('sha256').update(pensionSource).digest('hex'), pensionMetadata.sha256, 'Preserve the original pension snapshot');
+const pensions = preparePensionData(pensionSource, pensionMetadata);
+assert.deepEqual(JSON.parse(await readFile(new URL('../dist/data/pensions.json', import.meta.url), 'utf8')), pensions);
+assert.equal(await readFile(new URL('../dist/data/pensioni-g7.csv', import.meta.url), 'utf8'), pensionCsv(pensions));
+assert.equal(pensions.series.length, 7);
+assert.equal(pensions.firstYear, 1980);
+assert.equal(pensions.commonYear, 2021);
+assert.equal(pensions.series.find(c => c.code === 'ITA').points.find(p => p.year === 2021).value, 16.089);
+assert.equal(pensions.series.find(c => c.code === 'USA').points.find(p => p.year === 2023).value, 7.314);
+const pensionLine = pensionSource.split(/\r?\n/).find(line => line.includes(',ITA,') && line.includes(',2021,'));
+assert.throws(() => preparePensionData(pensionSource + '\n' + pensionLine, pensionMetadata), /Duplicate/);
+assert.throws(() => preparePensionData(pensionSource.replace(pensionLine, pensionLine.replace(',A,0,1,', ',F,0,1,')), pensionMetadata), /Unexpected pension/);
+for (const [before, after] of [['PT_B1GQ', 'USD'], ['ES10', 'ES20'], [',C,TP01', ',_T,TP01'], ['16.089', '-1'], ['16.089', 'NaN']]) {
+  assert.throws(() => preparePensionData(pensionSource.replace(pensionLine, pensionLine.replace(before, after)), pensionMetadata), /Unexpected pension|Invalid pension/);
+}
+const missingPension = preparePensionData(pensionSource.replace(pensionLine, pensionLine.replace('16.089', '')), pensionMetadata);
+assert.equal(missingPension.commonYear, 2020, 'The default year must contain every country');
+assert.ok(!missingPension.series.find(c => c.code === 'ITA').points.some(p => p.year === 2021), 'Blank values must not become zero');
+assert.throws(() => preparePensionData(pensionSource.split(/\r?\n/).filter(line => !line.includes(',ITA,')).join('\n'), pensionMetadata), /Missing pension series/);
+const gapLine = pensionSource.split(/\r?\n/).find(line => line.includes(',ITA,') && line.includes(',2000,'));
+const gap = preparePensionData(pensionSource.replace(gapLine, ''), pensionMetadata);
+assert.equal((pensionPath(gap.series[0].points, year => year, value => value).match(/M/g) || []).length, 2, 'A missing year must break the line');
+const pensionHtml = renderPensionChart(pensions);
+assert.equal((pensionHtml.match(/class="pension-line"/g) || []).length, 7);
+assert.ok(pensionHtml.includes('<td data-country="ITA" data-value="">n.d.</td>'), 'Trailing missing years are explicit in the table');
+assert.ok(html.includes(pensionHtml), 'The generated chart and accessible table must match the snapshot');
+console.log(`Pension checks passed: G7 ${pensions.firstYear}–${pensions.lastYear}, common year ${pensions.commonYear}, source fingerprint, exact values, units, duplicates, forecast rejection and visible gaps.`);

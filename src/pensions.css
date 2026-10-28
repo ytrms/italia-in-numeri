@@ -1,0 +1,59 @@
+.pension-view { --pension-italy: var(--ink); --pension-france: #a64c59; --pension-germany: #316b9b; --pension-japan: #3a7b69; --pension-uk: #936622; --pension-us: #805ca0; --pension-canada: #707070; }
+@media screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .pension-view { --pension-france: #e9939e; --pension-germany: #7eadd4; --pension-japan: #7abca6; --pension-uk: #cfaa66; --pension-us: #b59bd3; --pension-canada: #aaa; }
+}
+@media screen {
+  :root[data-theme="dark"] .pension-view { --pension-france: #e9939e; --pension-germany: #7eadd4; --pension-japan: #7abca6; --pension-uk: #cfaa66; --pension-us: #b59bd3; --pension-canada: #aaa; }
+}
+[data-pension-country="ITA"] { --country-color: var(--pension-italy); }
+[data-pension-country="FRA"] { --country-color: var(--pension-france); }
+[data-pension-country="DEU"] { --country-color: var(--pension-germany); }
+[data-pension-country="JPN"] { --country-color: var(--pension-japan); }
+[data-pension-country="GBR"] { --country-color: var(--pension-uk); }
+[data-pension-country="USA"] { --country-color: var(--pension-us); }
+[data-pension-country="CAN"] { --country-color: var(--pension-canada); }
+.pension-definition { margin: 0; max-width: 680px; font-size: 13px; line-height: 1.65; color: var(--muted); }
+.pension-definition a { margin-left: 8px; font-size: 11px; }
+.pension-chart-heading { display: flex; justify-content: space-between; align-items: baseline; margin: 28px 0 24px; font-size: 11px; color: var(--muted); }
+.pension-chart-heading p { margin: 0; }
+.pension-selected-year { margin-left: 6px; font-size: 20px; font-weight: 400; color: var(--ink); font-variant-numeric: tabular-nums; }
+.pension-chart { padding: 0 18px 32px 42px; }
+.pension-plot { position: relative; height: 320px; cursor: crosshair; }
+.pension-plot > svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.pension-line, .pension-endpoint { fill: none; stroke: var(--country-color); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+[data-pension-country="ITA"] .pension-line { stroke-width: 3.2; }
+.pension-endpoint { stroke-width: 5; }
+.pension-grid { position: absolute; width: 100%; border-top: 1px solid var(--line); }
+.pension-grid > span { position: absolute; right: calc(100% + 14px); transform: translateY(-50%); font-size: 11px; color: var(--muted); }
+.pension-crosshair { position: absolute; top: 0; height: 100%; border-left: 1px solid var(--crosshair); pointer-events: none; }
+.pension-crosshair > span { position: absolute; left: -4px; width: 7px; height: 7px; border-radius: 50%; background: var(--country-color); outline: 2px solid var(--canvas); transform: translateY(-50%); }
+.pension-x-axis { position: absolute; top: calc(100% + 15px); width: 100%; }
+.pension-x-axis > span { position: absolute; transform: translateX(-50%); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.pension-year-control { display: flex; align-items: center; gap: 16px; margin-top: 22px; font-size: 11px; color: var(--muted); }
+.pension-year-control input { width: 200px; max-width: 50%; height: 28px; accent-color: var(--ink); cursor: pointer; }
+.pension-year-control output { min-width: 28px; font-variant-numeric: tabular-nums; }
+.pension-legend { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px 24px; margin: 28px 0 22px; }
+.pension-legend > div { border-top: 1px solid var(--line); padding-top: 12px; }
+.pension-legend dt { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+.pension-legend svg { width: 26px; height: 10px; flex-shrink: 0; overflow: visible; }
+.pension-legend path { fill: none; stroke: var(--country-color); stroke-width: 2; }
+.pension-legend dd { margin: 7px 0 0 34px; font-size: 22px; letter-spacing: -.5px; font-variant-numeric: tabular-nums; }
+.pension-legend [data-pension-country="ITA"] dt { color: var(--ink); font-weight: 600; }
+.pension-legend [data-pension-country="ITA"] path { stroke-width: 3.2; }
+.pension-legend [data-pension-country="ITA"] dd { font-weight: 600; }
+.pension-caveat { max-width: 760px; margin: 0; font-size: 11px; line-height: 1.65; color: var(--muted); }
+.pension-table { min-width: 650px; }
+.pension-table th:first-child { position: sticky; left: 0; background: var(--canvas); padding-right: 12px; }
+@media (max-width: 720px) {
+  .pension-definition { font-size: 12px; }
+  .pension-chart { padding-left: 36px; padding-right: 14px; }
+  .pension-plot { height: 260px; }
+  .pension-grid > span { right: calc(100% + 10px); }
+  .pension-x-axis > span { font-size: 10px; }
+  .pension-legend { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; }
+  .pension-year-control { gap: 10px; }
+}
+@media print {
+  .pension-chart, .pension-legend { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .pension-year-control { display: none; }
+}

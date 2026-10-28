@@ -1,6 +1,6 @@
 # italia in numeri
 
-A minimal Italian-language website about public spending, regional balances and real wages. Static HTML, CSS and JavaScript; no runtime dependencies, third-party fonts, tracking or external requests on page load. Charts, map, tables, sources and category details work without JavaScript. JavaScript adds the unit switch, interactive regional selection and wage-series/year controls.
+A minimal Italian-language website about public spending, G7 pension spending, regional balances and real wages. Static HTML, CSS and JavaScript; no runtime dependencies, third-party fonts, tracking or external requests on page load. Charts, map, tables, sources and category details work without JavaScript. JavaScript adds the unit switch, interactive regional selection and wage/pension year controls.
 
 ## Local development
 
@@ -72,9 +72,24 @@ npm run check
 
 The refresh deliberately requires review when adopting a new AMECO vintage: update the explicit forecast cutoff, on-page vintage text, and guard in the script together. AMECO text files do not distinguish forecasts per observation. OECD price-base changes update the page automatically; unexpected statuses, missing years, duplicates or units fail the build.
 
+## Pension spending
+
+“Quanto spendiamo in pensioni” follows the public spending section and compares the **G7**, with Italy emphasized. OECD SOCX `DSD_SOCX_AGG@DF_PUB_OLD` measures annual gross public cash spending on old-age and survivors benefits as a percentage of GDP (`A`, `SOCX`, `PT_B1GQ`, `ES10`, `C`, `TP01`, `_Z`, multiplier 0). Private pensions, benefits in kind and disability spending classified elsewhere are excluded. This differs from the Eurostat COFOG spending category above. China and India are absent from this dataset; the G7 is not presented as the world's seven largest economies.
+
+The October 2026 snapshot covers 1980–2023: Italy and Germany end in 2021; France, Japan, the UK and Canada in 2022; the US in 2023. The default selected year is **2021**, the latest year shared by all seven. Lines end at each country's last observation and break across missing years; missing cells display “n.d.”, never zero. The zero-based vertical scale shows percent of GDP, not percent of government expenditure or an average pension amount. Country colors and line patterns identify the series in both themes; Italy uses a thicker line. Hover/tap and the native keyboard-accessible year slider update the seven readouts. The complete table, chart, source links and CSV work without JavaScript.
+
+`src/pension-data.mjs` validates source dimensions, units, status, duplicates and values. `src/pension-chart.mjs` renders the chart and table; `src/pensions.js` and `src/pensions.css` provide interaction and styling. Original CSV and retrieval metadata (including URL and SHA-256) are preserved in `dist/data/pensions/`. The build produces `pensions.json` and `pensioni-g7.csv`; no network access is needed at build time or on page load.
+
+```sh
+npm run refresh-pension-data
+npm run check
+```
+
+Review source revisions and observation statuses before publication. The parser accepts normal observations (`A`) only and requires review for forecasts, estimates or breaks. The refresh uses the OECD's documented query structure with wildcard fixed dimensions, then validates every returned dimension. New vintages may require updating the pinned verified-year checks in `scripts/check.mjs` after review.
+
 ## Design direction
 
-Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal black-on-white palette and restrained typography. Do not use eyebrows (small introductory labels above headings) anywhere on this website. Do not end section titles with periods; retain question marks where appropriate. The main sections, in order, are “A cosa vanno le tue tasse”, “Il potere d'acquisto del tuo stipendio” and “Quanto contribuiscono le regioni al bilancio”. They are equal peer sections: share their heading scale, spacing, dividers and right-aligned chevron. All three start expanded and collapse independently using native details/summary, including without JavaScript. Retain chart units and regional selection when collapsing. Keep introductory supporting copy absent and the chart helper sentence visually hidden. Show the latest-year/retrieval note in the sources section. The default chart unit is billions of euros. Do not add a spending-total callout, header sources link, generic sources introduction or footer tagline.
+Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal neutral palette and restrained typography, with color identifying country lines and regional balances. Do not use eyebrows (small introductory labels above headings) anywhere on this website. Do not end section titles with periods; retain question marks where appropriate. The main sections, in order, are “A cosa vanno le tue tasse”, “Quanto spendiamo in pensioni”, “Il potere d'acquisto del tuo stipendio” and “Quanto contribuiscono le regioni al bilancio”. They are equal peer sections: share their heading scale, spacing, dividers and right-aligned chevron. All four start expanded and collapse independently using native details/summary, including without JavaScript. Retain chart selections when collapsing. Keep generic introductory copy absent and the spending chart helper sentence visually hidden. Show retrieval notes in the sources section. The default spending chart unit is billions of euros. Do not add a spending-total callout, header sources link, generic sources introduction or footer tagline.
 
 ## Section navigation
 

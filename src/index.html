@@ -8,16 +8,18 @@
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" />
     <script src="./theme.js"></script>
     <title>Italia in Numeri</title>
-    <meta name="description" content="Spesa pubblica, saldi delle regioni e potere d’acquisto dei salari italiani. Grafici interattivi, dati scaricabili e fonti verificabili." />
+    <meta name="description" content="Spesa pubblica, pensioni a confronto nel G7, saldi delle regioni e potere d’acquisto dei salari italiani. Grafici interattivi, dati scaricabili e fonti verificabili." />
     <meta property="og:title" content="Italia in Numeri" />
-    <meta property="og:description" content="Spesa pubblica, saldi regionali e salari reali italiani. Dati Eurostat, CPT, OCSE e Commissione europea, in chiaro." />
+    <meta property="og:description" content="Spesa pubblica, pensioni nel G7, saldi regionali e salari reali italiani. Dati Eurostat, CPT, OCSE e Commissione europea, in chiaro." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta property="og:url" content="https://italia.lorenzogravina.com/" />
     <link rel="canonical" href="https://italia.lorenzogravina.com/" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./pensions.css" />
     <script type="module" src="./app.js"></script>
+    <script type="module" src="./pensions.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#grafico">Vai al grafico</a>
@@ -36,6 +38,7 @@
         <button class="nav-toggle" type="button" aria-expanded="true" aria-controls="section-nav-links" hidden><span>Indice</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></button>
         <ul id="section-nav-links">
           <li><a href="#grafico">A cosa vanno le tue tasse</a></li>
+          <li><a href="#pensioni">Quanto spendiamo in pensioni</a></li>
           <li><a href="#salari">Il potere d'acquisto del tuo stipendio</a></li>
           <li><a href="#regioni">Quanto contribuiscono le regioni al bilancio</a></li>
           <li><a href="#fonti">Fonti e metodo</a></li>
@@ -71,6 +74,13 @@
           </div>
           <p class="sr-only" id="unit-announcement" aria-live="polite"></p>
           </div>
+        </details>
+
+        <details class="stat-section" id="pensioni" open>
+          <summary class="section-heading">
+            <h2 id="pension-title"><span>Quanto spendiamo in pensioni</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
+          </summary>
+          <div class="section-content">{{PENSION_CHART}}</div>
         </details>
 
         <details class="stat-section" id="salari" open>
@@ -149,12 +159,13 @@
             <h2 id="sources-title"><span>Fonti e metodo</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
           </summary>
           <div class="source-content section-content">
-            <p class="latest-note">Spesa nazionale: {{YEAR}}, verifica del {{RETRIEVED_DATE}}.<br />Saldi territoriali: {{REGIONAL_YEAR}}, verifica del {{REGIONAL_RETRIEVED_DATE}}.<br />Salari: fino al {{WAGE_LAST_YEAR}}, verifica del {{WAGE_RETRIEVED_DATE}}.<br />Ultimi anni completi nelle rispettive fonti.</p>
+            <p class="latest-note">Spesa nazionale: {{YEAR}}, verifica del {{RETRIEVED_DATE}}.<br />Pensioni G7: {{PENSION_FIRST_YEAR}}–{{PENSION_LAST_YEAR}}, ultimo anno comune {{PENSION_COMMON_YEAR}}, verifica del {{PENSION_RETRIEVED_DATE}}.<br />Saldi territoriali: {{REGIONAL_YEAR}}, verifica del {{REGIONAL_RETRIEVED_DATE}}.<br />Salari: fino al {{WAGE_LAST_YEAR}}, verifica del {{WAGE_RETRIEVED_DATE}}.<br />Ultimi anni completi nelle rispettive fonti.</p>
             <div class="source-links">
               <a href="https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en" target="_blank" rel="noopener noreferrer"><span>Eurostat <small>Spesa per funzione · gov_10a_exp</small></span><span aria-hidden="true">↗</span></a>
               <a href="https://www.istat.it/scheda-qualita/spese-della-pubblica-amministrazione-per-funzione/" target="_blank" rel="noopener noreferrer"><span>Istat <small>Come vengono prodotti i dati italiani</small></span><span aria-hidden="true">↗</span></a>
               <a href="{{CPT_CATALOG}}" target="_blank" rel="noopener noreferrer"><span>Conti Pubblici Territoriali <small>Entrate e spese per regione</small></span><span aria-hidden="true">↗</span></a>
               <a href="{{WAGE_OECD_SOURCE}}" target="_blank" rel="noopener noreferrer"><span>OCSE <small>Salari medi annui reali · dal 1990</small></span><span aria-hidden="true">↗</span></a>
+              <a href="{{PENSION_SOURCE}}" target="_blank" rel="noopener noreferrer"><span>OCSE <small>SOCX · spesa pensionistica pubblica nel G7</small></span><span aria-hidden="true">↗</span></a>
               <a href="{{WAGE_AMECO_SOURCE}}" target="_blank" rel="noopener noreferrer"><span>Commissione europea <small>AMECO · redditi reali per dipendente dal 1960</small></span><span aria-hidden="true">↗</span></a>
             </div>
             <details class="method">
@@ -168,6 +179,18 @@
                 <p><strong>Il debito.</strong> Gli interessi e le spese di emissione sono spesa pubblica; il rimborso del capitale è un’operazione finanziaria e non fa parte di questo totale. <a href="https://ec.europa.eu/eurostat/en/web/government-finance-statistics/methodology" target="_blank" rel="noopener noreferrer">Metodo Eurostat ↗</a></p>
                 <p class="snapshot-note">Verifica: {{RETRIEVED_DATE}}. Aggiornamento del dataset Eurostat: {{UPDATED_DATE}}. Questa data riguarda il dataset, non necessariamente ogni singola osservazione italiana.</p>
                 <p class="raw-links"><a href="./data/eurostat-raw.json" download>Snapshot originale (JSON) ↓</a><a href="{{API_URL}}" target="_blank" rel="noopener noreferrer">Query Eurostat ↗</a></p>
+              </div>
+            </details>
+            <details class="method" id="metodo-pensioni">
+              <summary>Come confrontare la spesa pensionistica <span class="plus" aria-hidden="true"></span></summary>
+              <div class="method-body">
+                <p><strong>Che cosa misuriamo.</strong> Spesa pubblica lorda per prestazioni monetarie di vecchiaia e superstiti, inclusi gli importi una tantum. Sono escluse le pensioni private, le prestazioni in natura e le pensioni di invalidità classificate in altre funzioni. È il perimetro OCSE SOCX: non coincide con la voce Eurostat «Vecchiaia e superstiti» del primo grafico. <a href="{{PENSION_REPORT}}" target="_blank" rel="noopener noreferrer">Pensions at a Glance, tabella 8.2 ↗</a></p>
+                <p><strong>Perché in percentuale del PIL.</strong> Misura il peso della spesa sull’economia di ciascun paese, rendendo confrontabili economie e valute diverse. Non indica l’importo medio di una pensione né la quota del bilancio pubblico. Può aumentare anche se il PIL diminuisce, come nel 2020. Il diverso ricorso a pensioni private incide sul confronto della sola spesa pubblica.</p>
+                <p><strong>Quali paesi.</strong> I sette membri del G7: Italia, Francia, Germania, Giappone, Regno Unito, Stati Uniti e Canada. È un confronto tra grandi economie avanzate, non una classifica delle sette economie più grandi. Cina e India non sono presenti in questo dataset; non aggiungiamo serie con definizioni diverse.</p>
+                <p><strong>Copertura.</strong> {{PENSION_COVERAGE}}. Il {{PENSION_COMMON_YEAR}} è l’ultimo anno con dati per tutti e viene selezionato all’apertura. Le linee non proseguono oltre l’ultima osservazione di ciascun paese e si interrompono in caso di anni mancanti. n.d. non significa zero. Le serie storiche possono risentire di cambiamenti istituzionali e revisioni contabili.</p>
+                <p><strong>Fonte e calcolo.</strong> Dataset DSD_SOCX_AGG@DF_PUB_OLD: frequenza annuale, fonte pubblica (ES10), prestazioni monetarie (C), vecchiaia e superstiti (TP01), percentuale del PIL (PT_B1GQ). Usiamo i rapporti pubblicati dall’OCSE senza conversioni di valuta o ribasamenti. Gli arrotondamenti sono solo visivi. Il cursore e i tasti freccia permettono di leggere un anno alla volta; la tabella e il CSV riportano tutte le osservazioni.</p>
+                <p class="snapshot-note">Verifica: {{PENSION_RETRIEVED_DATE}}. Copia dei dati disponibili alla verifica, non un aggiornamento in tempo reale.</p>
+                <p class="raw-links"><a href="./data/pensions/oecd.csv" download>Originale OCSE (CSV) ↓</a><a href="{{PENSION_API_URL}}" target="_blank" rel="noopener noreferrer">Query OCSE ↗</a></p>
               </div>
             </details>
             <details class="method" id="metodo-regioni">

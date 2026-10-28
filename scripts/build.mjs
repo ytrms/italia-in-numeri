@@ -3,6 +3,13 @@ import { prepareData, sourceUrl } from '../src/data.mjs';
 import { prepareRegionalData, balanceScale, balanceColor } from '../src/regional-data.mjs';
 import { prepareWageData } from '../src/wage-data.mjs';
 import { renderWageCharts } from '../src/wage-chart.mjs';
+import { preparePensionData, pensionCsv } from '../src/pension-data.mjs';
+import { renderPensionChart } from '../src/pension-chart.mjs';
+
+const pensions = preparePensionData(
+  await readFile(new URL('../dist/data/pensions/oecd.csv', import.meta.url), 'utf8'),
+  JSON.parse(await readFile(new URL('../dist/data/pensions/retrieval.json', import.meta.url), 'utf8')),
+);
 
 const wages = prepareWageData(
   await readFile(new URL('../dist/data/wages/oecd.csv', import.meta.url), 'utf8'),
@@ -54,6 +61,10 @@ const rows = data.categories.map(category => {
 
 let html = await readFile(new URL('../src/index.html', import.meta.url), 'utf8');
 const replacements = {
+  PENSION_CHART: renderPensionChart(pensions), PENSION_RETRIEVED_DATE: date(pensions.retrievedAt),
+  PENSION_FIRST_YEAR: pensions.firstYear, PENSION_LAST_YEAR: pensions.lastYear, PENSION_COMMON_YEAR: pensions.commonYear,
+  PENSION_SOURCE: escape(pensions.sources.indicator), PENSION_REPORT: escape(pensions.sources.report), PENSION_API_URL: escape(pensions.oecdUrl),
+  PENSION_COVERAGE: pensions.series.map(c => `${c.name}: ${c.points[0].year}–${c.points.at(-1).year}`).join('; '),
   WAGE_CHARTS: renderWageCharts(wages), WAGE_RETRIEVED_DATE: date(wages.retrievedAt),
   WAGE_PRICE_YEAR: wages.priceYear, WAGE_LAST_YEAR: wages.series.oecd.at(-1).year,
   WAGE_OECD_SOURCE: escape(wages.sources.oecd), WAGE_AMECO_SOURCE: escape(wages.sources.ameco),
@@ -74,10 +85,12 @@ html = html.replace(/\{\{([A-Z_]+)\}\}/g, (_, key) => {
 html = html.replace('class="chart"', `class="chart" data-share-maximum="${shareMaximum}" data-amount-maximum="${amountMaximum}" data-total="${data.total / 1000}"`);
 await mkdir(new URL('../dist', import.meta.url), { recursive: true });
 await writeFile(new URL('../dist/index.html', import.meta.url), html);
-for (const name of ['styles.css', 'app.js', 'theme.js', 'favicon.svg']) await copyFile(new URL(`../src/${name}`, import.meta.url), new URL(`../dist/${name}`, import.meta.url));
+for (const name of ['styles.css', 'app.js', 'theme.js', 'favicon.svg', 'pensions.css', 'pensions.js']) await copyFile(new URL(`../src/${name}`, import.meta.url), new URL(`../dist/${name}`, import.meta.url));
 await writeFile(new URL('../dist/data/spending.json', import.meta.url), JSON.stringify(data, null, 2) + '\n');
 await writeFile(new URL('../dist/data/regions.json', import.meta.url), JSON.stringify(regional, null, 2) + '\n');
 await writeFile(new URL('../dist/data/wages.json', import.meta.url), JSON.stringify(wages, null, 2) + '\n');
+await writeFile(new URL('../dist/data/pensions.json', import.meta.url), JSON.stringify(pensions, null, 2) + '\n');
+await writeFile(new URL('../dist/data/pensioni-g7.csv', import.meta.url), pensionCsv(pensions));
 for (const [id, points] of Object.entries(wages.series)) {
   const csv = [
     ['anno', 'indice_reale_1990_100', 'variazione_percentuale_dal_1990', id === 'oecd' ? `euro_lordi_annui_prezzi_${wages.priceYear}` : 'indice_originale_ameco_2020_100', 'fonte', 'verificato_il'],
