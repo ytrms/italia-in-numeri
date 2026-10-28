@@ -106,6 +106,6 @@ A left-hand contents menu lists the exact section headings, including sources. A
 
 ## Appearance
 
-The header's Tema selector offers Sistema (the default), Chiaro and Scuro. Sistema follows the OS preference, including changes while the page is open. Explicit choices are saved locally and applied before the stylesheet paints; returning to Sistema removes the override. Other tabs synchronize the selection. If browser storage is unavailable, the control still works for the current page. Without JavaScript the CSS follows the system and the inactive selector stays hidden. Print output always uses the light palette.
+The header credit reads “un progetto di Lorenzo Gravina”, with “Lorenzo Gravina” linking to https://lorenzogravina.com. The footer's Tema selector offers Sistema (the default), Chiaro and Scuro. Sistema follows the OS preference, including changes while the page is open. Explicit choices are saved locally and applied before the stylesheet paints; returning to Sistema removes the override. Other tabs synchronize the selection. If browser storage is unavailable, the control still works for the current page. Without JavaScript the CSS follows the system and the inactive selector stays hidden. Print output always uses the light palette.
 
 Neutral surfaces, navigation, chart marks, controls and method text use shared theme colors. The regional map keeps the same symmetric scale, using a separate red/green palette and matching legend in dark mode.

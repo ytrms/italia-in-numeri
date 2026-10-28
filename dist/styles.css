@@ -58,6 +58,10 @@ button, summary { touch-action: manipulation; }
 .wordmark span { font-weight: 400; }
 .wordmark strong { font-weight: 650; }
 .wordmark-flag { width: 18px; height: 12px; flex-shrink: 0; }
+.project-credit { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; text-align: right; }
+.project-credit span, .project-credit a { white-space: nowrap; }
+.project-credit a { color: var(--ink); text-decoration-color: var(--underline); }
+.project-credit a:hover { text-decoration-color: currentColor; }
 .theme-picker { position: relative; display: flex; align-items: center; gap: 4px; flex-shrink: 0; color: var(--muted); }
 .theme-icon { width: 18px; height: 18px; pointer-events: none; }
 #theme-select { appearance: none; min-height: 44px; padding: 10px 22px 10px 5px; border: 0; border-radius: 0; background: transparent; color: var(--ink); font: inherit; font-size: 12px; cursor: pointer; }
@@ -194,7 +198,7 @@ details[open] > summary .plus::after { display: none; }
 .method-body strong { color: var(--ink); font-weight: 500; }
 .method-body .snapshot-note { font-size: 11px; }
 .raw-links { display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 11px; }
-.site-footer { display: flex; justify-content: space-between; gap: 24px; padding: 70px 0 28px; font-size: 11px; color: var(--muted); }
+.site-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 70px 0 28px; font-size: 11px; color: var(--muted); }
 .site-footer span:first-child { color: var(--ink); }
 .sr-only, .skip-link:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 .skip-link:focus { display: block; padding: 16px; position: fixed; top: 8px; left: 8px; background: var(--canvas); z-index: 10; }
