@@ -12,7 +12,15 @@ npm run check
 npm run dev
 ```
 
-Open http://127.0.0.1:4173. Edit `src/`, then rebuild. `dist/` is the deployable site. Sites identity is recorded in `.openai/hosting.json`.
+Open http://127.0.0.1:4173. Edit `src/`, then rebuild. `dist/` is the deployable site. Keep its checked-in data snapshots: the build uses these as inputs.
+
+## Deployment
+
+The site is hosted on GitHub Pages at https://italia.lorenzogravina.com/, from https://github.com/ytrms/italia-in-numeri. Pushing to `main` runs `.github/workflows/deploy-pages.yml`: build with Node.js 22, validate the data, then upload and deploy only `dist/`. A failed build or data check prevents publication. The workflow can also be run manually from GitHub Actions. No secrets or dependency installation are required.
+
+GitHub Pages must use **GitHub Actions** as its source, with the custom domain **italia.lorenzogravina.com** configured in the repository's Pages settings. Namecheap Advanced DNS needs one **CNAME Record**, host **italia**, value **ytrms.github.io**, TTL **Automatic**. Existing apex, other subdomain and mail records are independent. Once DNS resolves to GitHub and its certificate is issued, enable **Enforce HTTPS** in Pages settings. Custom workflows use the repository's domain setting; a `CNAME` file in `dist/` is unnecessary.
+
+The previous Sites deployment identity remains in `.openai/hosting.json`; the GitHub workflow does not update that deployment.
 
 ## Data
 
