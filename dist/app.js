@@ -95,29 +95,50 @@ function setWageSeries(id) {
 }
 wageButtons.forEach(button => button.addEventListener('click', () => setWageSeries(button.dataset.wageSeries)));
 wageViews.forEach(view => {
-  const points = [...view.querySelectorAll('tbody tr')].map(row => ({ year: Number(row.dataset.year), value: Number(row.dataset.value), index: Number(row.dataset.index) }));
+  const points = [...view.querySelectorAll('tbody tr')].map(row => ({
+    year: Number(row.dataset.year),
+    euros: row.dataset.euros === '' ? undefined : Number(row.dataset.euros),
+    indices: Object.fromEntries([...row.querySelectorAll('[data-country]')].map(cell => [cell.dataset.country, cell.dataset.index === '' ? undefined : Number(cell.dataset.index)])),
+  }));
   const slider = view.querySelector('input[type="range"]');
   const plot = view.querySelector('.wage-plot');
   const lower = Number(view.dataset.lower), upper = Number(view.dataset.upper);
   const firstYear = points[0].year, lastYear = points.at(-1).year;
   const priceYear = view.dataset.priceYear;
+  const legend = [...view.querySelectorAll('.wage-legend > div')];
+  let selectedYear = Number(view.dataset.commonYear);
+  const formatChange = index => index === undefined ? 'n.d.' : `${index < 100 ? '−' : index > 100 ? '+' : ''}${number.format(Math.abs(index - 100))}%`;
+  plot.tabIndex = 0;
+  plot.setAttribute('role', 'slider');
+  plot.setAttribute('aria-label', 'Anno del confronto dei salari: usa le frecce per cambiare anno');
+  plot.setAttribute('aria-valuemin', firstYear);
+  plot.setAttribute('aria-valuemax', lastYear);
   function selectYear(year) {
     const point = points.find(p => p.year === Number(year));
     if (!point) return;
+    selectedYear = point.year;
+    const index = point.indices.ITA;
     slider.value = point.year;
-    slider.setAttribute('aria-valuetext', `${point.year}: indice ${number.format(point.index)}, ${number.format(point.index - 100)} per cento rispetto al 1990`);
+    const description = `${point.year}: ${legend.map(item => `${item.dataset.name} ${formatChange(point.indices[item.dataset.wageCountry])}`).join(', ')} rispetto al 1990`;
+    slider.setAttribute('aria-valuetext', description);
+    plot.setAttribute('aria-valuenow', point.year);
+    plot.setAttribute('aria-valuetext', description);
     view.querySelector('output').textContent = point.year;
-    view.querySelector('.wage-selected-year').textContent = point.year;
-    view.querySelector('.wage-value').replaceChildren(document.createTextNode(number.format(point.index)));
+    view.querySelectorAll('.wage-selected-year').forEach(label => { label.textContent = point.year; });
+    view.querySelector('.wage-value').replaceChildren(document.createTextNode(index === undefined ? 'n.d.' : number.format(index)));
     const unit = document.createElement('span');
     unit.textContent = ' / 100';
     view.querySelector('.wage-value').append(unit);
-    const change = point.index - 100;
-    view.querySelector('.wage-difference').textContent = `${change < 0 ? '−' : change > 0 ? '+' : ''}${number.format(Math.abs(change))}%`;
-    if (view.dataset.wageView === 'oecd') view.querySelector('.wage-euros').textContent = `${integer.format(point.value)} € lordi annui, a prezzi ${priceYear}`;
+    view.querySelector('.wage-difference').textContent = formatChange(index);
+    if (view.dataset.wageView === 'oecd') view.querySelector('.wage-euros').textContent = point.euros === undefined ? 'Importo italiano non disponibile' : `${integer.format(point.euros)} € lordi annui, a prezzi ${priceYear}`;
+    legend.forEach(item => { item.querySelector('dd').textContent = formatChange(point.indices[item.dataset.wageCountry]); });
     const cursor = view.querySelector('.wage-crosshair');
     cursor.style.left = `${(point.year - firstYear) / (lastYear - firstYear) * 100}%`;
-    cursor.querySelector('span').style.top = `${(upper - point.index) / (upper - lower) * 100}%`;
+    cursor.querySelectorAll('span').forEach(dot => {
+      const value = point.indices[dot.dataset.wageCountry];
+      dot.hidden = value === undefined;
+      if (value !== undefined) dot.style.top = `${(upper - value) / (upper - lower) * 100}%`;
+    });
   }
   function selectAtPointer(event) {
     const rect = plot.getBoundingClientRect();
@@ -129,7 +150,13 @@ wageViews.forEach(view => {
   });
   plot.addEventListener('click', selectAtPointer);
   slider.addEventListener('input', () => selectYear(slider.value));
-  selectYear(lastYear);
+  plot.addEventListener('keydown', event => {
+    const year = { ArrowLeft: selectedYear - 1, ArrowDown: selectedYear - 1, ArrowRight: selectedYear + 1, ArrowUp: selectedYear + 1, Home: firstYear, End: lastYear }[event.key];
+    if (year === undefined) return;
+    event.preventDefault();
+    selectYear(Math.max(firstYear, Math.min(lastYear, year)));
+  });
+  selectYear(selectedYear);
 });
 setWageSeries('oecd');
 document.querySelector('.wage-toolbar').hidden = false;

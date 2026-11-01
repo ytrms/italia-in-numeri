@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { prepareData, observation } from '../src/data.mjs';
 import { prepareRegionalData, parseCpt, balanceScale, balanceColor } from '../src/regional-data.mjs';
-import { prepareWageData } from '../src/wage-data.mjs';
+import { prepareWageData, wageCsv } from '../src/wage-data.mjs';
+import { wagePath, renderWageCharts } from '../src/wage-chart.mjs';
 import { createHash } from 'node:crypto';
 import { preparePensionData, pensionCsv } from '../src/pension-data.mjs';
 import { pensionPath, renderPensionChart } from '../src/pension-chart.mjs';
@@ -86,6 +87,36 @@ assert.throws(() => prepareWageData(oecd.replace(wageLine, wageLine.replace('354
 assert.throws(() => prepareWageData(oecd.replace(wageLine, wageLine.replace(',A,0,0', ',F,0,0')), ameco, wageMetadata), /Unexpected wage status/);
 assert.throws(() => prepareWageData(oecd, ameco.replace('ITA.3.1.0.0.RWCDC;', 'ITA.WRONG;'), wageMetadata), /Unexpected AMECO/);
 assert.throws(() => prepareWageData(oecd, ameco, { ...wageMetadata, amecoLastHistoricalYear: 2026 }), /forecast cutoff/);
+assert.equal(createHash('sha256').update(oecd).digest('hex'), wageMetadata.oecdSha256, 'Original OECD export fingerprint');
+for (const [id, countries] of Object.entries(wages.comparisons)) {
+  assert.deepEqual(countries.map(c => c.code), ['ITA', 'FRA', 'DEU', 'ESP', 'NLD', 'USA']);
+  for (const country of countries) {
+    const base = country.points.find(p => p.year === 1990);
+    assert.equal(base.index, 100);
+    assert.ok(country.points.every(p => Math.abs(p.index / 100 - p.value / base.value) < 1e-12));
+    assert.equal(country.points[0].year, id === 'oecd' ? 1990 : 1960);
+    assert.equal(country.points.at(-1).year, 2025);
+    if (id === 'ameco') assert.ok(country.points.every(p => p.year <= wageMetadata.amecoLastHistoricalYear));
+  }
+  assert.equal(await readFile(new URL(`../dist/data/salari-${id}.csv`, import.meta.url), 'utf8'), wageCsv(wages, id));
+  assert.equal(wageCsv(wages, id).trim().split('\r\n').length, 1 + countries.reduce((sum, c) => sum + c.points.length, 0));
+}
+assert.equal(wages.comparisons.oecd.find(c => c.code === 'USA').points.at(-1).value, 86977.138);
+assert.equal(wages.comparisons.oecd.find(c => c.code === 'FRA').points[0].value, 44931.497);
+assert.ok(wages.comparisons.oecd[0].points.every((p, i) => Math.abs(p.index - wages.series.oecd[i].index) < 0.00001), 'Fixed PPP conversion preserves Italian growth');
+const comparisonLine = oecd.split(/\r?\n/).find(line => line.includes('FRA,WG,USD_PPP,A,Q,MEAN,_Z,1990,'));
+assert.throws(() => prepareWageData(oecd + '\n' + comparisonLine, ameco, wageMetadata), /Duplicate/);
+assert.throws(() => prepareWageData(oecd.replace(comparisonLine, ''), ameco, wageMetadata), /Missing 1990/);
+assert.throws(() => prepareWageData(oecd.replace(comparisonLine, comparisonLine.replace(',2025,A,0,', ',2025,F,0,')), ameco, wageMetadata), /Unexpected comparison wage/);
+assert.throws(() => prepareWageData(oecd.replace(comparisonLine, comparisonLine.replace(',2025,A,0,', ',2024,A,0,')), ameco, wageMetadata), /Unexpected comparison wage/);
+assert.throws(() => prepareWageData(oecd, ameco.replace('USA.3.1.0.0.RWCDC;', 'USA.WRONG;'), wageMetadata), /Unexpected AMECO comparison/);
+const withGap = structuredClone(wages);
+withGap.comparisons.oecd.find(c => c.code === 'FRA').points = withGap.comparisons.oecd.find(c => c.code === 'FRA').points.filter(p => p.year !== 2000 && p.year !== 2025);
+const gapHtml = renderWageCharts(withGap);
+assert.match(gapHtml, /data-common-year="2024"/, 'Select the latest shared year');
+assert.match(gapHtml, /data-country="FRA" data-index="">n.d.<\/td>/);
+assert.equal((wagePath(withGap.comparisons.oecd.find(c => c.code === 'FRA').points, y => y, i => i).match(/M/g) ?? []).length, 2, 'No line bridges a missing year');
+assert.equal((renderWageCharts(wages).match(/class="wage-line"/g) ?? []).length, 12);
 console.log(`Wage checks passed: OECD ${wages.series.oecd[0].year}–${wages.series.oecd.at(-1).year}, AMECO ${wages.series.ameco[0].year}–${wages.series.ameco.at(-1).year}, source values, constant-price selection, rebasing, forecast exclusion and invalid-data rejection.`);
 
 const pensionSource = await readFile(new URL('../dist/data/pensions/oecd.csv', import.meta.url), 'utf8');

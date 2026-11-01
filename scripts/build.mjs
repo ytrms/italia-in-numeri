@@ -1,7 +1,7 @@
 import { readFile, writeFile, copyFile, mkdir } from 'node:fs/promises';
 import { prepareData, sourceUrl } from '../src/data.mjs';
 import { prepareRegionalData, balanceScale, balanceColor } from '../src/regional-data.mjs';
-import { prepareWageData } from '../src/wage-data.mjs';
+import { prepareWageData, wageCsv } from '../src/wage-data.mjs';
 import { renderWageCharts } from '../src/wage-chart.mjs';
 import { preparePensionData, pensionCsv } from '../src/pension-data.mjs';
 import { renderPensionChart } from '../src/pension-chart.mjs';
@@ -66,6 +66,7 @@ const replacements = {
   PENSION_SOURCE: escape(pensions.sources.indicator), PENSION_REPORT: escape(pensions.sources.report), PENSION_API_URL: escape(pensions.oecdUrl),
   PENSION_COVERAGE: pensions.series.map(c => `${c.name}: ${c.points[0].year}–${c.points.at(-1).year}`).join('; '),
   WAGE_CHARTS: renderWageCharts(wages), WAGE_RETRIEVED_DATE: date(wages.retrievedAt),
+  WAGE_OECD_RETRIEVED_DATE: date(wages.oecdRetrievedAt ?? wages.retrievedAt),
   WAGE_PRICE_YEAR: wages.priceYear, WAGE_LAST_YEAR: wages.series.oecd.at(-1).year,
   WAGE_OECD_SOURCE: escape(wages.sources.oecd), WAGE_AMECO_SOURCE: escape(wages.sources.ameco),
   WAGE_AMECO_METADATA: escape(wages.sources.amecoMetadata),
@@ -91,13 +92,7 @@ await writeFile(new URL('../dist/data/regions.json', import.meta.url), JSON.stri
 await writeFile(new URL('../dist/data/wages.json', import.meta.url), JSON.stringify(wages, null, 2) + '\n');
 await writeFile(new URL('../dist/data/pensions.json', import.meta.url), JSON.stringify(pensions, null, 2) + '\n');
 await writeFile(new URL('../dist/data/pensioni-g7.csv', import.meta.url), pensionCsv(pensions));
-for (const [id, points] of Object.entries(wages.series)) {
-  const csv = [
-    ['anno', 'indice_reale_1990_100', 'variazione_percentuale_dal_1990', id === 'oecd' ? `euro_lordi_annui_prezzi_${wages.priceYear}` : 'indice_originale_ameco_2020_100', 'fonte', 'verificato_il'],
-    ...points.map(p => [p.year, p.index.toFixed(6), (p.index - 100).toFixed(6), p.value, wages.sources[id], wages.retrievedAt]),
-  ].map(row => row.map(cell => `"${String(cell).replaceAll('"', '""')}"`).join(',')).join('\r\n');
-  await writeFile(new URL(`../dist/data/salari-${id}.csv`, import.meta.url), '\uFEFF' + csv + '\r\n');
-}
+for (const id of Object.keys(wages.comparisons)) await writeFile(new URL(`../dist/data/salari-${id}.csv`, import.meta.url), wageCsv(wages, id));
 const regionalCsv = [
   ['anno', 'regione', 'entrate_milioni_euro', 'spese_milioni_euro', 'saldo_milioni_euro', 'formula', 'perimetro', 'contabilita', 'fonte_entrate', 'fonte_spese', 'verificato_il'],
   ...alphabeticalRegions.map(r => [regional.year, r.name, r.revenue.toFixed(5), r.spending.toFixed(5), r.balance.toFixed(5), 'E163 - S445', 'PA', 'cassa', regional.sources.revenue, regional.sources.spending, regional.retrievedAt]),

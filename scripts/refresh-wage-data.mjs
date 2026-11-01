@@ -15,7 +15,7 @@ if (!args.includes('--release') || !args.includes('--last-historical-year')) {
 const amecoRelease = value('--release');
 const amecoLastHistoricalYear = Number(value('--last-historical-year'));
 if (!/^\d{4}-\d{2}-\d{2}$/.test(amecoRelease)) throw new Error('Invalid release date');
-const oecdUrl = 'https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_EARNINGS@AV_AN_WAGE,1.0/ITA......?format=csvfile';
+const oecdUrl = 'https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_EARNINGS@AV_AN_WAGE,1.0/all?startPeriod=1990&dimensionAtObservation=AllDimensions&format=csvfile';
 const amecoUrl = 'https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco7.zip';
 const amecoHelpUrl = 'https://economy-finance.ec.europa.eu/document/download/ee1f3fdc-bef6-498e-9de0-d57257186a66_en?filename=Ameco+help+files+%282026_05%29.zip';
 async function get(url) {
@@ -35,6 +35,7 @@ try {
   const help = decode(execFileSync('unzip', ['-p', helpPath, 'RWCDC.TXT']));
   const metadata = {
     retrievedAt: new Date().toISOString(), oecdUrl, amecoUrl, amecoRelease, amecoLastHistoricalYear,
+    oecdSha256: createHash('sha256').update(oecd).digest('hex'),
     amecoOriginalEncoding: 'windows-1252', amecoZipSha256: createHash('sha256').update(archive).digest('hex'), amecoHelpUrl,
   };
   const data = prepareWageData(oecd.toString('utf8'), ameco, metadata);

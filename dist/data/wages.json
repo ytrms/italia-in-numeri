@@ -1,18 +1,21 @@
 {
   "retrievedAt": "2026-10-27T14:59:05.021Z",
-  "oecdUrl": "https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_EARNINGS@AV_AN_WAGE,1.0/ITA......?format=csvfile",
+  "oecdUrl": "https://sdmx.oecd.org/public/rest/data/OECD.ELS.SAE,DSD_EARNINGS@AV_AN_WAGE,1.0/all?startPeriod=1990&endPeriod=2025&dimensionAtObservation=AllDimensions&format=csvfile",
   "amecoUrl": "https://ec.europa.eu/economy_finance/db_indicators/ameco/documents/ameco7.zip",
   "amecoRelease": "2026-06-03",
   "amecoLastHistoricalYear": 2025,
   "amecoOriginalEncoding": "windows-1252",
   "amecoZipSha256": "a8bb87e2bb9f3a7ba84ab28f71cc898bfc7eb55a3fd7f501586b17d4bc4b3d49",
   "amecoHelpUrl": "https://economy-finance.ec.europa.eu/document/download/ee1f3fdc-bef6-498e-9de0-d57257186a66_en?filename=Ameco+help+files+%282026_05%29.zip",
+  "oecdRetrievedAt": "2026-11-01T12:56:33.990Z",
+  "oecdSha256": "32faea5f58c48ecc76d521c24cb8a11fea148cee73a067add313c7cbe474cd55",
   "baseYear": 1990,
   "priceYear": 2025,
   "sources": {
     "oecd": "https://www.oecd.org/en/data/indicators/average-annual-wages.html",
     "ameco": "https://economy-finance.ec.europa.eu/economic-research-and-databases/economic-databases/ameco-database_en",
-    "amecoMetadata": "https://economy-finance.ec.europa.eu/document/download/ae8a3bbf-7a9c-446c-a91e-e4e4f721c21d_en?filename=Reference_Metadata_AMECO.pdf"
+    "amecoMetadata": "https://economy-finance.ec.europa.eu/document/download/ae8a3bbf-7a9c-446c-a91e-e4e4f721c21d_en?filename=Reference_Metadata_AMECO.pdf",
+    "china": "https://www.stats.gov.cn/english/PressRelease/202605/t20260518_1963740.html"
   },
   "series": {
     "oecd": [
@@ -563,6 +566,3384 @@
         "year": 2025,
         "value": 103.0297,
         "index": 91.840824225439
+      }
+    ]
+  },
+  "comparisons": {
+    "oecd": [
+      {
+        "code": "ITA",
+        "name": "Italia",
+        "dash": "",
+        "unit": "USD_PPP",
+        "points": [
+          {
+            "year": 1990,
+            "value": 54994.691,
+            "status": "A",
+            "index": 100
+          },
+          {
+            "year": 1991,
+            "value": 55456.708,
+            "status": "A",
+            "index": 100.84011200281134
+          },
+          {
+            "year": 1992,
+            "value": 55403.02,
+            "status": "A",
+            "index": 100.74248803398132
+          },
+          {
+            "year": 1993,
+            "value": 54549.631,
+            "status": "A",
+            "index": 99.19072188259045
+          },
+          {
+            "year": 1994,
+            "value": 53843.243,
+            "status": "A",
+            "index": 97.90625607842765
+          },
+          {
+            "year": 1995,
+            "value": 52664.467,
+            "status": "A",
+            "index": 95.76282008748808
+          },
+          {
+            "year": 1996,
+            "value": 53133.215,
+            "status": "A",
+            "index": 96.61517145354995
+          },
+          {
+            "year": 1997,
+            "value": 54604.431,
+            "status": "A",
+            "index": 99.2903678647817
+          },
+          {
+            "year": 1998,
+            "value": 54825.441,
+            "status": "A",
+            "index": 99.69224302033082
+          },
+          {
+            "year": 1999,
+            "value": 55433.052,
+            "status": "A",
+            "index": 100.79709694159389
+          },
+          {
+            "year": 2000,
+            "value": 55459.379,
+            "status": "A",
+            "index": 100.84496883526448
+          },
+          {
+            "year": 2001,
+            "value": 55828.526,
+            "status": "A",
+            "index": 101.51620999197904
+          },
+          {
+            "year": 2002,
+            "value": 55313.986,
+            "status": "A",
+            "index": 100.58059240663795
+          },
+          {
+            "year": 2003,
+            "value": 55025.136,
+            "status": "A",
+            "index": 100.05535988919367
+          },
+          {
+            "year": 2004,
+            "value": 56146.111,
+            "status": "A",
+            "index": 102.09369300756686
+          },
+          {
+            "year": 2005,
+            "value": 56742.188,
+            "status": "A",
+            "index": 103.17757399527893
+          },
+          {
+            "year": 2006,
+            "value": 57067.205,
+            "status": "A",
+            "index": 103.7685710426121
+          },
+          {
+            "year": 2007,
+            "value": 56981.968,
+            "status": "A",
+            "index": 103.61357971808589
+          },
+          {
+            "year": 2008,
+            "value": 56972.432,
+            "status": "A",
+            "index": 103.59623986249873
+          },
+          {
+            "year": 2009,
+            "value": 57296.498,
+            "status": "A",
+            "index": 104.18550765200227
+          },
+          {
+            "year": 2010,
+            "value": 57789.672,
+            "status": "A",
+            "index": 105.08227421443281
+          },
+          {
+            "year": 2011,
+            "value": 56917.001,
+            "status": "A",
+            "index": 103.49544649682639
+          },
+          {
+            "year": 2012,
+            "value": 55107.159,
+            "status": "A",
+            "index": 100.20450701323152
+          },
+          {
+            "year": 2013,
+            "value": 55257.031,
+            "status": "A",
+            "index": 100.4770278643806
+          },
+          {
+            "year": 2014,
+            "value": 55531.156,
+            "status": "A",
+            "index": 100.97548507000431
+          },
+          {
+            "year": 2015,
+            "value": 56043.44,
+            "status": "A",
+            "index": 101.90700044118806
+          },
+          {
+            "year": 2016,
+            "value": 56266.177,
+            "status": "A",
+            "index": 102.31201589986205
+          },
+          {
+            "year": 2017,
+            "value": 55769.491,
+            "status": "A",
+            "index": 101.40886326645604
+          },
+          {
+            "year": 2018,
+            "value": 55440.262,
+            "status": "A",
+            "index": 100.81020729800991
+          },
+          {
+            "year": 2019,
+            "value": 55581.059,
+            "status": "A",
+            "index": 101.06622655630524
+          },
+          {
+            "year": 2020,
+            "value": 52901.27,
+            "status": "A",
+            "index": 96.19341256049606
+          },
+          {
+            "year": 2021,
+            "value": 55576.962,
+            "status": "A",
+            "index": 101.0587767462863
+          },
+          {
+            "year": 2022,
+            "value": 53954.951,
+            "status": "A",
+            "index": 98.10938114008133
+          },
+          {
+            "year": 2023,
+            "value": 52732.366,
+            "status": "A",
+            "index": 95.88628473246628
+          },
+          {
+            "year": 2024,
+            "value": 53243.036,
+            "status": "A",
+            "index": 96.81486527490445
+          },
+          {
+            "year": 2025,
+            "value": 53864.157,
+            "status": "A",
+            "index": 97.94428520382085
+          }
+        ]
+      },
+      {
+        "code": "FRA",
+        "name": "Francia",
+        "dash": "8 4",
+        "unit": "USD_PPP",
+        "points": [
+          {
+            "year": 1990,
+            "value": 44931.497,
+            "status": "A",
+            "index": 100
+          },
+          {
+            "year": 1991,
+            "value": 45473.758,
+            "status": "A",
+            "index": 101.20686163650412
+          },
+          {
+            "year": 1992,
+            "value": 45910.509,
+            "status": "A",
+            "index": 102.1788991361672
+          },
+          {
+            "year": 1993,
+            "value": 46517.089,
+            "status": "A",
+            "index": 103.52890979795308
+          },
+          {
+            "year": 1994,
+            "value": 46718.066,
+            "status": "A",
+            "index": 103.97620626795496
+          },
+          {
+            "year": 1995,
+            "value": 47455.981,
+            "status": "A",
+            "index": 105.61851745113233
+          },
+          {
+            "year": 1996,
+            "value": 47622.695,
+            "status": "A",
+            "index": 105.98955783734513
+          },
+          {
+            "year": 1997,
+            "value": 48213.487,
+            "status": "A",
+            "index": 107.30443056459926
+          },
+          {
+            "year": 1998,
+            "value": 48885.263,
+            "status": "A",
+            "index": 108.79954211185083
+          },
+          {
+            "year": 1999,
+            "value": 49937.852,
+            "status": "A",
+            "index": 111.14219497293847
+          },
+          {
+            "year": 2000,
+            "value": 50339.091,
+            "status": "A",
+            "index": 112.03519660161778
+          },
+          {
+            "year": 2001,
+            "value": 50648.739,
+            "status": "A",
+            "index": 112.72435236244188
+          },
+          {
+            "year": 2002,
+            "value": 52015.648,
+            "status": "A",
+            "index": 115.7665590354134
+          },
+          {
+            "year": 2003,
+            "value": 52520.362,
+            "status": "A",
+            "index": 116.88985568408725
+          },
+          {
+            "year": 2004,
+            "value": 53347.584,
+            "status": "A",
+            "index": 118.73092944132264
+          },
+          {
+            "year": 2005,
+            "value": 54078.394,
+            "status": "A",
+            "index": 120.35742766371659
+          },
+          {
+            "year": 2006,
+            "value": 54664.199,
+            "status": "A",
+            "index": 121.66120127268405
+          },
+          {
+            "year": 2007,
+            "value": 54959.059,
+            "status": "A",
+            "index": 122.31744470922035
+          },
+          {
+            "year": 2008,
+            "value": 54812.054,
+            "status": "A",
+            "index": 121.99026887530589
+          },
+          {
+            "year": 2009,
+            "value": 56617.112,
+            "status": "A",
+            "index": 126.00762445106157
+          },
+          {
+            "year": 2010,
+            "value": 57666.846,
+            "status": "A",
+            "index": 128.34392319490266
+          },
+          {
+            "year": 2011,
+            "value": 57738.848,
+            "status": "A",
+            "index": 128.50417158368882
+          },
+          {
+            "year": 2012,
+            "value": 58100.32,
+            "status": "A",
+            "index": 129.3086673697963
+          },
+          {
+            "year": 2013,
+            "value": 58654.452,
+            "status": "A",
+            "index": 130.54194922550656
+          },
+          {
+            "year": 2014,
+            "value": 59030.877,
+            "status": "A",
+            "index": 131.37972456159207
+          },
+          {
+            "year": 2015,
+            "value": 59484.548,
+            "status": "A",
+            "index": 132.38941938658309
+          },
+          {
+            "year": 2016,
+            "value": 60120.233,
+            "status": "A",
+            "index": 133.8042064345196
+          },
+          {
+            "year": 2017,
+            "value": 60947.615,
+            "status": "A",
+            "index": 135.64563628939402
+          },
+          {
+            "year": 2018,
+            "value": 60671.758,
+            "status": "A",
+            "index": 135.03168612432387
+          },
+          {
+            "year": 2019,
+            "value": 61289.217,
+            "status": "A",
+            "index": 136.40590919995387
+          },
+          {
+            "year": 2020,
+            "value": 58327.286,
+            "status": "A",
+            "index": 129.81380522442865
+          },
+          {
+            "year": 2021,
+            "value": 60851.672,
+            "status": "A",
+            "index": 135.43210456575704
+          },
+          {
+            "year": 2022,
+            "value": 61044.379,
+            "status": "A",
+            "index": 135.86099523904133
+          },
+          {
+            "year": 2023,
+            "value": 59611.013,
+            "status": "A",
+            "index": 132.67088118608646
+          },
+          {
+            "year": 2024,
+            "value": 59864.791,
+            "status": "A",
+            "index": 133.23569210258006
+          },
+          {
+            "year": 2025,
+            "value": 60483.173,
+            "status": "A",
+            "index": 134.61196941646526
+          }
+        ]
+      },
+      {
+        "code": "DEU",
+        "name": "Germania",
+        "dash": "3 4",
+        "unit": "USD_PPP",
+        "points": [
+          {
+            "year": 1990,
+            "value": 56518.095,
+            "status": "A",
+            "index": 100
+          },
+          {
+            "year": 1991,
+            "value": 56518.095,
+            "status": "A",
+            "index": 100
+          },
+          {
+            "year": 1992,
+            "value": 59843.074,
+            "status": "A",
+            "index": 105.88303445117886
+          },
+          {
+            "year": 1993,
+            "value": 60277.01,
+            "status": "A",
+            "index": 106.65081687555109
+          },
+          {
+            "year": 1994,
+            "value": 60431.246,
+            "status": "A",
+            "index": 106.92371354696226
+          },
+          {
+            "year": 1995,
+            "value": 61681.879,
+            "status": "A",
+            "index": 109.13651459767
+          },
+          {
+            "year": 1996,
+            "value": 62376.544,
+            "status": "A",
+            "index": 110.36561653396137
+          },
+          {
+            "year": 1997,
+            "value": 62134.996,
+            "status": "A",
+            "index": 109.93823482550144
+          },
+          {
+            "year": 1998,
+            "value": 62828.793,
+            "status": "A",
+            "index": 111.16580097046796
+          },
+          {
+            "year": 1999,
+            "value": 63666.036,
+            "status": "A",
+            "index": 112.6471725559752
+          },
+          {
+            "year": 2000,
+            "value": 64046.334,
+            "status": "A",
+            "index": 113.32005086158689
+          },
+          {
+            "year": 2001,
+            "value": 64480.243,
+            "status": "A",
+            "index": 114.08778551364833
+          },
+          {
+            "year": 2002,
+            "value": 64713.408,
+            "status": "A",
+            "index": 114.50033480427817
+          },
+          {
+            "year": 2003,
+            "value": 64930.248,
+            "status": "A",
+            "index": 114.8839995403242
+          },
+          {
+            "year": 2004,
+            "value": 64917.355,
+            "status": "A",
+            "index": 114.86118737724618
+          },
+          {
+            "year": 2005,
+            "value": 64992.335,
+            "status": "A",
+            "index": 114.99385285367455
+          },
+          {
+            "year": 2006,
+            "value": 65126.926,
+            "status": "A",
+            "index": 115.23199074561872
+          },
+          {
+            "year": 2007,
+            "value": 64871.985,
+            "status": "A",
+            "index": 114.78091220165861
+          },
+          {
+            "year": 2008,
+            "value": 65150.041,
+            "status": "A",
+            "index": 115.27288915169558
+          },
+          {
+            "year": 2009,
+            "value": 65320.022,
+            "status": "A",
+            "index": 115.5736441576808
+          },
+          {
+            "year": 2010,
+            "value": 65868.708,
+            "status": "A",
+            "index": 116.54445890294072
+          },
+          {
+            "year": 2011,
+            "value": 67016.565,
+            "status": "A",
+            "index": 118.57541376792689
+          },
+          {
+            "year": 2012,
+            "value": 67819.437,
+            "status": "A",
+            "index": 119.99597120178944
+          },
+          {
+            "year": 2013,
+            "value": 68439.939,
+            "status": "A",
+            "index": 121.09385321639026
+          },
+          {
+            "year": 2014,
+            "value": 69545.657,
+            "status": "A",
+            "index": 123.0502496589809
+          },
+          {
+            "year": 2015,
+            "value": 71243.967,
+            "status": "A",
+            "index": 126.0551457015669
+          },
+          {
+            "year": 2016,
+            "value": 72398.219,
+            "status": "A",
+            "index": 128.0974155268326
+          },
+          {
+            "year": 2017,
+            "value": 73176.585,
+            "status": "A",
+            "index": 129.47461339593985
+          },
+          {
+            "year": 2018,
+            "value": 74155.549,
+            "status": "A",
+            "index": 131.20673830213136
+          },
+          {
+            "year": 2019,
+            "value": 75376.183,
+            "status": "A",
+            "index": 133.36646077685387
+          },
+          {
+            "year": 2020,
+            "value": 74806.641,
+            "status": "A",
+            "index": 132.35874457552046
+          },
+          {
+            "year": 2021,
+            "value": 74656.666,
+            "status": "A",
+            "index": 132.093387082491
+          },
+          {
+            "year": 2022,
+            "value": 73053.743,
+            "status": "A",
+            "index": 129.2572635365718
+          },
+          {
+            "year": 2023,
+            "value": 72953.447,
+            "status": "A",
+            "index": 129.07980532606416
+          },
+          {
+            "year": 2024,
+            "value": 74854.088,
+            "status": "A",
+            "index": 132.44269468034972
+          },
+          {
+            "year": 2025,
+            "value": 76284.517,
+            "status": "A",
+            "index": 134.9736168566899
+          }
+        ]
+      },
+      {
+        "code": "ESP",
+        "name": "Spagna",
+        "dash": "10 4 2 4",
+        "unit": "USD_PPP",
+        "points": [
+          {
+            "year": 1990,
+            "value": 49766.124,
+            "status": "A",
+            "index": 100
+          },
+          {
+            "year": 1991,
+            "value": 51353.138,
+            "status": "A",
+            "index": 103.18894435098058
+          },
+          {
+            "year": 1992,
+            "value": 53250.867,
+            "status": "A",
+            "index": 107.00223911349815
+          },
+          {
+            "year": 1993,
+            "value": 54101.485,
+            "status": "A",
+            "index": 108.71147007550759
+          },
+          {
+            "year": 1994,
+            "value": 54666.487,
+            "status": "A",
+            "index": 109.84678453158216
+          },
+          {
+            "year": 1995,
+            "value": 53581.697,
+            "status": "A",
+            "index": 107.66700858600117
+          },
+          {
+            "year": 1996,
+            "value": 54419,
+            "status": "A",
+            "index": 109.34948440027195
+          },
+          {
+            "year": 1997,
+            "value": 54385.539,
+            "status": "A",
+            "index": 109.28224790019812
+          },
+          {
+            "year": 1998,
+            "value": 54747.205,
+            "status": "A",
+            "index": 110.0089792003894
+          },
+          {
+            "year": 1999,
+            "value": 54654.569,
+            "status": "A",
+            "index": 109.82283651425216
+          },
+          {
+            "year": 2000,
+            "value": 53409.367,
+            "status": "A",
+            "index": 107.32072885563682
+          },
+          {
+            "year": 2001,
+            "value": 53110.488,
+            "status": "A",
+            "index": 106.72016169071152
+          },
+          {
+            "year": 2002,
+            "value": 53347.391,
+            "status": "A",
+            "index": 107.1961943429631
+          },
+          {
+            "year": 2003,
+            "value": 53088.447,
+            "status": "A",
+            "index": 106.67587252726372
+          },
+          {
+            "year": 2004,
+            "value": 52420.507,
+            "status": "A",
+            "index": 105.33371455651238
+          },
+          {
+            "year": 2005,
+            "value": 52654.789,
+            "status": "A",
+            "index": 105.80448057397436
+          },
+          {
+            "year": 2006,
+            "value": 52435.663,
+            "status": "A",
+            "index": 105.36416900781744
+          },
+          {
+            "year": 2007,
+            "value": 53017.966,
+            "status": "A",
+            "index": 106.53424807606073
+          },
+          {
+            "year": 2008,
+            "value": 54943.892,
+            "status": "A",
+            "index": 110.40420186229491
+          },
+          {
+            "year": 2009,
+            "value": 58456.084,
+            "status": "A",
+            "index": 117.4615969690547
+          },
+          {
+            "year": 2010,
+            "value": 58022.456,
+            "status": "A",
+            "index": 116.59026529773546
+          },
+          {
+            "year": 2011,
+            "value": 57002.26,
+            "status": "A",
+            "index": 114.54028447142075
+          },
+          {
+            "year": 2012,
+            "value": 55608.493,
+            "status": "A",
+            "index": 111.73965044977182
+          },
+          {
+            "year": 2013,
+            "value": 55491.752,
+            "status": "A",
+            "index": 111.50507120064242
+          },
+          {
+            "year": 2014,
+            "value": 55361.948,
+            "status": "A",
+            "index": 111.2442431723234
+          },
+          {
+            "year": 2015,
+            "value": 56334.079,
+            "status": "A",
+            "index": 113.19764223550943
+          },
+          {
+            "year": 2016,
+            "value": 56012.42,
+            "status": "A",
+            "index": 112.55130096127235
+          },
+          {
+            "year": 2017,
+            "value": 55305.588,
+            "status": "A",
+            "index": 111.13099344445632
+          },
+          {
+            "year": 2018,
+            "value": 55186.079,
+            "status": "A",
+            "index": 110.89085217888378
+          },
+          {
+            "year": 2019,
+            "value": 56009.134,
+            "status": "A",
+            "index": 112.54469807614511
+          },
+          {
+            "year": 2020,
+            "value": 55379.905,
+            "status": "A",
+            "index": 111.28032595023876
+          },
+          {
+            "year": 2021,
+            "value": 57624.703,
+            "status": "A",
+            "index": 115.79102081568577
+          },
+          {
+            "year": 2022,
+            "value": 56683.114,
+            "status": "A",
+            "index": 113.8989928168808
+          },
+          {
+            "year": 2023,
+            "value": 56285.834,
+            "status": "A",
+            "index": 113.10069878056004
+          },
+          {
+            "year": 2024,
+            "value": 57082.887,
+            "status": "A",
+            "index": 114.70229628491863
+          },
+          {
+            "year": 2025,
+            "value": 57778.662,
+            "status": "A",
+            "index": 116.10038587694713
+          }
+        ]
+      },
+      {
+        "code": "NLD",
+        "name": "Paesi Bassi",
+        "dash": "12 5",
+        "unit": "USD_PPP",
+        "points": [
+          {
+            "year": 1990,
+            "value": 72715.176,
+            "status": "A",
+            "index": 100
+          },
+          {
+            "year": 1991,
+            "value": 73284.701,
+            "status": "A",
+            "index": 100.78322714917172
+          },
+          {
+            "year": 1992,
+            "value": 73671.186,
+            "status": "A",
+            "index": 101.31473242944497
+          },
+          {
+            "year": 1993,
+            "value": 74911.506,
+            "status": "A",
+            "index": 103.02045614247015
+          },
+          {
+            "year": 1994,
+            "value": 75455.341,
+            "status": "A",
+            "index": 103.76835366526514
+          },
+          {
+            "year": 1995,
+            "value": 73988.734,
+            "status": "A",
+            "index": 101.751433565945
+          },
+          {
+            "year": 1996,
+            "value": 73766.933,
+            "status": "A",
+            "index": 101.44640645578579
+          },
+          {
+            "year": 1997,
+            "value": 74074.259,
+            "status": "A",
+            "index": 101.86905000408717
+          },
+          {
+            "year": 1998,
+            "value": 71836.503,
+            "status": "A",
+            "index": 98.79162363575932
+          },
+          {
+            "year": 1999,
+            "value": 73243.659,
+            "status": "A",
+            "index": 100.7267850111509
+          },
+          {
+            "year": 2000,
+            "value": 75116.463,
+            "status": "A",
+            "index": 103.30231889970258
+          },
+          {
+            "year": 2001,
+            "value": 76236.468,
+            "status": "A",
+            "index": 104.8425819666585
+          },
+          {
+            "year": 2002,
+            "value": 76263.991,
+            "status": "A",
+            "index": 104.88043238731896
+          },
+          {
+            "year": 2003,
+            "value": 76758.876,
+            "status": "A",
+            "index": 105.561012463203
+          },
+          {
+            "year": 2004,
+            "value": 77890.342,
+            "status": "A",
+            "index": 107.11703702676867
+          },
+          {
+            "year": 2005,
+            "value": 77998.998,
+            "status": "A",
+            "index": 107.26646388093732
+          },
+          {
+            "year": 2006,
+            "value": 77803.955,
+            "status": "A",
+            "index": 106.99823514145106
+          },
+          {
+            "year": 2007,
+            "value": 78845.577,
+            "status": "A",
+            "index": 108.43070365393876
+          },
+          {
+            "year": 2008,
+            "value": 79097.091,
+            "status": "A",
+            "index": 108.776592935703
+          },
+          {
+            "year": 2009,
+            "value": 81825.766,
+            "status": "A",
+            "index": 112.52914522272488
+          },
+          {
+            "year": 2010,
+            "value": 81995.82,
+            "status": "A",
+            "index": 112.76300837118238
+          },
+          {
+            "year": 2011,
+            "value": 81266.441,
+            "status": "A",
+            "index": 111.7599454067195
+          },
+          {
+            "year": 2012,
+            "value": 81739.488,
+            "status": "A",
+            "index": 112.41049323734016
+          },
+          {
+            "year": 2013,
+            "value": 82107.56,
+            "status": "A",
+            "index": 112.91667643079073
+          },
+          {
+            "year": 2014,
+            "value": 81669.921,
+            "status": "A",
+            "index": 112.3148226994596
+          },
+          {
+            "year": 2015,
+            "value": 82711.004,
+            "status": "A",
+            "index": 113.74654996365545
+          },
+          {
+            "year": 2016,
+            "value": 83103.165,
+            "status": "A",
+            "index": 114.28586104226714
+          },
+          {
+            "year": 2017,
+            "value": 81827.574,
+            "status": "A",
+            "index": 112.53163163629006
+          },
+          {
+            "year": 2018,
+            "value": 81126.313,
+            "status": "A",
+            "index": 111.567237353589
+          },
+          {
+            "year": 2019,
+            "value": 80831.238,
+            "status": "A",
+            "index": 111.16144173260336
+          },
+          {
+            "year": 2020,
+            "value": 81771.956,
+            "status": "A",
+            "index": 112.45514416412881
+          },
+          {
+            "year": 2021,
+            "value": 80400.832,
+            "status": "A",
+            "index": 110.56953503076166
+          },
+          {
+            "year": 2022,
+            "value": 76314.649,
+            "status": "A",
+            "index": 104.95009872492092
+          },
+          {
+            "year": 2023,
+            "value": 76028.493,
+            "status": "A",
+            "index": 104.55656876908334
+          },
+          {
+            "year": 2024,
+            "value": 78682.989,
+            "status": "A",
+            "index": 108.20710796326752
+          },
+          {
+            "year": 2025,
+            "value": 80136.33,
+            "status": "A",
+            "index": 110.20578427809897
+          }
+        ]
+      },
+      {
+        "code": "USA",
+        "name": "Stati Uniti",
+        "dash": "6 3 2 3",
+        "unit": "USD_PPP",
+        "points": [
+          {
+            "year": 1990,
+            "value": 56693.84,
+            "status": "A",
+            "index": 100
+          },
+          {
+            "year": 1991,
+            "value": 57079.114,
+            "status": "A",
+            "index": 100.67956942059315
+          },
+          {
+            "year": 1992,
+            "value": 58402.045,
+            "status": "A",
+            "index": 103.01303457306825
+          },
+          {
+            "year": 1993,
+            "value": 58072.974,
+            "status": "A",
+            "index": 102.43259937940348
+          },
+          {
+            "year": 1994,
+            "value": 57850.978,
+            "status": "A",
+            "index": 102.04102950161781
+          },
+          {
+            "year": 1995,
+            "value": 58178.952,
+            "status": "A",
+            "index": 102.61952974079725
+          },
+          {
+            "year": 1996,
+            "value": 59029.74,
+            "status": "A",
+            "index": 104.1202007131639
+          },
+          {
+            "year": 1997,
+            "value": 60503.818,
+            "status": "A",
+            "index": 106.72026802206378
+          },
+          {
+            "year": 1998,
+            "value": 62995.918,
+            "status": "A",
+            "index": 111.11598367653346
+          },
+          {
+            "year": 1999,
+            "value": 64655.638,
+            "status": "A",
+            "index": 114.04349749461318
+          },
+          {
+            "year": 2000,
+            "value": 66814.976,
+            "status": "A",
+            "index": 117.85226754793818
+          },
+          {
+            "year": 2001,
+            "value": 67327.695,
+            "status": "A",
+            "index": 118.75663211382404
+          },
+          {
+            "year": 2002,
+            "value": 67869.729,
+            "status": "A",
+            "index": 119.71270423735632
+          },
+          {
+            "year": 2003,
+            "value": 68599.782,
+            "status": "A",
+            "index": 121.00041556543006
+          },
+          {
+            "year": 2004,
+            "value": 69870.143,
+            "status": "A",
+            "index": 123.24115459457323
+          },
+          {
+            "year": 2005,
+            "value": 69934.855,
+            "status": "A",
+            "index": 123.35529750674851
+          },
+          {
+            "year": 2006,
+            "value": 70982.433,
+            "status": "A",
+            "index": 125.2030785002392
+          },
+          {
+            "year": 2007,
+            "value": 72325.838,
+            "status": "A",
+            "index": 127.57265692357407
+          },
+          {
+            "year": 2008,
+            "value": 72147.054,
+            "status": "A",
+            "index": 127.2573069666828
+          },
+          {
+            "year": 2009,
+            "value": 72870.344,
+            "status": "A",
+            "index": 128.53308930917362
+          },
+          {
+            "year": 2010,
+            "value": 73515.229,
+            "status": "A",
+            "index": 129.6705762036934
+          },
+          {
+            "year": 2011,
+            "value": 73616.952,
+            "status": "A",
+            "index": 129.85000134053365
+          },
+          {
+            "year": 2012,
+            "value": 74243.084,
+            "status": "A",
+            "index": 130.9544105673562
+          },
+          {
+            "year": 2013,
+            "value": 73913.11,
+            "status": "A",
+            "index": 130.37238260805762
+          },
+          {
+            "year": 2014,
+            "value": 75074.762,
+            "status": "A",
+            "index": 132.42137417398433
+          },
+          {
+            "year": 2015,
+            "value": 76999.191,
+            "status": "A",
+            "index": 135.8157976245744
+          },
+          {
+            "year": 2016,
+            "value": 77129.241,
+            "status": "A",
+            "index": 136.04518762532226
+          },
+          {
+            "year": 2017,
+            "value": 77970.611,
+            "status": "A",
+            "index": 137.52924656364783
+          },
+          {
+            "year": 2018,
+            "value": 78892.594,
+            "status": "A",
+            "index": 139.15549555295604
+          },
+          {
+            "year": 2019,
+            "value": 80317.647,
+            "status": "A",
+            "index": 141.6690896224352
+          },
+          {
+            "year": 2020,
+            "value": 85170.596,
+            "status": "A",
+            "index": 150.22901253469513
+          },
+          {
+            "year": 2021,
+            "value": 86695.78,
+            "status": "A",
+            "index": 152.9192236757997
+          },
+          {
+            "year": 2022,
+            "value": 84214.966,
+            "status": "A",
+            "index": 148.54341494596238
+          },
+          {
+            "year": 2023,
+            "value": 83866.258,
+            "status": "A",
+            "index": 147.92834283230772
+          },
+          {
+            "year": 2024,
+            "value": 85546.027,
+            "status": "A",
+            "index": 150.89122028072185
+          },
+          {
+            "year": 2025,
+            "value": 86977.138,
+            "status": "A",
+            "index": 153.41549981444194
+          }
+        ]
+      }
+    ],
+    "ameco": [
+      {
+        "code": "ITA",
+        "name": "Italia",
+        "dash": "",
+        "unit": "AMECO_2020_100",
+        "points": [
+          {
+            "year": 1960,
+            "value": 39.42823,
+            "index": 35.14638148951399
+          },
+          {
+            "year": 1961,
+            "value": 40.93655,
+            "index": 36.49090012827266
+          },
+          {
+            "year": 1962,
+            "value": 44.02876,
+            "index": 39.247300613551616
+          },
+          {
+            "year": 1963,
+            "value": 48.92808,
+            "index": 43.61456157756663
+          },
+          {
+            "year": 1964,
+            "value": 52.01476,
+            "index": 46.36603261281354
+          },
+          {
+            "year": 1965,
+            "value": 54.242,
+            "index": 48.351397583767216
+          },
+          {
+            "year": 1966,
+            "value": 56.7163,
+            "index": 50.556992197563076
+          },
+          {
+            "year": 1967,
+            "value": 59.40099,
+            "index": 52.950128762939805
+          },
+          {
+            "year": 1968,
+            "value": 63.29957,
+            "index": 56.42532863743048
+          },
+          {
+            "year": 1969,
+            "value": 66.32019,
+            "index": 59.117913692728564
+          },
+          {
+            "year": 1970,
+            "value": 72.83937,
+            "index": 64.92912021350847
+          },
+          {
+            "year": 1971,
+            "value": 78.16836,
+            "index": 69.67938963959747
+          },
+          {
+            "year": 1972,
+            "value": 80.24563,
+            "index": 71.53107113472731
+          },
+          {
+            "year": 1973,
+            "value": 82.9882,
+            "index": 73.97580201617181
+          },
+          {
+            "year": 1974,
+            "value": 83.88501,
+            "index": 74.77521975274306
+          },
+          {
+            "year": 1975,
+            "value": 85.91781,
+            "index": 76.58726062528245
+          },
+          {
+            "year": 1976,
+            "value": 88.03699,
+            "index": 78.47630075528446
+          },
+          {
+            "year": 1977,
+            "value": 90.60837,
+            "index": 80.7684326220841
+          },
+          {
+            "year": 1978,
+            "value": 93.62306,
+            "index": 83.45573166676917
+          },
+          {
+            "year": 1979,
+            "value": 97.05925,
+            "index": 86.51875642366173
+          },
+          {
+            "year": 1980,
+            "value": 98.06279,
+            "index": 87.41331343725291
+          },
+          {
+            "year": 1981,
+            "value": 101.30988,
+            "index": 90.30777417948725
+          },
+          {
+            "year": 1982,
+            "value": 100.41112,
+            "index": 89.50661821008372
+          },
+          {
+            "year": 1983,
+            "value": 100.70625,
+            "index": 89.76969752074514
+          },
+          {
+            "year": 1984,
+            "value": 101.03868,
+            "index": 90.06602610558294
+          },
+          {
+            "year": 1985,
+            "value": 101.73278,
+            "index": 90.68474785372815
+          },
+          {
+            "year": 1986,
+            "value": 102.5988,
+            "index": 91.45671933957848
+          },
+          {
+            "year": 1987,
+            "value": 105.15853,
+            "index": 93.73846637945712
+          },
+          {
+            "year": 1988,
+            "value": 107.24663,
+            "index": 95.59980175231698
+          },
+          {
+            "year": 1989,
+            "value": 108.88279,
+            "index": 97.05827715275679
+          },
+          {
+            "year": 1990,
+            "value": 112.1829,
+            "index": 100
+          },
+          {
+            "year": 1991,
+            "value": 112.50168,
+            "index": 100.28416095501184
+          },
+          {
+            "year": 1992,
+            "value": 112.4955,
+            "index": 100.27865209403572
+          },
+          {
+            "year": 1993,
+            "value": 110.87711,
+            "index": 98.83601689740593
+          },
+          {
+            "year": 1994,
+            "value": 109.65357,
+            "index": 97.74535156427584
+          },
+          {
+            "year": 1995,
+            "value": 107.67664,
+            "index": 95.9831132908848
+          },
+          {
+            "year": 1996,
+            "value": 110.14479,
+            "index": 98.18322578574809
+          },
+          {
+            "year": 1997,
+            "value": 112.77289,
+            "index": 100.52591794293069
+          },
+          {
+            "year": 1998,
+            "value": 109.31273,
+            "index": 97.44152629322294
+          },
+          {
+            "year": 1999,
+            "value": 109.76568,
+            "index": 97.84528658110996
+          },
+          {
+            "year": 2000,
+            "value": 108.7679,
+            "index": 96.95586403988486
+          },
+          {
+            "year": 2001,
+            "value": 109.32097,
+            "index": 97.44887144119112
+          },
+          {
+            "year": 2002,
+            "value": 108.5346,
+            "index": 96.74790008102838
+          },
+          {
+            "year": 2003,
+            "value": 108.15362,
+            "index": 96.40829395567417
+          },
+          {
+            "year": 2004,
+            "value": 109.17269,
+            "index": 97.31669443382191
+          },
+          {
+            "year": 2005,
+            "value": 109.60997,
+            "index": 97.70648646094904
+          },
+          {
+            "year": 2006,
+            "value": 109.03034,
+            "index": 97.18980343706572
+          },
+          {
+            "year": 2007,
+            "value": 108.9587,
+            "index": 97.12594343701222
+          },
+          {
+            "year": 2008,
+            "value": 108.56997,
+            "index": 96.77942895040152
+          },
+          {
+            "year": 2009,
+            "value": 109.61264,
+            "index": 97.70886650282708
+          },
+          {
+            "year": 2010,
+            "value": 110.43533,
+            "index": 98.44221356374277
+          },
+          {
+            "year": 2011,
+            "value": 108.44263,
+            "index": 96.66591788944659
+          },
+          {
+            "year": 2012,
+            "value": 104.22885,
+            "index": 92.90974827714383
+          },
+          {
+            "year": 2013,
+            "value": 103.92875,
+            "index": 92.64223870126374
+          },
+          {
+            "year": 2014,
+            "value": 103.93407,
+            "index": 92.64698095699077
+          },
+          {
+            "year": 2015,
+            "value": 104.87835,
+            "index": 93.4887135205098
+          },
+          {
+            "year": 2016,
+            "value": 104.63264,
+            "index": 93.26968726962843
+          },
+          {
+            "year": 2017,
+            "value": 103.76122,
+            "index": 92.49290221593486
+          },
+          {
+            "year": 2018,
+            "value": 104.05795,
+            "index": 92.75740776892022
+          },
+          {
+            "year": 2019,
+            "value": 104.46459,
+            "index": 93.11988725554428
+          },
+          {
+            "year": 2020,
+            "value": 100,
+            "index": 89.14014524495266
+          },
+          {
+            "year": 2021,
+            "value": 105.22965,
+            "index": 93.80186285075534
+          },
+          {
+            "year": 2022,
+            "value": 102.21496,
+            "index": 91.11456380607027
+          },
+          {
+            "year": 2023,
+            "value": 99.92963,
+            "index": 89.07741732474379
+          },
+          {
+            "year": 2024,
+            "value": 101.50807,
+            "index": 90.48444103334822
+          },
+          {
+            "year": 2025,
+            "value": 103.0297,
+            "index": 91.840824225439
+          }
+        ]
+      },
+      {
+        "code": "FRA",
+        "name": "Francia",
+        "dash": "8 4",
+        "unit": "AMECO_2020_100",
+        "points": [
+          {
+            "year": 1960,
+            "value": 30.4801,
+            "index": 38.605905797592484
+          },
+          {
+            "year": 1961,
+            "value": 32.73238,
+            "index": 41.458629689896036
+          },
+          {
+            "year": 1962,
+            "value": 35.16343,
+            "index": 44.537782556495465
+          },
+          {
+            "year": 1963,
+            "value": 37.62739,
+            "index": 47.658619025176215
+          },
+          {
+            "year": 1964,
+            "value": 39.66235,
+            "index": 50.236086752049445
+          },
+          {
+            "year": 1965,
+            "value": 41.22791,
+            "index": 52.219015347443786
+          },
+          {
+            "year": 1966,
+            "value": 42.38545,
+            "index": 53.68514833903322
+          },
+          {
+            "year": 1967,
+            "value": 43.94161,
+            "index": 55.656170952672326
+          },
+          {
+            "year": 1968,
+            "value": 46.88697,
+            "index": 59.386745678476935
+          },
+          {
+            "year": 1969,
+            "value": 48.70208,
+            "index": 61.68575275759637
+          },
+          {
+            "year": 1970,
+            "value": 51.31576,
+            "index": 64.99622365057412
+          },
+          {
+            "year": 1971,
+            "value": 54.05449,
+            "index": 68.46508209871047
+          },
+          {
+            "year": 1972,
+            "value": 56.17125,
+            "index": 71.14615719873022
+          },
+          {
+            "year": 1973,
+            "value": 58.77501,
+            "index": 74.44406348117482
+          },
+          {
+            "year": 1974,
+            "value": 60.61362,
+            "index": 76.77283551468228
+          },
+          {
+            "year": 1975,
+            "value": 64.39673,
+            "index": 81.56449919957606
+          },
+          {
+            "year": 1976,
+            "value": 67.3201,
+            "index": 85.26722152763625
+          },
+          {
+            "year": 1977,
+            "value": 69.10265,
+            "index": 87.52498831250567
+          },
+          {
+            "year": 1978,
+            "value": 71.26589,
+            "index": 90.2649346925236
+          },
+          {
+            "year": 1979,
+            "value": 72.37931,
+            "index": 91.67518556549172
+          },
+          {
+            "year": 1980,
+            "value": 73.10609,
+            "index": 92.59572061017903
+          },
+          {
+            "year": 1981,
+            "value": 73.05256,
+            "index": 92.52791984386445
+          },
+          {
+            "year": 1982,
+            "value": 74.46426,
+            "index": 94.31597031661425
+          },
+          {
+            "year": 1983,
+            "value": 74.65857,
+            "index": 94.56208215862036
+          },
+          {
+            "year": 1984,
+            "value": 74.54407,
+            "index": 94.41705716809132
+          },
+          {
+            "year": 1985,
+            "value": 74.30433,
+            "index": 94.11340396958097
+          },
+          {
+            "year": 1986,
+            "value": 75.43781,
+            "index": 95.54906271425226
+          },
+          {
+            "year": 1987,
+            "value": 75.6298,
+            "index": 95.79223605863368
+          },
+          {
+            "year": 1988,
+            "value": 76.87639,
+            "index": 97.37115922844679
+          },
+          {
+            "year": 1989,
+            "value": 77.10701,
+            "index": 97.66326109146695
+          },
+          {
+            "year": 1990,
+            "value": 78.95191,
+            "index": 100
+          },
+          {
+            "year": 1991,
+            "value": 79.69026,
+            "index": 100.93518953499667
+          },
+          {
+            "year": 1992,
+            "value": 80.65041,
+            "index": 102.15130957566447
+          },
+          {
+            "year": 1993,
+            "value": 81.2703,
+            "index": 102.9364584086693
+          },
+          {
+            "year": 1994,
+            "value": 81.27462,
+            "index": 102.94193009390146
+          },
+          {
+            "year": 1995,
+            "value": 82.14624,
+            "index": 104.04591858512353
+          },
+          {
+            "year": 1996,
+            "value": 82.3779,
+            "index": 104.33933770569959
+          },
+          {
+            "year": 1997,
+            "value": 82.91954,
+            "index": 105.02537557356118
+          },
+          {
+            "year": 1998,
+            "value": 83.98314,
+            "index": 106.3725247432266
+          },
+          {
+            "year": 1999,
+            "value": 85.84533,
+            "index": 108.73116305862645
+          },
+          {
+            "year": 2000,
+            "value": 86.35671,
+            "index": 109.37887379798666
+          },
+          {
+            "year": 2001,
+            "value": 87.08141,
+            "index": 110.29677432756219
+          },
+          {
+            "year": 2002,
+            "value": 89.43208,
+            "index": 113.27411838421642
+          },
+          {
+            "year": 2003,
+            "value": 90.58642,
+            "index": 114.73619827563385
+          },
+          {
+            "year": 2004,
+            "value": 91.70887,
+            "index": 116.15788649064982
+          },
+          {
+            "year": 2005,
+            "value": 92.87937,
+            "index": 117.6404345379358
+          },
+          {
+            "year": 2006,
+            "value": 93.77643,
+            "index": 118.77664517552522
+          },
+          {
+            "year": 2007,
+            "value": 94.26818,
+            "index": 119.39949267851786
+          },
+          {
+            "year": 2008,
+            "value": 94.03636,
+            "index": 119.10587090293319
+          },
+          {
+            "year": 2009,
+            "value": 97.0334,
+            "index": 122.90190319651546
+          },
+          {
+            "year": 2010,
+            "value": 98.60635,
+            "index": 124.89419192011948
+          },
+          {
+            "year": 2011,
+            "value": 99.36761,
+            "index": 125.85839911916001
+          },
+          {
+            "year": 2012,
+            "value": 100.27228,
+            "index": 127.0042485355959
+          },
+          {
+            "year": 2013,
+            "value": 101.60224,
+            "index": 128.6887676308274
+          },
+          {
+            "year": 2014,
+            "value": 102.80674,
+            "index": 130.21437986744084
+          },
+          {
+            "year": 2015,
+            "value": 103.73751,
+            "index": 131.3932873821545
+          },
+          {
+            "year": 2016,
+            "value": 104.65117,
+            "index": 132.55052347688613
+          },
+          {
+            "year": 2017,
+            "value": 105.88622,
+            "index": 134.11483015420401
+          },
+          {
+            "year": 2018,
+            "value": 105.46979,
+            "index": 133.58738249650958
+          },
+          {
+            "year": 2019,
+            "value": 104.57307,
+            "index": 132.45160250081346
+          },
+          {
+            "year": 2020,
+            "value": 100,
+            "index": 126.65938037471165
+          },
+          {
+            "year": 2021,
+            "value": 103.56582,
+            "index": 131.1758258919892
+          },
+          {
+            "year": 2022,
+            "value": 103.69587,
+            "index": 131.3405464161665
+          },
+          {
+            "year": 2023,
+            "value": 101.02501,
+            "index": 127.95765168949048
+          },
+          {
+            "year": 2024,
+            "value": 101.98447,
+            "index": 129.1728977804337
+          },
+          {
+            "year": 2025,
+            "value": 103.49266,
+            "index": 131.08316188930704
+          }
+        ]
+      },
+      {
+        "code": "DEU",
+        "name": "Germania",
+        "dash": "3 4",
+        "unit": "AMECO_2020_100",
+        "points": [
+          {
+            "year": 1960,
+            "value": 31.58456,
+            "index": 40.11533462256259
+          },
+          {
+            "year": 1961,
+            "value": 33.69658,
+            "index": 42.79779684554574
+          },
+          {
+            "year": 1962,
+            "value": 35.71717,
+            "index": 45.36413444800099
+          },
+          {
+            "year": 1963,
+            "value": 36.7898,
+            "index": 46.72647450834057
+          },
+          {
+            "year": 1964,
+            "value": 38.93519,
+            "index": 49.45131974113468
+          },
+          {
+            "year": 1965,
+            "value": 41.28594,
+            "index": 52.436991311800504
+          },
+          {
+            "year": 1966,
+            "value": 42.90956,
+            "index": 54.49914001989982
+          },
+          {
+            "year": 1967,
+            "value": 43.62788,
+            "index": 55.41147336144642
+          },
+          {
+            "year": 1968,
+            "value": 45.80602,
+            "index": 58.177914146272556
+          },
+          {
+            "year": 1969,
+            "value": 49.2344,
+            "index": 62.53227624323707
+          },
+          {
+            "year": 1970,
+            "value": 55.16164,
+            "index": 70.06042341350755
+          },
+          {
+            "year": 1971,
+            "value": 58.23383,
+            "index": 73.96239101647843
+          },
+          {
+            "year": 1972,
+            "value": 60.9765,
+            "index": 77.44583751088152
+          },
+          {
+            "year": 1973,
+            "value": 63.46942,
+            "index": 80.61207823062809
+          },
+          {
+            "year": 1974,
+            "value": 65.34204,
+            "index": 82.99048014349005
+          },
+          {
+            "year": 1975,
+            "value": 66.26499,
+            "index": 84.16271265487833
+          },
+          {
+            "year": 1976,
+            "value": 68.83384,
+            "index": 87.42539155067963
+          },
+          {
+            "year": 1977,
+            "value": 71.35818,
+            "index": 90.63153859851313
+          },
+          {
+            "year": 1978,
+            "value": 73.71648,
+            "index": 93.62679937277719
+          },
+          {
+            "year": 1979,
+            "value": 73.64893,
+            "index": 93.54100457766987
+          },
+          {
+            "year": 1980,
+            "value": 73.57046,
+            "index": 93.44134036490793
+          },
+          {
+            "year": 1981,
+            "value": 72.50384,
+            "index": 92.08663356465117
+          },
+          {
+            "year": 1982,
+            "value": 71.71309,
+            "index": 91.0823073732212
+          },
+          {
+            "year": 1983,
+            "value": 71.69847,
+            "index": 91.06373861075683
+          },
+          {
+            "year": 1984,
+            "value": 71.99022,
+            "index": 91.43428829946969
+          },
+          {
+            "year": 1985,
+            "value": 72.60189,
+            "index": 92.21116620210891
+          },
+          {
+            "year": 1986,
+            "value": 75.71324,
+            "index": 96.1628706544714
+          },
+          {
+            "year": 1987,
+            "value": 77.94026,
+            "index": 98.9913935945136
+          },
+          {
+            "year": 1988,
+            "value": 78.47182,
+            "index": 99.66652433155629
+          },
+          {
+            "year": 1989,
+            "value": 77.49917,
+            "index": 98.43116818853467
+          },
+          {
+            "year": 1990,
+            "value": 78.73438,
+            "index": 100
+          },
+          {
+            "year": 1991,
+            "value": 80.99601,
+            "index": 102.872480865411
+          },
+          {
+            "year": 1992,
+            "value": 85.4912,
+            "index": 108.58179108033875
+          },
+          {
+            "year": 1993,
+            "value": 85.63014,
+            "index": 108.75825782840988
+          },
+          {
+            "year": 1994,
+            "value": 86.25413,
+            "index": 109.55078327917234
+          },
+          {
+            "year": 1995,
+            "value": 87.96166,
+            "index": 111.71950550699705
+          },
+          {
+            "year": 1996,
+            "value": 88.2819,
+            "index": 112.12624015074482
+          },
+          {
+            "year": 1997,
+            "value": 87.87589,
+            "index": 111.61056961393486
+          },
+          {
+            "year": 1998,
+            "value": 88.38284,
+            "index": 112.25444335752692
+          },
+          {
+            "year": 1999,
+            "value": 88.83026,
+            "index": 112.82270845341004
+          },
+          {
+            "year": 2000,
+            "value": 89.42874,
+            "index": 113.58283382684921
+          },
+          {
+            "year": 2001,
+            "value": 89.29375,
+            "index": 113.41138394688572
+          },
+          {
+            "year": 2002,
+            "value": 89.09929,
+            "index": 113.16440162480481
+          },
+          {
+            "year": 2003,
+            "value": 89.24884,
+            "index": 113.35434406164117
+          },
+          {
+            "year": 2004,
+            "value": 88.56068,
+            "index": 112.4803167307598
+          },
+          {
+            "year": 2005,
+            "value": 87.70402,
+            "index": 111.39227869705712
+          },
+          {
+            "year": 2006,
+            "value": 87.69142,
+            "index": 111.37627552284019
+          },
+          {
+            "year": 2007,
+            "value": 86.88201,
+            "index": 110.34824939245091
+          },
+          {
+            "year": 2008,
+            "value": 87.11721,
+            "index": 110.64697531116647
+          },
+          {
+            "year": 2009,
+            "value": 87.60068,
+            "index": 111.26102726661466
+          },
+          {
+            "year": 2010,
+            "value": 88.34197,
+            "index": 112.20253464877732
+          },
+          {
+            "year": 2011,
+            "value": 89.18348,
+            "index": 113.27133077062396
+          },
+          {
+            "year": 2012,
+            "value": 90.16304,
+            "index": 114.51546325760104
+          },
+          {
+            "year": 2013,
+            "value": 90.6047,
+            "index": 115.07641261669932
+          },
+          {
+            "year": 2014,
+            "value": 92.29445,
+            "index": 117.22255258757355
+          },
+          {
+            "year": 2015,
+            "value": 94.47202,
+            "index": 119.98826941928036
+          },
+          {
+            "year": 2016,
+            "value": 96.03175,
+            "index": 121.96927187335444
+          },
+          {
+            "year": 2017,
+            "value": 97.06598,
+            "index": 123.28284035512822
+          },
+          {
+            "year": 2018,
+            "value": 98.46735,
+            "index": 125.062710851346
+          },
+          {
+            "year": 2019,
+            "value": 100.28201,
+            "index": 127.3674981628102
+          },
+          {
+            "year": 2020,
+            "value": 100,
+            "index": 127.00931918178564
+          },
+          {
+            "year": 2021,
+            "value": 99.91849,
+            "index": 126.90579388572058
+          },
+          {
+            "year": 2022,
+            "value": 97.6672,
+            "index": 124.04644578391293
+          },
+          {
+            "year": 2023,
+            "value": 97.25221,
+            "index": 123.51936981024045
+          },
+          {
+            "year": 2024,
+            "value": 99.88729,
+            "index": 126.86616697813584
+          },
+          {
+            "year": 2025,
+            "value": 102.24223,
+            "index": 129.8571602392754
+          }
+        ]
+      },
+      {
+        "code": "ESP",
+        "name": "Spagna",
+        "dash": "10 4 2 4",
+        "unit": "AMECO_2020_100",
+        "points": [
+          {
+            "year": 1960,
+            "value": 24.48786,
+            "index": 27.051106535550684
+          },
+          {
+            "year": 1961,
+            "value": 27.15286,
+            "index": 29.995063211113287
+          },
+          {
+            "year": 1962,
+            "value": 29.69717,
+            "index": 32.80569676053194
+          },
+          {
+            "year": 1963,
+            "value": 33.37575,
+            "index": 36.86932908608206
+          },
+          {
+            "year": 1964,
+            "value": 35.55315,
+            "index": 39.274646634063316
+          },
+          {
+            "year": 1965,
+            "value": 37.40645,
+            "index": 41.32193928202586
+          },
+          {
+            "year": 1966,
+            "value": 41.26601,
+            "index": 45.585495539712326
+          },
+          {
+            "year": 1967,
+            "value": 44.75084,
+            "index": 49.43509724391526
+          },
+          {
+            "year": 1968,
+            "value": 46.32149,
+            "index": 51.170153736400216
+          },
+          {
+            "year": 1969,
+            "value": 50.19802,
+            "index": 55.45245631483125
+          },
+          {
+            "year": 1970,
+            "value": 51.76206,
+            "index": 57.180210911021476
+          },
+          {
+            "year": 1971,
+            "value": 54.59823,
+            "index": 60.313254665066665
+          },
+          {
+            "year": 1972,
+            "value": 59.71047,
+            "index": 65.96061416791026
+          },
+          {
+            "year": 1973,
+            "value": 63.4776,
+            "index": 70.12206539162965
+          },
+          {
+            "year": 1974,
+            "value": 65.40976,
+            "index": 72.25647264500866
+          },
+          {
+            "year": 1975,
+            "value": 69.35189,
+            "index": 76.61124184929969
+          },
+          {
+            "year": 1976,
+            "value": 73.5215,
+            "index": 81.21730233485039
+          },
+          {
+            "year": 1977,
+            "value": 75.31187,
+            "index": 83.19507783699936
+          },
+          {
+            "year": 1978,
+            "value": 78.89058,
+            "index": 87.14838635272268
+          },
+          {
+            "year": 1979,
+            "value": 80.57987,
+            "index": 89.01450138929347
+          },
+          {
+            "year": 1980,
+            "value": 81.64393,
+            "index": 90.18994099161961
+          },
+          {
+            "year": 1981,
+            "value": 82.56907,
+            "index": 91.2119192575971
+          },
+          {
+            "year": 1982,
+            "value": 82.0941,
+            "index": 90.68723216484213
+          },
+          {
+            "year": 1983,
+            "value": 83.2071,
+            "index": 91.91673452127786
+          },
+          {
+            "year": 1984,
+            "value": 82.95984,
+            "index": 91.64359278484272
+          },
+          {
+            "year": 1985,
+            "value": 83.70742,
+            "index": 92.46942510436133
+          },
+          {
+            "year": 1986,
+            "value": 83.83202,
+            "index": 92.60706750652835
+          },
+          {
+            "year": 1987,
+            "value": 85.02675,
+            "index": 93.92685488326191
+          },
+          {
+            "year": 1988,
+            "value": 87.17043,
+            "index": 96.29492281807242
+          },
+          {
+            "year": 1989,
+            "value": 87.667,
+            "index": 96.84347087300081
+          },
+          {
+            "year": 1990,
+            "value": 90.52443,
+            "index": 100
+          },
+          {
+            "year": 1991,
+            "value": 93.56319,
+            "index": 103.35683969509668
+          },
+          {
+            "year": 1992,
+            "value": 97.64364,
+            "index": 107.86440743123156
+          },
+          {
+            "year": 1993,
+            "value": 99.53103,
+            "index": 109.94935842180946
+          },
+          {
+            "year": 1994,
+            "value": 98.4075,
+            "index": 108.7082238463142
+          },
+          {
+            "year": 1995,
+            "value": 97.36858,
+            "index": 107.5605557527399
+          },
+          {
+            "year": 1996,
+            "value": 98.41953,
+            "index": 108.72151307663577
+          },
+          {
+            "year": 1997,
+            "value": 98.3911,
+            "index": 108.6901071898492
+          },
+          {
+            "year": 1998,
+            "value": 99.15037,
+            "index": 109.52885315046998
+          },
+          {
+            "year": 1999,
+            "value": 98.91683,
+            "index": 109.27086754371169
+          },
+          {
+            "year": 2000,
+            "value": 97.84094,
+            "index": 108.08235964589892
+          },
+          {
+            "year": 2001,
+            "value": 97.11401,
+            "index": 107.27933884808776
+          },
+          {
+            "year": 2002,
+            "value": 97.80104,
+            "index": 108.03828314632857
+          },
+          {
+            "year": 2003,
+            "value": 96.62065,
+            "index": 106.73433679726014
+          },
+          {
+            "year": 2004,
+            "value": 95.87652,
+            "index": 105.91231560364425
+          },
+          {
+            "year": 2005,
+            "value": 95.11927,
+            "index": 105.07580108485632
+          },
+          {
+            "year": 2006,
+            "value": 95.13144,
+            "index": 105.08924496956236
+          },
+          {
+            "year": 2007,
+            "value": 95.74488,
+            "index": 105.76689629528737
+          },
+          {
+            "year": 2008,
+            "value": 98.773,
+            "index": 109.11198225716528
+          },
+          {
+            "year": 2009,
+            "value": 103.72166,
+            "index": 114.57863915851225
+          },
+          {
+            "year": 2010,
+            "value": 102.98776,
+            "index": 113.76791878170344
+          },
+          {
+            "year": 2011,
+            "value": 100.65662,
+            "index": 111.1927686261046
+          },
+          {
+            "year": 2012,
+            "value": 97.52695,
+            "index": 107.73550300178638
+          },
+          {
+            "year": 2013,
+            "value": 96.47404,
+            "index": 106.5723805165081
+          },
+          {
+            "year": 2014,
+            "value": 96.55116,
+            "index": 106.65757298886058
+          },
+          {
+            "year": 2015,
+            "value": 97.76863,
+            "index": 108.0024806563267
+          },
+          {
+            "year": 2016,
+            "value": 97.52693,
+            "index": 107.73548090830288
+          },
+          {
+            "year": 2017,
+            "value": 96.78066,
+            "index": 106.91109571195312
+          },
+          {
+            "year": 2018,
+            "value": 97.07323,
+            "index": 107.23429023524369
+          },
+          {
+            "year": 2019,
+            "value": 99.33146,
+            "index": 109.72889859676556
+          },
+          {
+            "year": 2020,
+            "value": 100,
+            "index": 110.46741746951625
+          },
+          {
+            "year": 2021,
+            "value": 102.54099,
+            "index": 113.27438350067489
+          },
+          {
+            "year": 2022,
+            "value": 100.67658,
+            "index": 111.21481792263151
+          },
+          {
+            "year": 2023,
+            "value": 100.59834,
+            "index": 111.12838821520334
+          },
+          {
+            "year": 2024,
+            "value": 101.95847,
+            "index": 112.6308887004315
+          },
+          {
+            "year": 2025,
+            "value": 103.49933,
+            "index": 114.33303694925227
+          }
+        ]
+      },
+      {
+        "code": "NLD",
+        "name": "Paesi Bassi",
+        "dash": "12 5",
+        "unit": "AMECO_2020_100",
+        "points": [
+          {
+            "year": 1960,
+            "value": 38.331,
+            "index": 45.24475083694114
+          },
+          {
+            "year": 1961,
+            "value": 39.89262,
+            "index": 47.08803976240574
+          },
+          {
+            "year": 1962,
+            "value": 41.17338,
+            "index": 48.59981005490844
+          },
+          {
+            "year": 1963,
+            "value": 43.11777,
+            "index": 50.89490908910634
+          },
+          {
+            "year": 1964,
+            "value": 46.77804,
+            "index": 55.21538087815255
+          },
+          {
+            "year": 1965,
+            "value": 49.8999,
+            "index": 58.9003298189006
+          },
+          {
+            "year": 1966,
+            "value": 52.10713,
+            "index": 61.50567722412929
+          },
+          {
+            "year": 1967,
+            "value": 54.7629,
+            "index": 64.6404676530308
+          },
+          {
+            "year": 1968,
+            "value": 57.59311,
+            "index": 67.98116177179156
+          },
+          {
+            "year": 1969,
+            "value": 61.03055,
+            "index": 72.03861178136435
+          },
+          {
+            "year": 1970,
+            "value": 65.77436,
+            "index": 77.6380613513675
+          },
+          {
+            "year": 1971,
+            "value": 69.58621,
+            "index": 82.13745357901074
+          },
+          {
+            "year": 1972,
+            "value": 72.98181,
+            "index": 86.14551692048154
+          },
+          {
+            "year": 1973,
+            "value": 76.77851,
+            "index": 90.62702654722268
+          },
+          {
+            "year": 1974,
+            "value": 81.1492,
+            "index": 95.78605657606384
+          },
+          {
+            "year": 1975,
+            "value": 83.75552,
+            "index": 98.86247772347289
+          },
+          {
+            "year": 1976,
+            "value": 84.52694,
+            "index": 99.77303851475496
+          },
+          {
+            "year": 1977,
+            "value": 86.1467,
+            "index": 101.68495413437468
+          },
+          {
+            "year": 1978,
+            "value": 88.55369,
+            "index": 104.52609219017832
+          },
+          {
+            "year": 1979,
+            "value": 89.01567,
+            "index": 105.07139938257222
+          },
+          {
+            "year": 1980,
+            "value": 87.39943,
+            "index": 103.16363866428419
+          },
+          {
+            "year": 1981,
+            "value": 85.2869,
+            "index": 100.67007226931504
+          },
+          {
+            "year": 1982,
+            "value": 85.3081,
+            "index": 100.69509610688105
+          },
+          {
+            "year": 1983,
+            "value": 85.15122,
+            "index": 100.5099197088925
+          },
+          {
+            "year": 1984,
+            "value": 82.67319,
+            "index": 97.58492818984877
+          },
+          {
+            "year": 1985,
+            "value": 81.91334,
+            "index": 96.68802427595531
+          },
+          {
+            "year": 1986,
+            "value": 83.55937,
+            "index": 98.63094820750237
+          },
+          {
+            "year": 1987,
+            "value": 84.99774,
+            "index": 100.32875656787206
+          },
+          {
+            "year": 1988,
+            "value": 84.9334,
+            "index": 100.25281158159859
+          },
+          {
+            "year": 1989,
+            "value": 83.64184,
+            "index": 98.7282932963736
+          },
+          {
+            "year": 1990,
+            "value": 84.71922,
+            "index": 100
+          },
+          {
+            "year": 1991,
+            "value": 85.0722,
+            "index": 100.41664689547423
+          },
+          {
+            "year": 1992,
+            "value": 86.26095,
+            "index": 101.819811372201
+          },
+          {
+            "year": 1993,
+            "value": 86.76369,
+            "index": 102.41323043342464
+          },
+          {
+            "year": 1994,
+            "value": 86.33507,
+            "index": 101.90730037410636
+          },
+          {
+            "year": 1995,
+            "value": 85.51783,
+            "index": 100.94265504333018
+          },
+          {
+            "year": 1996,
+            "value": 85.64109,
+            "index": 101.08814741212207
+          },
+          {
+            "year": 1997,
+            "value": 85.57698,
+            "index": 101.01247391087878
+          },
+          {
+            "year": 1998,
+            "value": 87.27784,
+            "index": 103.02011751288549
+          },
+          {
+            "year": 1999,
+            "value": 88.99855,
+            "index": 105.05119145336795
+          },
+          {
+            "year": 2000,
+            "value": 91.16032,
+            "index": 107.60287925219329
+          },
+          {
+            "year": 2001,
+            "value": 90.81377,
+            "index": 107.19382213386761
+          },
+          {
+            "year": 2002,
+            "value": 91.39063,
+            "index": 107.87473019699661
+          },
+          {
+            "year": 2003,
+            "value": 92.01511,
+            "index": 108.61184746507344
+          },
+          {
+            "year": 2004,
+            "value": 93.58238,
+            "index": 110.46180547932335
+          },
+          {
+            "year": 2005,
+            "value": 92.9539,
+            "index": 109.71996673246048
+          },
+          {
+            "year": 2006,
+            "value": 91.68948,
+            "index": 108.22748368079876
+          },
+          {
+            "year": 2007,
+            "value": 92.28889,
+            "index": 108.93500908058407
+          },
+          {
+            "year": 2008,
+            "value": 93.86764,
+            "index": 110.79851773894988
+          },
+          {
+            "year": 2009,
+            "value": 97.27243,
+            "index": 114.81742867793163
+          },
+          {
+            "year": 2010,
+            "value": 96.42909,
+            "index": 113.82197569807653
+          },
+          {
+            "year": 2011,
+            "value": 95.64516,
+            "index": 112.89664848189112
+          },
+          {
+            "year": 2012,
+            "value": 96.60381,
+            "index": 114.02820989145084
+          },
+          {
+            "year": 2013,
+            "value": 96.43888,
+            "index": 113.83353151740536
+          },
+          {
+            "year": 2014,
+            "value": 97.19673,
+            "index": 114.7280746919058
+          },
+          {
+            "year": 2015,
+            "value": 96.93947,
+            "index": 114.42441278378152
+          },
+          {
+            "year": 2016,
+            "value": 98.20022,
+            "index": 115.91256387865705
+          },
+          {
+            "year": 2017,
+            "value": 97.06711,
+            "index": 114.5750751718441
+          },
+          {
+            "year": 2018,
+            "value": 97.24148,
+            "index": 114.78089623582464
+          },
+          {
+            "year": 2019,
+            "value": 97.94498,
+            "index": 115.61128631731972
+          },
+          {
+            "year": 2020,
+            "value": 100,
+            "index": 118.03696965104258
+          },
+          {
+            "year": 2021,
+            "value": 98.37451,
+            "index": 116.11829051306184
+          },
+          {
+            "year": 2022,
+            "value": 94.82956,
+            "index": 111.93393895741721
+          },
+          {
+            "year": 2023,
+            "value": 94.21568,
+            "index": 111.2093336081234
+          },
+          {
+            "year": 2024,
+            "value": 97.94944,
+            "index": 115.61655076616614
+          },
+          {
+            "year": 2025,
+            "value": 100.03998,
+            "index": 118.08416083150905
+          }
+        ]
+      },
+      {
+        "code": "USA",
+        "name": "Stati Uniti",
+        "dash": "6 3 2 3",
+        "unit": "AMECO_2020_100",
+        "points": [
+          {
+            "year": 1960,
+            "value": 40.01902,
+            "index": 63.89531130727229
+          },
+          {
+            "year": 1961,
+            "value": 40.77124,
+            "index": 65.09632350276223
+          },
+          {
+            "year": 1962,
+            "value": 42.25681,
+            "index": 67.46821960663347
+          },
+          {
+            "year": 1963,
+            "value": 43.79089,
+            "index": 69.91756792076659
+          },
+          {
+            "year": 1964,
+            "value": 44.99631,
+            "index": 71.84216992641322
+          },
+          {
+            "year": 1965,
+            "value": 46.21651,
+            "index": 73.79037002869292
+          },
+          {
+            "year": 1966,
+            "value": 47.6334,
+            "index": 76.05261002452893
+          },
+          {
+            "year": 1967,
+            "value": 48.53655,
+            "index": 77.49460061818073
+          },
+          {
+            "year": 1968,
+            "value": 50.10551,
+            "index": 79.99963916306908
+          },
+          {
+            "year": 1969,
+            "value": 51.41224,
+            "index": 82.08599510443275
+          },
+          {
+            "year": 1970,
+            "value": 52.15284,
+            "index": 83.26845453382822
+          },
+          {
+            "year": 1971,
+            "value": 53.17889,
+            "index": 84.90667016646557
+          },
+          {
+            "year": 1972,
+            "value": 54.89461,
+            "index": 87.64602918915311
+          },
+          {
+            "year": 1973,
+            "value": 55.94996,
+            "index": 89.3310258929237
+          },
+          {
+            "year": 1974,
+            "value": 54.3945,
+            "index": 86.8475417664756
+          },
+          {
+            "year": 1975,
+            "value": 54.24717,
+            "index": 86.61231121323115
+          },
+          {
+            "year": 1976,
+            "value": 55.02197,
+            "index": 87.8493751693419
+          },
+          {
+            "year": 1977,
+            "value": 55.512,
+            "index": 88.63176862625069
+          },
+          {
+            "year": 1978,
+            "value": 56.26743,
+            "index": 89.83790598345865
+          },
+          {
+            "year": 1979,
+            "value": 56.44715,
+            "index": 90.12485117472379
+          },
+          {
+            "year": 1980,
+            "value": 55.80345,
+            "index": 89.09710457102157
+          },
+          {
+            "year": 1981,
+            "value": 55.94521,
+            "index": 89.32344193087994
+          },
+          {
+            "year": 1982,
+            "value": 56.53968,
+            "index": 90.27258675533675
+          },
+          {
+            "year": 1983,
+            "value": 57.01509,
+            "index": 91.03163757538658
+          },
+          {
+            "year": 1984,
+            "value": 58.03306,
+            "index": 92.65695248943155
+          },
+          {
+            "year": 1985,
+            "value": 59.05297,
+            "index": 94.28536485323757
+          },
+          {
+            "year": 1986,
+            "value": 60.12362,
+            "index": 95.9947898979071
+          },
+          {
+            "year": 1987,
+            "value": 60.9275,
+            "index": 97.27828366796169
+          },
+          {
+            "year": 1988,
+            "value": 62.18792,
+            "index": 99.2906999709574
+          },
+          {
+            "year": 1989,
+            "value": 62.17414,
+            "index": 99.26869849791248
+          },
+          {
+            "year": 1990,
+            "value": 62.63217,
+            "index": 100
+          },
+          {
+            "year": 1991,
+            "value": 63.3901,
+            "index": 101.21012891617838
+          },
+          {
+            "year": 1992,
+            "value": 65.08663,
+            "index": 103.91884873220903
+          },
+          {
+            "year": 1993,
+            "value": 65.42989,
+            "index": 104.46690574508276
+          },
+          {
+            "year": 1994,
+            "value": 65.76019,
+            "index": 104.99427051625385
+          },
+          {
+            "year": 1995,
+            "value": 66.45685,
+            "index": 106.10657430518533
+          },
+          {
+            "year": 1996,
+            "value": 67.4737,
+            "index": 107.73010100081154
+          },
+          {
+            "year": 1997,
+            "value": 69.09406,
+            "index": 110.31720599813161
+          },
+          {
+            "year": 1998,
+            "value": 72.59253,
+            "index": 115.90294572262145
+          },
+          {
+            "year": 1999,
+            "value": 74.57905,
+            "index": 119.07467041298425
+          },
+          {
+            "year": 2000,
+            "value": 77.1355,
+            "index": 123.15635878495029
+          },
+          {
+            "year": 2001,
+            "value": 78.23404,
+            "index": 124.91031366149375
+          },
+          {
+            "year": 2002,
+            "value": 79.06693,
+            "index": 126.24012548184102
+          },
+          {
+            "year": 2003,
+            "value": 80.38647,
+            "index": 128.34693417136913
+          },
+          {
+            "year": 2004,
+            "value": 82.10074,
+            "index": 131.08397808985382
+          },
+          {
+            "year": 2005,
+            "value": 82.77588,
+            "index": 132.16192253916796
+          },
+          {
+            "year": 2006,
+            "value": 83.75153,
+            "index": 133.71966834296177
+          },
+          {
+            "year": 2007,
+            "value": 85.10372,
+            "index": 135.87860679264344
+          },
+          {
+            "year": 2008,
+            "value": 84.88124,
+            "index": 135.52338997674838
+          },
+          {
+            "year": 2009,
+            "value": 85.74966,
+            "index": 136.90992983318318
+          },
+          {
+            "year": 2010,
+            "value": 86.56975,
+            "index": 138.21930487160193
+          },
+          {
+            "year": 2011,
+            "value": 86.64764,
+            "index": 138.34366588288412
+          },
+          {
+            "year": 2012,
+            "value": 86.88851,
+            "index": 138.7282446065656
+          },
+          {
+            "year": 2013,
+            "value": 86.78544,
+            "index": 138.56368061333336
+          },
+          {
+            "year": 2014,
+            "value": 87.78611,
+            "index": 140.16137393930305
+          },
+          {
+            "year": 2015,
+            "value": 89.97618,
+            "index": 143.65809136103698
+          },
+          {
+            "year": 2016,
+            "value": 90.17432,
+            "index": 143.97444635879611
+          },
+          {
+            "year": 2017,
+            "value": 91.26142,
+            "index": 145.71013586149098
+          },
+          {
+            "year": 2018,
+            "value": 92.48122,
+            "index": 147.65769731433542
+          },
+          {
+            "year": 2019,
+            "value": 93.91864,
+            "index": 149.95271599243648
+          },
+          {
+            "year": 2020,
+            "value": 100,
+            "index": 159.66235881656343
+          },
+          {
+            "year": 2021,
+            "value": 100.94289,
+            "index": 161.16779923160894
+          },
+          {
+            "year": 2022,
+            "value": 97.50181,
+            "index": 155.67368973484395
+          },
+          {
+            "year": 2023,
+            "value": 97.37117,
+            "index": 155.465106829286
+          },
+          {
+            "year": 2024,
+            "value": 99.22763,
+            "index": 158.42917465577196
+          },
+          {
+            "year": 2025,
+            "value": 101.20226,
+            "index": 161.58191549167145
+          }
+        ]
       }
     ]
   }
