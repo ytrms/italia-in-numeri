@@ -14,8 +14,7 @@
   "sources": {
     "oecd": "https://www.oecd.org/en/data/indicators/average-annual-wages.html",
     "ameco": "https://economy-finance.ec.europa.eu/economic-research-and-databases/economic-databases/ameco-database_en",
-    "amecoMetadata": "https://economy-finance.ec.europa.eu/document/download/ae8a3bbf-7a9c-446c-a91e-e4e4f721c21d_en?filename=Reference_Metadata_AMECO.pdf",
-    "china": "https://www.stats.gov.cn/english/PressRelease/202605/t20260518_1963740.html"
+    "amecoMetadata": "https://economy-finance.ec.europa.eu/document/download/ae8a3bbf-7a9c-446c-a91e-e4e4f721c21d_en?filename=Reference_Metadata_AMECO.pdf"
   },
   "series": {
     "oecd": [
