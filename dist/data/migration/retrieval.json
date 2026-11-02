@@ -1,0 +1,20 @@
+{
+  "retrievedAt": "2026-11-02T19:22:37.166766+00:00",
+  "sources": {
+    "2025": {
+      "url": "https://static.cnel.it/documenti/2025/8d714221-5082-45b2-81d2-2c6af468e749/Cnel_Rapporto_Giovani_2025.11.25.pdf",
+      "sha256": "84fc0aca976c835051fe8919c87351878a86c84f6e63c1cbbf46dc68b6a2eb85",
+      "printedPage": 125,
+      "pdfPage": 127,
+      "table": 6
+    },
+    "2026": {
+      "url": "https://www.cnel.it/media/docs/default-source/news-documents/rapporto-cnel_giovani-expat_2026-ultima-vers.pdf",
+      "sha256": "0c0e35fb510c8bdbd13f1e15730215dc5b365cc1f4bcf16180ec132519bf4cb0",
+      "printedPage": 17,
+      "pdfPage": 17,
+      "figure": 2
+    }
+  },
+  "extraction": "pdfplumber 0.11.9; published table cells and figure labels, no chart digitisation"
+}

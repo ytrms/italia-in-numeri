@@ -1,0 +1,94 @@
+{
+  "period": {
+    "firstYear": 2011,
+    "lastYear": 2023
+  },
+  "age": {
+    "min": 20,
+    "max": 34
+  },
+  "unit": "percent",
+  "precision": {
+    "shares": 1,
+    "publishedIsfm": 3
+  },
+  "observations": [
+    {
+      "code": "BEL",
+      "name": "Belgio",
+      "departures": 6.6,
+      "arrivals": 8.3,
+      "isfm": 0.801
+    },
+    {
+      "code": "DNK",
+      "name": "Danimarca",
+      "departures": 1.9,
+      "arrivals": 3.2,
+      "isfm": 0.59
+    },
+    {
+      "code": "DEU",
+      "name": "Germania",
+      "departures": 20.3,
+      "arrivals": 20.0,
+      "isfm": 1.019
+    },
+    {
+      "code": "ESP",
+      "name": "Spagna",
+      "departures": 16.8,
+      "arrivals": 15.4,
+      "isfm": 1.088
+    },
+    {
+      "code": "FRA",
+      "name": "Francia",
+      "departures": 12.7,
+      "arrivals": 15.1,
+      "isfm": 0.844
+    },
+    {
+      "code": "ITA",
+      "name": "Italia",
+      "departures": 26.9,
+      "arrivals": 1.9,
+      "isfm": 14.52
+    },
+    {
+      "code": "NLD",
+      "name": "Paesi Bassi",
+      "departures": 7.0,
+      "arrivals": 9.9,
+      "isfm": 0.713
+    },
+    {
+      "code": "AUT",
+      "name": "Austria",
+      "departures": 2.5,
+      "arrivals": 6.4,
+      "isfm": 0.39
+    },
+    {
+      "code": "SWE",
+      "name": "Svezia",
+      "departures": 3.3,
+      "arrivals": 3.4,
+      "isfm": 0.965
+    },
+    {
+      "code": "CHE",
+      "name": "Svizzera",
+      "departures": 4.3,
+      "arrivals": 14.7,
+      "isfm": 0.295
+    },
+    {
+      "code": "GBR",
+      "name": "Regno Unito",
+      "departures": 6.6,
+      "arrivals": 16.9,
+      "isfm": 0.388
+    }
+  ]
+}

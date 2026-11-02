@@ -1,6 +1,6 @@
 # italia in numeri
 
-A minimal Italian-language website about public spending, G7 pension spending, regional balances, real wages and equity investment in young businesses. Static HTML, CSS and JavaScript; no runtime dependencies, third-party fonts, tracking or external requests on page load. Charts, map, tables, sources and category details work without JavaScript. JavaScript adds the unit switch, interactive regional selection and chart year controls.
+A minimal Italian-language website about public spending, G7 pension spending, regional balances, real wages, equity investment in young businesses and the CNEL youth migration comparison. Static HTML, CSS and JavaScript; no runtime dependencies, third-party fonts, tracking or external requests on page load. Charts, map, tables, sources and category details work without JavaScript. JavaScript adds the unit switch, interactive regional selection and chart year controls.
 
 ## Local development
 
@@ -100,9 +100,31 @@ npm run refresh-venture-data
 npm run check
 ```
 
+## Youth migration comparison
+
+“Quali paesi attirano i giovani” follows the new-business investment section. It reproduces the eleven-country scatter chart in CNEL’s September 2026 *Giovani expat. Come farli tornare*, figure 2, p. 17: ages **20–34**, annual averages over **2011–2023**. Both axes use an identical 0–30% scale, with departures by citizenship on x and arrivals by destination on y. Italy is highlighted; hover, click/tap, focus/arrows, or the country selector update the detail panel. Static points, the Italian readout, source notes and full table work without JavaScript.
+
+The shares come from **table 6, printed p. 125 (PDF page 127)** of the 2025 CNEL report; the published ISFM index comes from the numerical labels in the 2026 chart. These are extracted from PDF text cells, never estimated from image coordinates. One decimal is preserved for the shares; the CSV retains three decimals for ISFM. The index is not recalculated from already rounded shares.
+
+This is a reproduction of the historical CNEL comparison, not an independent reconstruction from Eurostat or a complete migration balance. CNEL includes thirteen citizenships and eleven European destinations. It uses annual averages over available years and supplements gaps for Austria, France and the UK with emigration data, approximating citizenship with origin. UK series cited by the report stop in 2019. The published destination shares sum to **115.2%**, and the eleven plotted citizenship shares to **108.9%**. Preserve and disclose these source aggregates; do not silently normalise them to 100 or present them as population emigration rates. This limitation is visible next to the chart and detailed in `#metodo-giovani`.
+
+Original PDFs, extracted table/method/figure text, recovered observations and retrieval metadata with source hashes live in `dist/data/migration/`. `src/migration-data.mjs` validates age, period, units, unique countries, numeric values and compatibility between the rounded shares and the published index. The normal Node build reads the recovered JSON and creates `migration.json` and `migrazioni-giovani.csv` without Python or network access.
+
+For source recovery only, use Python with `pdfplumber==0.11.9`:
+
+```sh
+python3 scripts/recover-migration-data.py
+# Or reuse the preserved PDFs:
+python3 scripts/recover-migration-data.py --snapshot-dir dist/data/migration
+npm run build
+npm run check
+```
+
+The helper pins the reviewed PDF fingerprints and table cell positions. Source revisions require reviewing the reports, updating the extractor, and verifying the values and caveats together. Recovery does not deploy.
+
 ## Design direction
 
-Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal neutral palette and restrained typography, with color identifying country lines and regional balances. Do not use eyebrows (small introductory labels above headings) anywhere on this website. Do not end section titles with periods; retain question marks where appropriate. The main sections, in order, are “A cosa vanno le tue tasse”, “Quanto spendiamo in pensioni”, “Il potere d'acquisto del tuo stipendio”, “Quanto investiamo nelle nuove imprese” and “Quanto contribuiscono le regioni al bilancio”. They are equal peer sections: share their heading scale, spacing, dividers and right-aligned chevron. All five start expanded and collapse independently using native details/summary, including without JavaScript. Retain chart selections when collapsing. Keep generic introductory copy absent and the spending chart helper sentence visually hidden. Show retrieval notes in the sources section. The default spending chart unit is billions of euros. Do not add a spending-total callout, header sources link, generic sources introduction or footer tagline.
+Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal neutral palette and restrained typography, with color identifying country lines and regional balances. Do not use eyebrows (small introductory labels above headings) anywhere on this website. Do not end section titles with periods; retain question marks where appropriate. The main sections, in order, are “A cosa vanno le tue tasse”, “Quanto spendiamo in pensioni”, “Il potere d'acquisto del tuo stipendio”, “Quanto investiamo nelle nuove imprese”, “Quali paesi attirano i giovani” and “Quanto contribuiscono le regioni al bilancio”. They are equal peer sections: share their heading scale, spacing, dividers and right-aligned chevron. All six start expanded and collapse independently using native details/summary, including without JavaScript. Retain chart selections when collapsing. Keep generic introductory copy absent and the spending chart helper sentence visually hidden. Show retrieval notes in the sources section. The default spending chart unit is billions of euros. Do not add a spending-total callout, header sources link, generic sources introduction or footer tagline.
 
 ## Section navigation
 

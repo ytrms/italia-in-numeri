@@ -1,0 +1,146 @@
+{
+  "retrievedAt": "2026-11-02T19:22:37.166766+00:00",
+  "sources": {
+    "2025": {
+      "url": "https://static.cnel.it/documenti/2025/8d714221-5082-45b2-81d2-2c6af468e749/Cnel_Rapporto_Giovani_2025.11.25.pdf",
+      "sha256": "84fc0aca976c835051fe8919c87351878a86c84f6e63c1cbbf46dc68b6a2eb85",
+      "printedPage": 125,
+      "pdfPage": 127,
+      "table": 6
+    },
+    "2026": {
+      "url": "https://www.cnel.it/media/docs/default-source/news-documents/rapporto-cnel_giovani-expat_2026-ultima-vers.pdf",
+      "sha256": "0c0e35fb510c8bdbd13f1e15730215dc5b365cc1f4bcf16180ec132519bf4cb0",
+      "printedPage": 17,
+      "pdfPage": 17,
+      "figure": 2
+    },
+    "table": "https://static.cnel.it/documenti/2025/8d714221-5082-45b2-81d2-2c6af468e749/Cnel_Rapporto_Giovani_2025.11.25.pdf#page=127",
+    "figure": "https://www.cnel.it/media/docs/default-source/news-documents/rapporto-cnel_giovani-expat_2026-ultima-vers.pdf#page=17"
+  },
+  "extraction": "pdfplumber 0.11.9; published table cells and figure labels, no chart digitisation",
+  "period": {
+    "firstYear": 2011,
+    "lastYear": 2023
+  },
+  "age": {
+    "min": 20,
+    "max": 34
+  },
+  "countries": [
+    {
+      "code": "BEL",
+      "name": "Belgio",
+      "short": "BE",
+      "dx": 14,
+      "dy": 15,
+      "departures": 6.6,
+      "arrivals": 8.3,
+      "isfm": 0.801
+    },
+    {
+      "code": "DNK",
+      "name": "Danimarca",
+      "short": "DK",
+      "dx": 12,
+      "dy": -22,
+      "departures": 1.9,
+      "arrivals": 3.2,
+      "isfm": 0.59
+    },
+    {
+      "code": "DEU",
+      "name": "Germania",
+      "short": "DE",
+      "dx": 14,
+      "dy": 16,
+      "departures": 20.3,
+      "arrivals": 20,
+      "isfm": 1.019
+    },
+    {
+      "code": "ESP",
+      "name": "Spagna",
+      "short": "ES",
+      "dx": 14,
+      "dy": 15,
+      "departures": 16.8,
+      "arrivals": 15.4,
+      "isfm": 1.088
+    },
+    {
+      "code": "FRA",
+      "name": "Francia",
+      "short": "FR",
+      "dx": 0,
+      "dy": -20,
+      "departures": 12.7,
+      "arrivals": 15.1,
+      "isfm": 0.844
+    },
+    {
+      "code": "ITA",
+      "name": "Italia",
+      "short": "IT",
+      "dx": -14,
+      "dy": -18,
+      "departures": 26.9,
+      "arrivals": 1.9,
+      "isfm": 14.52
+    },
+    {
+      "code": "NLD",
+      "name": "Paesi Bassi",
+      "short": "NL",
+      "dx": 14,
+      "dy": -13,
+      "departures": 7,
+      "arrivals": 9.9,
+      "isfm": 0.713
+    },
+    {
+      "code": "AUT",
+      "name": "Austria",
+      "short": "AT",
+      "dx": 14,
+      "dy": -14,
+      "departures": 2.5,
+      "arrivals": 6.4,
+      "isfm": 0.39
+    },
+    {
+      "code": "SWE",
+      "name": "Svezia",
+      "short": "SE",
+      "dx": 14,
+      "dy": 17,
+      "departures": 3.3,
+      "arrivals": 3.4,
+      "isfm": 0.965
+    },
+    {
+      "code": "CHE",
+      "name": "Svizzera",
+      "short": "CH",
+      "dx": -12,
+      "dy": 15,
+      "departures": 4.3,
+      "arrivals": 14.7,
+      "isfm": 0.295
+    },
+    {
+      "code": "GBR",
+      "name": "Regno Unito",
+      "short": "GB",
+      "dx": 0,
+      "dy": -20,
+      "departures": 6.6,
+      "arrivals": 16.9,
+      "isfm": 0.388
+    }
+  ],
+  "totals": {
+    "departures": 108.9,
+    "arrivals": 115.2
+  }
+}

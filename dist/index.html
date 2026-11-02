@@ -8,9 +8,9 @@
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" />
     <script src="./theme.js"></script>
     <title>Italia in Numeri</title>
-    <meta name="description" content="Spesa pubblica, pensioni nel G7, salari reali, investimenti nelle nuove imprese e saldi regionali. Grafici interattivi, dati scaricabili e fonti verificabili." />
+    <meta name="description" content="Spesa pubblica, pensioni nel G7, salari reali, nuove imprese, migrazioni dei giovani e saldi regionali. Grafici interattivi, dati scaricabili e fonti verificabili." />
     <meta property="og:title" content="Italia in Numeri" />
-    <meta property="og:description" content="Spesa pubblica, pensioni nel G7, salari reali, nuove imprese e saldi regionali. Dati Eurostat, CPT, OCSE e Commissione europea, in chiaro." />
+    <meta property="og:description" content="Spesa pubblica, pensioni nel G7, salari reali, nuove imprese, migrazioni dei giovani e saldi regionali. Dati Eurostat, CPT, OCSE, CNEL e Commissione europea, in chiaro." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta property="og:url" content="https://italia.lorenzogravina.com/" />
@@ -19,9 +19,11 @@
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./pensions.css" />
     <link rel="stylesheet" href="./venture.css" />
+    <link rel="stylesheet" href="./migration.css" />
     <script type="module" src="./app.js"></script>
     <script type="module" src="./pensions.js"></script>
     <script type="module" src="./venture.js"></script>
+    <script type="module" src="./migration.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#grafico">Vai al grafico</a>
@@ -38,6 +40,7 @@
           <li><a href="#pensioni">Quanto spendiamo in pensioni</a></li>
           <li><a href="#salari">Il potere d'acquisto del tuo stipendio</a></li>
           <li><a href="#nuove-imprese">Quanto investiamo nelle nuove imprese</a></li>
+          <li><a href="#giovani">Quali paesi attirano i giovani</a></li>
           <li><a href="#regioni">Quanto contribuiscono le regioni al bilancio</a></li>
           <li><a href="#fonti">Fonti e metodo</a></li>
         </ul>
@@ -351,6 +354,45 @@
   </div></div>
         </details>
 
+        <details class="stat-section" id="giovani" open>
+          <summary class="section-heading">
+            <h2 id="migration-title"><span>Quali paesi attirano i giovani</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
+          </summary>
+          <div class="section-content"><div class="migration-view">
+    <p class="migration-definition">Giovani di 20–34 anni · medie 2011–2023. Confronto CNEL delle quote di partenze e arrivi tra alcuni paesi europei. Le percentuali riguardano i flussi studiati, non la popolazione giovane. <a href="#metodo-giovani">Metodo e limiti</a></p>
+    <div class="migration-layout">
+      <div class="migration-chart" role="group" aria-label="Confronto CNEL tra quote di partenze e arrivi dei giovani. Italia evidenziata; tabella con tutti i valori sotto il grafico.">
+        <p class="migration-y-title">Arrivi · quota CNEL (%)</p>
+        <div class="migration-plot">
+          <svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <path class="migration-attract-zone" d="M0,0H600L0,600Z" /><path class="migration-leave-zone" d="M0,600L600,0V600Z" />
+            <path class="migration-grid" d="M0,0V600M0,0H600" /><path class="migration-grid" d="M100,0V600M0,100H600" /><path class="migration-grid" d="M200,0V600M0,200H600" /><path class="migration-grid" d="M300,0V600M0,300H600" /><path class="migration-grid" d="M400,0V600M0,400H600" /><path class="migration-grid" d="M500,0V600M0,500H600" /><path class="migration-grid" d="M600,0V600M0,600H600" />
+            <path class="migration-equilibrium" d="M0,600L600,0" />
+          </svg>
+          <span class="migration-zone-label migration-attract-label">Più arrivi<br />che partenze</span>
+          <span class="migration-zone-label migration-leave-label">Più partenze<br />che arrivi</span>
+          <div class="migration-y-axis" aria-hidden="true"><span style="top:100%">0%</span><span style="top:83.33333333333334%">5%</span><span style="top:66.66666666666666%">10%</span><span style="top:50%">15%</span><span style="top:33.33333333333333%">20%</span><span style="top:16.666666666666664%">25%</span><span style="top:0%">30%</span></div>
+          <div class="migration-x-axis" aria-hidden="true"><span style="left:0%">0%</span><span style="left:16.666666666666664%">5%</span><span style="left:33.33333333333333%">10%</span><span style="left:50%">15%</span><span style="left:66.66666666666666%">20%</span><span style="left:83.33333333333334%">25%</span><span style="left:100%">30%</span></div>
+          <div class="migration-country" data-migration-country="BEL" data-name="Belgio" data-departures="6.6" data-arrivals="8.3" data-isfm="0.801" style="left:22%;top:72.33333333333333%;--label-x:14px;--label-y:15px"><button class="migration-dot" type="button" disabled aria-label="Belgio: partenze 6,6%, arrivi 8,3%, confronto CNEL" aria-pressed="false"><span></span></button><span class="migration-country-label" aria-hidden="true"><span class="migration-country-name">Belgio</span><span class="migration-country-short">BE</span></span></div><div class="migration-country" data-migration-country="DNK" data-name="Danimarca" data-departures="1.9" data-arrivals="3.2" data-isfm="0.59" style="left:6.333333333333332%;top:89.33333333333333%;--label-x:12px;--label-y:-22px"><button class="migration-dot" type="button" disabled aria-label="Danimarca: partenze 1,9%, arrivi 3,2%, confronto CNEL" aria-pressed="false"><span></span></button><span class="migration-country-label" aria-hidden="true"><span class="migration-country-name">Danimarca</span><span class="migration-country-short">DK</span></span></div><div class="migration-country" data-migration-country="DEU" data-name="Germania" data-departures="20.3" data-arrivals="20" data-isfm="1.019" style="left:67.66666666666666%;top:33.33333333333333%;--label-x:14px;--label-y:16px"><button class="migration-dot" type="button" disabled aria-label="Germania: partenze 20,3%, arrivi 20,0%, confronto CNEL" aria-pressed="false"><span></span></button><span class="migration-country-label" aria-hidden="true"><span class="migration-country-name">Germania</span><span class="migration-country-short">DE</span></span></div><div class="migration-country" data-migration-country="ESP" data-name="Spagna" data-departures="16.8" data-arrivals="15.4" data-isfm="1.088" style="left:56.00000000000001%;top:48.666666666666664%;--label-x:14px;--label-y:15px"><button class="migration-dot" type="button" disabled aria-label="Spagna: partenze 16,8%, arrivi 15,4%, confronto CNEL" aria-pressed="false"><span></span></button><span class="migration-country-label" aria-hidden="true"><span class="migration-country-name">Spagna</span><span class="migration-country-short">ES</span></span></div><div class="migration-country" data-migration-country="FRA" data-name="Francia" data-departures="12.7" data-arrivals="15.1" data-isfm="0.844" style="left:42.33333333333333%;top:49.66666666666667%;--label-x:0px;--label-y:-20px"><button class="migration-dot" type="button" disabled aria-label="Francia: partenze 12,7%, arrivi 15,1%, confronto CNEL" aria-pressed="false"><span></span></button><span class="migration-country-label" aria-hidden="true"><span class="migration-country-name">Francia</span><span class="migration-country-short">FR</span></span></div><div class="migration-country is-selected" data-migration-country="ITA" data-name="Italia" data-departures="26.9" data-arrivals="1.9" data-isfm="14.52" style="left:89.66666666666666%;top:93.66666666666667%;--label-x:-14px;--label-y:-18px"><button class="migration-dot" type="button" disabled aria-label="Italia: partenze 26,9%, arrivi 1,9%, confronto CNEL" aria-pressed="true"><span></span></button><span class="migration-country-label" aria-hidden="true"><span class="migration-country-name">Italia</span><span class="migration-country-short">IT</span></span></div><div class="migration-country" data-migration-country="NLD" data-name="Paesi Bassi" data-departures="7" data-arrivals="9.9" data-isfm="0.713" style="left:23.333333333333332%;top:67%;--label-x:14px;--label-y:-13px"><button class="migration-dot" type="button" disabled aria-label="Paesi Bassi: partenze 7,0%, arrivi 9,9%, confronto CNEL" aria-pressed="false"><span></span></button><span class="migration-country-label" aria-hidden="true"><span class="migration-country-name">Paesi Bassi</span><span class="migration-country-short">NL</span></span></div><div class="migration-country" data-migration-country="AUT" data-name="Austria" data-departures="2.5" data-arrivals="6.4" data-isfm="0.39" style="left:8.333333333333332%;top:78.66666666666667%;--label-x:14px;--label-y:-14px"><button class="migration-dot" type="button" disabled aria-label="Austria: partenze 2,5%, arrivi 6,4%, confronto CNEL" aria-pressed="false"><span></span></button><span class="migration-country-label" aria-hidden="true"><span class="migration-country-name">Austria</span><span class="migration-country-short">AT</span></span></div><div class="migration-country" data-migration-country="SWE" data-name="Svezia" data-departures="3.3" data-arrivals="3.4" data-isfm="0.965" style="left:11%;top:88.66666666666667%;--label-x:14px;--label-y:17px"><button class="migration-dot" type="button" disabled aria-label="Svezia: partenze 3,3%, arrivi 3,4%, confronto CNEL" aria-pressed="false"><span></span></button><span class="migration-country-label" aria-hidden="true"><span class="migration-country-name">Svezia</span><span class="migration-country-short">SE</span></span></div><div class="migration-country" data-migration-country="CHE" data-name="Svizzera" data-departures="4.3" data-arrivals="14.7" data-isfm="0.295" style="left:14.333333333333334%;top:51%;--label-x:-12px;--label-y:15px"><button class="migration-dot" type="button" disabled aria-label="Svizzera: partenze 4,3%, arrivi 14,7%, confronto CNEL" aria-pressed="false"><span></span></button><span class="migration-country-label" aria-hidden="true"><span class="migration-country-name">Svizzera</span><span class="migration-country-short">CH</span></span></div><div class="migration-country" data-migration-country="GBR" data-name="Regno Unito" data-departures="6.6" data-arrivals="16.9" data-isfm="0.388" style="left:22%;top:43.66666666666667%;--label-x:0px;--label-y:-20px"><button class="migration-dot" type="button" disabled aria-label="Regno Unito: partenze 6,6%, arrivi 16,9%, confronto CNEL" aria-pressed="false"><span></span></button><span class="migration-country-label" aria-hidden="true"><span class="migration-country-name">Regno Unito</span><span class="migration-country-short">GB</span></span></div>
+        </div>
+        <p class="migration-x-title">Partenze · quota CNEL (%)</p>
+      </div>
+      <div class="migration-panel">
+        <div class="migration-select-control" hidden><label for="migration-country-select">Scegli un paese</label><select id="migration-country-select"><option value="BEL">Belgio</option><option value="DNK">Danimarca</option><option value="DEU">Germania</option><option value="ESP">Spagna</option><option value="FRA">Francia</option><option value="ITA" selected>Italia</option><option value="NLD">Paesi Bassi</option><option value="AUT">Austria</option><option value="SWE">Svezia</option><option value="CHE">Svizzera</option><option value="GBR">Regno Unito</option></select></div>
+        <div class="migration-readout" aria-live="polite" aria-atomic="true">
+          <h3>Italia</h3>
+          <dl><div><dt>Quota di partenze</dt><dd class="migration-departures">26,9%</dd></div><div><dt>Quota di arrivi</dt><dd class="migration-arrivals">1,9%</dd></div></dl>
+          <p class="migration-ratio"><strong>14,5</strong> partenze per ogni arrivo nel confronto CNEL</p>
+        </div>
+        <p class="migration-hint" hidden>Passa su un punto, toccalo o scegli un paese. Con la tastiera, usa Tab e le frecce.</p>
+      </div>
+    </div>
+    <p class="migration-caveat">Riproduzione dei valori pubblicati dal CNEL, con dati mancanti e integrazioni statistiche. Le quote pubblicate non si ricompongono al 100%: vanno lette come confronto del rapporto, non come ripartizione completa delle migrazioni.</p>
+    <div class="chart-caption"><p>Fonte: <a href="https://www.cnel.it/media/docs/default-source/news-documents/rapporto-cnel_giovani-expat_2026-ultima-vers.pdf#page=17" target="_blank" rel="noopener noreferrer">CNEL / REF su dati Eurostat · settembre 2026 ↗</a></p><a class="download-link" href="./data/migrazioni-giovani.csv" download>Scarica i dati <span aria-hidden="true">↓</span></a></div>
+    <details class="regional-table-details migration-table-details"><summary>Tutti i paesi <span class="plus" aria-hidden="true"></span></summary><div class="regional-table-wrap" tabindex="0" role="region" aria-label="Confronto migratorio dei giovani, tabella scorrevole"><table class="regional-table migration-table"><caption>Quote CNEL · 20–34 anni · 2011–2023. ISFM = partenze per ogni arrivo, pubblicato dal CNEL.</caption><thead><tr><th scope="col">Paese</th><th scope="col">Partenze (%)</th><th scope="col">Arrivi (%)</th><th scope="col">ISFM</th></tr></thead><tbody><tr data-migration-row="BEL"><th scope="row">Belgio</th><td>6,6%</td><td>8,3%</td><td>0,8</td></tr><tr data-migration-row="DNK"><th scope="row">Danimarca</th><td>1,9%</td><td>3,2%</td><td>0,6</td></tr><tr data-migration-row="DEU"><th scope="row">Germania</th><td>20,3%</td><td>20,0%</td><td>1,0</td></tr><tr data-migration-row="ESP"><th scope="row">Spagna</th><td>16,8%</td><td>15,4%</td><td>1,1</td></tr><tr data-migration-row="FRA"><th scope="row">Francia</th><td>12,7%</td><td>15,1%</td><td>0,8</td></tr><tr data-migration-row="ITA"><th scope="row">Italia</th><td>26,9%</td><td>1,9%</td><td>14,5</td></tr><tr data-migration-row="NLD"><th scope="row">Paesi Bassi</th><td>7,0%</td><td>9,9%</td><td>0,7</td></tr><tr data-migration-row="AUT"><th scope="row">Austria</th><td>2,5%</td><td>6,4%</td><td>0,4</td></tr><tr data-migration-row="SWE"><th scope="row">Svezia</th><td>3,3%</td><td>3,4%</td><td>1,0</td></tr><tr data-migration-row="CHE"><th scope="row">Svizzera</th><td>4,3%</td><td>14,7%</td><td>0,3</td></tr><tr data-migration-row="GBR"><th scope="row">Regno Unito</th><td>6,6%</td><td>16,9%</td><td>0,4</td></tr></tbody></table></div></details>
+  </div></div>
+        </details>
+
         <details class="stat-section" id="regioni" open>
           <summary class="section-heading">
             <h2 id="regional-title"><span>Quanto contribuiscono le regioni al bilancio</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
@@ -450,7 +492,7 @@
             <h2 id="sources-title"><span>Fonti e metodo</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
           </summary>
           <div class="source-content section-content">
-            <p class="latest-note">Spesa nazionale: 2024, verifica del 27 ottobre 2026.<br />Pensioni G7: 1980–2023, ultimo anno comune 2021, verifica del 28 ottobre 2026.<br />Nuove imprese: 2007–2025, verifica del 2 novembre 2026.<br />Saldi territoriali: 2023, verifica del 27 ottobre 2026.<br />Salari OCSE: fino al 2025, verifica del 1 novembre 2026.<br />Salari e contributi AMECO: verifica del 27 ottobre 2026.<br />Ultimi anni completi nelle rispettive fonti.</p>
+            <p class="latest-note">Spesa nazionale: 2024, verifica del 27 ottobre 2026.<br />Pensioni G7: 1980–2023, ultimo anno comune 2021, verifica del 28 ottobre 2026.<br />Nuove imprese: 2007–2025, verifica del 2 novembre 2026.<br />Giovani: confronto CNEL 2011–2023, verifica del 2 novembre 2026.<br />Saldi territoriali: 2023, verifica del 27 ottobre 2026.<br />Salari OCSE: fino al 2025, verifica del 1 novembre 2026.<br />Salari e contributi AMECO: verifica del 27 ottobre 2026.<br />Ultimi anni completi nelle rispettive fonti, salvo il confronto storico CNEL.</p>
             <div class="source-links">
               <a href="https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en" target="_blank" rel="noopener noreferrer"><span>Eurostat <small>Spesa per funzione · gov_10a_exp</small></span><span aria-hidden="true">↗</span></a>
               <a href="https://www.istat.it/scheda-qualita/spese-della-pubblica-amministrazione-per-funzione/" target="_blank" rel="noopener noreferrer"><span>Istat <small>Come vengono prodotti i dati italiani</small></span><span aria-hidden="true">↗</span></a>
@@ -458,6 +500,7 @@
               <a href="https://www.oecd.org/en/data/indicators/average-annual-wages.html" target="_blank" rel="noopener noreferrer"><span>OCSE <small>Salari medi annui reali · dal 1990</small></span><span aria-hidden="true">↗</span></a>
               <a href="https://www.oecd.org/en/data/indicators/pension-spending.html" target="_blank" rel="noopener noreferrer"><span>OCSE <small>SOCX · spesa pensionistica pubblica nel G7</small></span><span aria-hidden="true">↗</span></a>
               <a href="https://data-explorer.oecd.org/vis?df[ag]=OECD.SDD.TPS&amp;df[ds]=dsDisseminateFinalDMZ&amp;df[id]=DSD_VC%40DF_VC_INV&amp;df[vs]=1.0&amp;dq=USA%2BSWE%2BCHE%2BGBR%2BNLD%2BESP%2BFRA%2BDEU%2BITA.._T.PT_B1GQ.A&amp;pd=2007%2C&amp;vw=tb" target="_blank" rel="noopener noreferrer"><span>OCSE <small>Investimenti nel capitale delle nuove imprese</small></span><span aria-hidden="true">↗</span></a>
+              <a href="https://www.cnel.it/media/docs/default-source/news-documents/rapporto-cnel_giovani-expat_2026-ultima-vers.pdf#page=17" target="_blank" rel="noopener noreferrer"><span>CNEL / REF Ricerche <small>Giovani expat · confronto su dati Eurostat</small></span><span aria-hidden="true">↗</span></a>
               <a href="https://economy-finance.ec.europa.eu/economic-research-and-databases/economic-databases/ameco-database_en" target="_blank" rel="noopener noreferrer"><span>Commissione europea <small>AMECO · redditi reali per dipendente dal 1960</small></span><span aria-hidden="true">↗</span></a>
             </div>
             <details class="method">
@@ -495,6 +538,18 @@
                 <p><strong>Come esplorarlo.</strong> Passa sul grafico, tocca un punto oppure selezionalo con Tab e usa le frecce per cambiare anno. I nomi accanto alle linee indicano l’ultimo dato disponibile; i valori sotto il grafico seguono l’anno selezionato. La tabella e il CSV contengono tutti gli anni e i paesi.</p>
                 <p class="snapshot-note">Verifica: 2 novembre 2026. Copia dei dati disponibili alla verifica, non un aggiornamento in tempo reale.</p>
                 <p class="raw-links"><a href="./data/venture/oecd.csv" download>Originale OCSE (CSV) ↓</a><a href="https://sdmx.oecd.org/public/rest/data/OECD.SDD.TPS,DSD_VC@DF_VC_INV,1.0/USA+SWE+CHE+GBR+NLD+ESP+FRA+DEU+ITA.._T.PT_B1GQ.A?startPeriod=2007&amp;endPeriod=2025&amp;format=csvfile" target="_blank" rel="noopener noreferrer">Query OCSE ↗</a></p>
+              </div>
+            </details>
+            <details class="method" id="metodo-giovani">
+              <summary>Come leggere il confronto sui giovani <span class="plus" aria-hidden="true"></span></summary>
+              <div class="method-body">
+                <p><strong>Fonte e periodo.</strong> Riproduciamo il grafico 2, p. 17, del rapporto CNEL «Giovani expat. Come farli tornare» di settembre 2026. Le quote numeriche provengono dalla tavola 6, p. 125, del rapporto CNEL 2025. Sono medie 2011–2023 per i 20–34enni, entrambi i generi. <a href="https://static.cnel.it/documenti/2025/8d714221-5082-45b2-81d2-2c6af468e749/Cnel_Rapporto_Giovani_2025.11.25.pdf#page=127" target="_blank" rel="noopener noreferrer">Tavola originale ↗</a></p>
+                <p><strong>Che cosa rappresentano i punti.</strong> L’asse orizzontale segue la cittadinanza di chi parte; quello verticale il paese che accoglie. Il confronto comprende undici destinazioni europee e tredici cittadinanze, incluse irlandese e statunitense; Irlanda e Stati Uniti non sono punti del grafico. La provenienza non coincide necessariamente con la cittadinanza. Non sono tassi di emigrazione della popolazione né il saldo di tutta l’immigrazione.</p>
+                <p><strong>I dati mancanti.</strong> CNEL usa medie annue sugli anni disponibili e integra alcuni vuoti per Austria, Francia e Regno Unito con le partenze verso questi paesi. L’integrazione assume che la provenienza approssimi la cittadinanza. Restano lacune e differenze di rilevazione; per il Regno Unito le serie citate si fermano al 2019.</p>
+                <p><strong>Il limite delle quote.</strong> Le undici quote di arrivi pubblicate sommano a 115,2%, quelle di partenze a 108,9%. Questi aggregati non si ricompongono al 100%. Li riportiamo senza correzioni o rinormalizzazioni, come confronto CNEL, non come ripartizione completa dei flussi.</p>
+                <p><strong>Diagonale e indice.</strong> La linea tratteggiata indica quote uguali. Sopra prevalgono gli arrivi, sotto le partenze nel confronto. Il rapporto partenze per arrivo (ISFM) è quello pubblicato da CNEL: non lo ricalcoliamo dividendo quote già arrotondate. La tabella mostra un decimale; il CSV conserva i tre decimali dell’indice pubblicato.</p>
+                <p class="snapshot-note">Verifica: 2 novembre 2026. Edizione storica del rapporto, non dati in tempo reale. Estrazione dai numeri delle fonti, senza stimare le coordinate dell’immagine.</p>
+                <p class="raw-links"><a href="./data/migration/cnel-2025.pdf" download>Rapporto CNEL 2025 (PDF) ↓</a><a href="./data/migration/cnel-2026.pdf" download>Rapporto CNEL 2026 (PDF) ↓</a><a href="./data/migration/published-table.json" download>Valori recuperati (JSON) ↓</a></p>
               </div>
             </details>
             <details class="method" id="metodo-regioni">

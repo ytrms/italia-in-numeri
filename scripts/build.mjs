@@ -7,6 +7,13 @@ import { preparePensionData, pensionCsv } from '../src/pension-data.mjs';
 import { renderPensionChart } from '../src/pension-chart.mjs';
 import { prepareVentureData, ventureCsv } from '../src/venture-data.mjs';
 import { renderVentureChart } from '../src/venture-chart.mjs';
+import { prepareMigrationData, migrationCsv } from '../src/migration-data.mjs';
+import { renderMigrationChart } from '../src/migration-chart.mjs';
+
+const migration = prepareMigrationData(
+  JSON.parse(await readFile(new URL('../dist/data/migration/published-table.json', import.meta.url), 'utf8')),
+  JSON.parse(await readFile(new URL('../dist/data/migration/retrieval.json', import.meta.url), 'utf8')),
+);
 
 const venture = prepareVentureData(
   await readFile(new URL('../dist/data/venture/oecd.csv', import.meta.url), 'utf8'),
@@ -68,6 +75,9 @@ const rows = data.categories.map(category => {
 
 let html = await readFile(new URL('../src/index.html', import.meta.url), 'utf8');
 const replacements = {
+  MIGRATION_CHART: renderMigrationChart(migration), MIGRATION_RETRIEVED_DATE: date(migration.retrievedAt),
+  MIGRATION_TABLE_SOURCE: escape(migration.sources.table), MIGRATION_FIGURE_SOURCE: escape(migration.sources.figure),
+  MIGRATION_DEPARTURES_TOTAL: n(migration.totals.departures), MIGRATION_ARRIVALS_TOTAL: n(migration.totals.arrivals),
   VENTURE_CHART: renderVentureChart(venture), VENTURE_RETRIEVED_DATE: date(venture.retrievedAt),
   VENTURE_FIRST_YEAR: venture.firstYear, VENTURE_LAST_YEAR: venture.lastYear, VENTURE_COMMON_YEAR: venture.commonYear,
   VENTURE_SOURCE: escape(venture.source), VENTURE_API_URL: escape(venture.oecdUrl),
@@ -96,7 +106,7 @@ html = html.replace(/\{\{([A-Z_]+)\}\}/g, (_, key) => {
 html = html.replace('class="chart"', `class="chart" data-share-maximum="${shareMaximum}" data-amount-maximum="${amountMaximum}" data-total="${data.total / 1000}"`);
 await mkdir(new URL('../dist', import.meta.url), { recursive: true });
 await writeFile(new URL('../dist/index.html', import.meta.url), html);
-for (const name of ['styles.css', 'app.js', 'theme.js', 'favicon.svg', 'pensions.css', 'pensions.js', 'venture.css', 'venture.js']) await copyFile(new URL(`../src/${name}`, import.meta.url), new URL(`../dist/${name}`, import.meta.url));
+for (const name of ['styles.css', 'app.js', 'theme.js', 'favicon.svg', 'pensions.css', 'pensions.js', 'venture.css', 'venture.js', 'migration.css', 'migration.js']) await copyFile(new URL(`../src/${name}`, import.meta.url), new URL(`../dist/${name}`, import.meta.url));
 await writeFile(new URL('../dist/data/spending.json', import.meta.url), JSON.stringify(data, null, 2) + '\n');
 await writeFile(new URL('../dist/data/regions.json', import.meta.url), JSON.stringify(regional, null, 2) + '\n');
 await writeFile(new URL('../dist/data/wages.json', import.meta.url), JSON.stringify(wages, null, 2) + '\n');
@@ -104,6 +114,8 @@ await writeFile(new URL('../dist/data/pensions.json', import.meta.url), JSON.str
 await writeFile(new URL('../dist/data/pensioni-g7.csv', import.meta.url), pensionCsv(pensions));
 await writeFile(new URL('../dist/data/venture.json', import.meta.url), JSON.stringify(venture, null, 2) + '\n');
 await writeFile(new URL('../dist/data/investimenti-nuove-imprese.csv', import.meta.url), ventureCsv(venture));
+await writeFile(new URL('../dist/data/migration.json', import.meta.url), JSON.stringify(migration, null, 2) + '\n');
+await writeFile(new URL('../dist/data/migrazioni-giovani.csv', import.meta.url), migrationCsv(migration));
 for (const id of Object.keys(wages.comparisons)) await writeFile(new URL(`../dist/data/salari-${id}.csv`, import.meta.url), wageCsv(wages, id));
 const regionalCsv = [
   ['anno', 'regione', 'entrate_milioni_euro', 'spese_milioni_euro', 'saldo_milioni_euro', 'formula', 'perimetro', 'contabilita', 'fonte_entrate', 'fonte_spese', 'verificato_il'],

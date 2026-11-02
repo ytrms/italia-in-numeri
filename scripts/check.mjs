@@ -9,6 +9,8 @@ import { preparePensionData, pensionCsv } from '../src/pension-data.mjs';
 import { pensionPath, renderPensionChart } from '../src/pension-chart.mjs';
 import { prepareVentureData, ventureCsv } from '../src/venture-data.mjs';
 import { renderVentureChart } from '../src/venture-chart.mjs';
+import { prepareMigrationData, migrationCsv } from '../src/migration-data.mjs';
+import { renderMigrationChart } from '../src/migration-chart.mjs';
 
 const raw = JSON.parse(await readFile(new URL('../dist/data/eurostat-raw.json', import.meta.url), 'utf8'));
 const published = JSON.parse(await readFile(new URL('../dist/data/spending.json', import.meta.url), 'utf8'));
@@ -178,3 +180,33 @@ assert.equal((pensionPath(ventureGap.series[0].points, year => year, value => va
 assert.equal((renderVentureChart(venture).match(/class="venture-line"/g) || []).length, 9);
 assert.ok(html.includes(renderVentureChart(venture)), 'Chart and accessible table match the preserved source');
 console.log(`New-business investment checks passed: nine countries, ${venture.firstYear}–${venture.lastYear}, original source fingerprint and values, units, missing years, duplicates and forecast rejection.`);
+
+const migrationRaw = JSON.parse(await readFile(new URL('../dist/data/migration/published-table.json', import.meta.url), 'utf8'));
+const migrationMetadata = JSON.parse(await readFile(new URL('../dist/data/migration/retrieval.json', import.meta.url), 'utf8'));
+const migration = prepareMigrationData(migrationRaw, migrationMetadata);
+for (const edition of ['2025', '2026']) {
+  const source = await readFile(new URL(`../dist/data/migration/cnel-${edition}.pdf`, import.meta.url));
+  assert.equal(createHash('sha256').update(source).digest('hex'), migrationMetadata.sources[edition].sha256, 'Preserve the reports used for numerical recovery');
+}
+assert.deepEqual(JSON.parse(await readFile(new URL('../dist/data/migration.json', import.meta.url), 'utf8')), migration);
+assert.equal(await readFile(new URL('../dist/data/migrazioni-giovani.csv', import.meta.url), 'utf8'), migrationCsv(migration));
+assert.equal(migration.countries.length, 11);
+const migrationItaly = migration.countries.find(c => c.code === 'ITA');
+assert.equal(migrationItaly.departures, 26.9);
+assert.equal(migrationItaly.arrivals, 1.9);
+assert.equal(migrationItaly.isfm, 14.520, 'Use the published index, not a quotient of already rounded percentages');
+assert.equal(migration.countries.find(c => c.code === 'GBR').arrivals, 16.9);
+assert.equal(migration.countries.find(c => c.code === 'CHE').departures, 4.3);
+assert.deepEqual(migration.totals, { departures: 108.9, arrivals: 115.2 }, 'Disclose source aggregates without silently normalising them to 100');
+for (const change of [r => { r.age.min = 18; }, r => { r.period.lastYear = 2024; }, r => { r.unit = 'people'; }, r => { r.observations[0].arrivals = null; }, r => { r.observations[0].arrivals = ''; }, r => { r.observations[0].departures = -1; }, r => { r.observations[0].isfm = 20; }, r => { r.observations[1] = r.observations[0]; }, r => { r.observations.pop(); }]) {
+  const changed = structuredClone(migrationRaw);
+  change(changed);
+  assert.throws(() => prepareMigrationData(changed, migrationMetadata), /migration|Migration/);
+}
+const migrationHtml = renderMigrationChart(migration);
+assert.equal((migrationHtml.match(/class="migration-dot"/g) || []).length, 11);
+assert.equal((migrationHtml.match(/data-migration-row=/g) || []).length, 11);
+assert.ok(migrationHtml.includes('left:89.66666666666666%;top:93.66666666666667%'), 'Italy is plotted with departures on x and arrivals on y on equal zero-based scales');
+assert.ok(html.includes(migrationHtml));
+assert.ok(html.includes('115,2%') && html.includes('108,9%'), 'Source aggregation limits are visible in the method');
+console.log('Youth migration checks passed: 11 published country observations, source PDF fingerprints, period/age/unit validation, unmodified source totals, published indices, accessible table and CSV.');

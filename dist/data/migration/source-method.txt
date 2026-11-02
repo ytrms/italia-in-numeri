@@ -1,0 +1,153 @@
+PDF page 121
+Di conseguenza, la questione dell’attrattività dell’Italia per i giovani va affrontata nel
+confronto con gli altri Paesi avanzati, europei e non. Inoltre, giacché i tre quarti dei giovani
+emigrati italiani si dirige verso dieci Paesi europei5, conviene concentrare l’analisi dell’at-
+trattività rivelata dagli spostamenti migratori di giovani tra questi stessi Paesi.
+La fonte statistica e il periodo di analisi
+La banca dati Eurostat, nella sezione <Population and social conditions> contiene la sotto-
+sezione <Migration>, dove sono riportate serie storiche delle immigrazioni nei diversi Paesi
+UE e in alcuni non UE, suddivise per età, genere e cittadinanza6. Non c’è, invece, la dimen-
+sione del Paese di provenienza, per cui un cittadino italiano potrebbe essere immigrato in
+Francia dal Belgio, anziché dall’Italia. Tuttavia, questa dimensione è irrilevante ai fini della
+circolazione, in quanto in un’area di libero movimento delle persone gli spostamenti tra due
+Paesi di cittadini di Paesi terzi è segnaletico proprio della piena realizzazione di tale liber-
+tà e di quella circolazione. Mentre la cittadinanza, in quanto rimandi a origini diverse per
+cultura, contesti istituzionali e infrastrutturali ed ecosistemi imprenditoriali, sottolineerebbe
+l’eventuale convergenza delle preferenze migratorie verso un determinato Paese, e quindi
+ne rimarcherebbe la maggiore attrattività.
+Teoricamente si possono così ricavare i dati di immigrazione nei principali Paesi di de-
+stinazione dei giovani italiani (per l’elenco di veda la nota 1), suddivisi per la cittadinanza
+di diversi Paesi presi in esame e per fasce di età, lungo l’arco di tempo 2011-2023, essendo
+il 2011 l’anno in cui la nuova ondata di emigrazione di italiani è cominciata e il 2023 l’ul-
+timo disponibile. Ai dieci Paesi sono stati aggiunti l’Italia, per capire quanto sia scelta dai
+giovani cittadini delle altre nazioni, e la Svezia, che è rilevante sia per la circolazione di
+persone nell’area nordeuropea sia per essere modello di riferimento per servizi pubblici
+e parità di genere. Tra le cittadinanze si è inserita anche quella statunitense, essendo gli
+USA una delle mete preferite dei giovani europei.
+In realtà, la banca dati presenta alcune lacune, dovute a carenze nell’apporto di statistiche
+da parte di diversi stati. Per esempio, l’Irlanda non fornisce la distinzione degli immigrati
+per cittadinanza, la Francia non disaggrega per coorti di età, e in diversi casi mancano dati di
+alcuni anni (per esempio, le statistiche UK si fermano al 2019 a causa della Brexit).
+Per sopperire a tali lacune si sono usati alcuni accorgimenti. La mancanza di dati in
+alcuni anni è stata ovviata utilizzando la media annua dei flussi migratori, anziché la
+somma; in questo modo si sacrifica l’informazione relativa al totale dei movimenti e quin-
+di alla dimensione complessiva della circolazione, ma si garantisce una confrontabilità
+quasi piena tra Paesi7.
+5 I dieci Paesi, in ordine di quota percentuale di emigrazione dei giovani 18-34 enni italiani nel periodo 2011-23,
+sono: Regno Unito, Germania, Svizzera, Francia, Spagna, Paesi Bassi, Belgio, Austria, Irlanda e Danimarca. Gli
+Stati Uniti sono anche una meta ambita, tuttavia è stata scelta solo dal 4,4% dei giovani emigrati in tale periodo,
+una quota inferiore a quella della Spagna e non molto superiore a quella dei Paesi Bassi.
+6 La banca dati Eurostat nella sezione <Migration>, diversamente da altre sezioni per le quali la normativa
+europea impone agli uffici statistici nazionali di fornire le cifre, è alimentata, in tutto o in parte, in modo volon-
+tario dai diversi Paesi. Perciò, come si ribadisce poco più avanti nel testo, presenta lacune relative ad alcuni anni
+(incompletezza o interruzione delle serie) o Paesi. Inoltre, i sistemi anagrafici nazionali presentano differenze
+istituzionali. Tuttavia, la dimensione dei divari lascia poco spazio a dubbi di natura metodologica.
+7 <Quasi> perché i dati annuali mostrano una tendenza all’aumento dei flussi migratori, e quindi, utilizzando le
+medie, i Paesi per cui sono carenti le statistiche relative agli ultimi anni del periodo scelto finiscono per avere una
+sottorappresentazione (ciò è particolarmente vero per lo UK, dove le regole post-Brexit per acquisire il diritto alla
+permanenza hanno modificato il pattern temporale dei flussi migratori) mentre quelli per i quali sono assenti le
+cifre riguardanti i primi anni hanno una sovrarappresentazione. Tuttavia, come si vedrà, i divari di immigrazione
+sono tali che le medie forniscono comunque un quadro chiaro della diversa attrattività.
+Rapporto
+119
+L’attrattività dell’Italia per i giovani dei paesi avanzati
+
+PDF page 126
+sionano i livelli effettivi di immigrazione. La Germania non è molto distante dalla biset-
+trice, e attrae molti cittadini dall’Europa dell’Est10 per soddisfare il proprio fabbisogno
+di abitanti e lavoratori. L’Italia è la vera outlier, perché attrae dagli altri Paesi avanzati
+europei una quota di immigrati che è un sesto di quello che la sua stazza demografica
+potrebbe consentirle.
+Dal lato opposto, cioè sopra la riga ci sono Austria, Belgio, Paesi Bassi, Svizzera e Spa-
+gna. Il Belgio gode anche del “vantaggio Bruxelles”, sede di molte istituzioni dell’Unione
+europea, e l’Austria attrae grazie anche alla lingua che condivide con le aree confinanti
+di Germania, Svizzera e Alto Adige, oltre alla qualità della vita della capitale (sempre in
+testa alle classifiche internazionali della miglior città in cui vivere). Della baricentricità
+della Svizzera si è già detto; qui ricordiamo che, oltre ai trasferimenti di residenza, la
+Confederazione accoglie moltissimi transfrontalieri da tutte le nazioni confinanti, per le
+alte retribuzioni che in termini reali aumentano se si continua a vivere nei Paesi confinan-
+ti che hanno prezzi decisamente inferiori.
+Nuovamente, la Spagna è il caso di outlier positivo, perché ha una quota sul totale
+degli immigrati nei Paesi qui considerati che è del 50% più elevata di quello che sarebbe
+spiegabile con la sola dimensione.
+La seconda considerazione riguarda le destinazioni che maggiormente attraggono gli
+italiani. Nell’ordine sono: la Spagna e, appena più sotto, la Germania, quasi un quarto del
+totale ciascuna; poi il Regno Unito, la Svizzera e la Francia, tutte con quote superiori al 10%.
+Più distanti, ma ugualmente rilevanti data la loro minore dimensione, Belgio e Paesi Bassi.
+La terza considerazione è legata alla natura stessa dei dati. Infatti, questi riguardano,
+come detto all’inizio, tutte le coorti di età. Ciò significa che una quota non marginale
+di migranti dai Paesi europei avanzati può essere attratta da fattori relativi al clima e al
+costo della vita, che consentono di godere di una migliore qualità della vita in vecchiaia,
+una volta ritirati dal lavoro. Mentre il presente Rapporto è incentrato sull’attrattività per
+i giovani. È opportuno, quindi, spostare l’analisi sui dati riguardanti i soli giovani (18-34
+enni), che sono più incompleti ma del tutto pertinenti all’oggetto di studio.
+Le preferenze rivelate dei giovani
+Per cogliere le preferenze rivelate dalle scelte migratorie dei giovani (18-34 enni) si è
+effettuata un’estrazione dalla banca dati Eurostat analoga a quella utilizzata per la popo-
+lazione di tutte le età, limitata ovviamente alle coorti rilevanti, che nella banca dati sono
+20-24 anni, 25-29 anni e 30-34 anni. Questa estrazione presenta, tuttavia, alcune rilevati
+lacune, perché quattro Paesi non forniscono statistiche di immigrazione suddivise per
+cittadinanza e per età: Austria, Francia, Irlanda e Regno Unito. Due dei quali (Francia
+e Regno Unito) sono poli di forte immigrazione dei giovani italiani, come emerge dalle
+statistiche sull’emigrazione fornite dall’ISTAT.
+Per sopperire a queste carenze si sono riempite le caselle mancanti con i dati di emigra-
+zione di tutti gli altri Paesi verso questi quattro. Pur nella consapevolezza che tali stati-
+stiche sulla provenienza sono sì suddivise per età ma non per cittadinanza. L’assunzione,
+quindi, è che chi emigra dal Paese A al Paese B sia di cittadinanza del Paese A, il che non
+10 Nel 2023 in Germania sono giunti oltre 200mila cittadini da Bulgaria, Repubblica Ceca, Slovacchia, Slovenia,
+Polonia, Romania, Ungheria, Croazia, contro i 61mila in Spagna, i 42mila in Austria, i 32mila in Italia e i 22mila
+in Belgio. I dati del 2023 sono in linea con quelli degli anni precedenti.
+Rapporto
+124
+L’attrattività dell’Italia per i giovani dei paesi avanzati
+
+PDF page 127
+corrisponde alla realtà ma ne costituisce una buona approssimazione, come si è spiegato
+in precedenza, data la non coincidenza tra provenienza e cittadinanza. Anche questo ac-
+corgimento, come si vedrà, non consente di riempire tutti i vuoti, ma certamente colma i
+più importanti.
+In questo paragrafo si riportano i risultati (Tavola 6) dell’estrazione delle immigrazioni
+nei vari Paesi integrata con l’estrazione delle emigrazioni verso Austria, Francia e UK,
+così da riempire i vuoti. Il confronto effettuato con i risultati senza tale integrazione fa
+emergere che cambia, naturalmente la posizione di tali tre Paesi nella graduatoria di at-
+trattività; ma il quadro con l’integrazione da un lato è più realistico e dall’altro non muta
+sostanzialmente la posizione dell’Italia.
+Dalla Tavola 6 emerge che la meta preferita dei giovani cittadini dei Paesi avanzati euro-
+pei+USA, è la Germania, con il 20,0% dei movimenti (media ponderata delle frequenze, ul-
+TAVOLA 6 - FLUSSI MIGRATORI DI GIOVANI TRA I PRINCIPALI PAESI AVANZATI EUROPEI
+(Quote % delle nazionalità in colonna immigrate^ nei Paesi in riga; 20-34 enni, entrambi i generi, calcolate sui dati medi
+del periodo 2011-23)
+Belgi Danesi Tedeschi Irlandesi Spagnoli Francesi Italiani Olandesi Austriaci SvedesiSvizzeriBritan- Statuni- Media * Media
+nici tensi **
+Belgio 2,4 2,5 7,0 5,3 25,3 4,3 21,4 2,5 1,9 1,3 4,7 5,5 7,0 8,3
+Danimarca 0,8 3,3 4,4 2,3 2,2 1,8 2,3 2,0 12,6 1,0 4,9 4,4 3,5 3,2
+Germania 6,0 14,4 28,1 18,0 18,6 22,9 16,8 65,9 11,4 9,7 23,2 33,8 22,4 20,0
+Spagna 4,9 6,3 7,1 22,1 16,3 24,0 8,1 8,9 3,8 30,0 26,6 14,4 15,4
+Francia 53,4 21,6 11,4 0,0 20,8 7,3 11,8 5,4 54,6 20,7 15,1
+Italia 0,7 0,9 1,3 2,7 2,8 2,6 1,0 2,1 1,1 1,0 3,9 3,5 2,0 1,9
+Paesi Bassi 9,4 6,2 11,5 23,5 8,3 7,8 6,3 5,9 6,4 2,7 16,6 12,7 9,8 9,9
+Austria 2,2 6,5 21,2 0,0 4,6 1,1 1,1 20,3 7,1 6,4
+Svezia 1,0 0,0 3,4 5,3 2,1 2,8 1,5 3,6 18,6 0,9 6,2 4,9 4,2 3,4
+Svizzera 4,0 4,0 25,6 6,9 6,2 24,3 11,5 3,9 3,0 6,0 10,5 8,7 9,6 14,7
+Regno 16,0 33,8 11,0 27,7 17,4 26,3 24,2 23,2 22,4 16,9
+Unito
+Totale 100,0 100,0 100,0 100,0 100,0 100,0 100,0 100,0 100,0 100,0 100,0 100,0 100,0 100,0
+Quota citt. 6,6 1,9 20,3 1,4 16,8 12,7 26,9 7,0 2,5 3,3 4,3 6,6 6,5
+ISFM 0,8 0,6 1,0 1,1 0,8 14,5 0,7 0,4 1,0 0,3 0,4
+Nota: ISFM=Indice di simmetria dei flussi migratori, ottenuto come rapporto tra il numero di emigrati cittadini del Paese in riga e il numero di
+cittadini immigrati nello stesso Paese delle cittadinanze in colonna; * semplice; ** ponderata per il peso di ciascuna cittadinanza al flusso totale
+Fonte: elaborazioni REF Ricerche su dati EUROSTAT
+tima colonna a destra), seguita dal Regno Unito (16,9%) dalla Spagna (15,4%), dalla Francia
+(15,1%) e dalla Svizzera (14,7%). L’Italia è ultima, con l’1,9%, sotto la Danimarca (3,2%) e la
+Svezia (3,4%). In compenso i giovani italiani contribuiscono al totale dei flussi migratori con
+più di un quarto (26,9%, penultima riga), seguiti dai tedeschi (20,3%) e più distanziati dagli
+spagnoli (16,8%) e dai francesi (12,7%). La Germania, d’altra parte, è demograficamente
+molto più grande e ha, quindi, anche la quota più alta di giovani sul totale dei Paesi (oltre
+un quinto), mentre per i cittadini spagnoli si deve considerare che molti sono in realtà ori-
+ginari del Sud America e si avvalgono del passaporto spagnolo per avere accesso a tutta la
+UE. L’Italia ha una quota del 13% sul totale dei giovani abitanti dei Paesi presi in esame qui.
+Il risultato combinato della ridotta preferenza per l’Italia come meta di trasferimento
+dei giovani e dell’alto contributo degli italiani al movimento è un altissimo ISFM per
+Rapporto
+125
+L’attrattività dell’Italia per i giovani dei paesi avanzati
