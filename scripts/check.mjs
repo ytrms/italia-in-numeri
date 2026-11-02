@@ -7,6 +7,8 @@ import { wagePath, renderWageCharts } from '../src/wage-chart.mjs';
 import { createHash } from 'node:crypto';
 import { preparePensionData, pensionCsv } from '../src/pension-data.mjs';
 import { pensionPath, renderPensionChart } from '../src/pension-chart.mjs';
+import { prepareVentureData, ventureCsv } from '../src/venture-data.mjs';
+import { renderVentureChart } from '../src/venture-chart.mjs';
 
 const raw = JSON.parse(await readFile(new URL('../dist/data/eurostat-raw.json', import.meta.url), 'utf8'));
 const published = JSON.parse(await readFile(new URL('../dist/data/spending.json', import.meta.url), 'utf8'));
@@ -148,3 +150,31 @@ assert.equal((pensionHtml.match(/class="pension-line"/g) || []).length, 7);
 assert.ok(pensionHtml.includes('<td data-country="ITA" data-value="">n.d.</td>'), 'Trailing missing years are explicit in the table');
 assert.ok(html.includes(pensionHtml), 'The generated chart and accessible table must match the snapshot');
 console.log(`Pension checks passed: G7 ${pensions.firstYear}–${pensions.lastYear}, common year ${pensions.commonYear}, source fingerprint, exact values, units, duplicates, forecast rejection and visible gaps.`);
+
+const ventureSource = await readFile(new URL('../dist/data/venture/oecd.csv', import.meta.url), 'utf8');
+const ventureMetadata = JSON.parse(await readFile(new URL('../dist/data/venture/retrieval.json', import.meta.url), 'utf8'));
+const venture = prepareVentureData(ventureSource, ventureMetadata);
+assert.equal(createHash('sha256').update(ventureSource).digest('hex'), ventureMetadata.sha256);
+assert.deepEqual(JSON.parse(await readFile(new URL('../dist/data/venture.json', import.meta.url), 'utf8')), venture);
+assert.equal(await readFile(new URL('../dist/data/investimenti-nuove-imprese.csv', import.meta.url), 'utf8'), ventureCsv(venture));
+assert.deepEqual(venture.series.map(c => c.code).sort(), ['CHE', 'DEU', 'ESP', 'FRA', 'GBR', 'ITA', 'NLD', 'SWE', 'USA']);
+assert.equal(venture.firstYear, 2007);
+assert.equal(venture.commonYear, 2025);
+assert.equal(venture.series.find(c => c.code === 'USA').points.find(p => p.year === 2021).value, 1.1258546128275744, 'Verified US peak from the original OECD export');
+assert.equal(venture.series[0].points.find(p => p.year === 2025).value, 0.049246900565299165, 'Verified Italian share, already in percent of GDP');
+const ventureLine = ventureSource.split(/\r?\n/).find(line => line.includes(',ITA,') && line.includes(',2025,'));
+assert.throws(() => prepareVentureData(ventureSource + '\n' + ventureLine, ventureMetadata), /Duplicate/);
+for (const [before, after] of [['PT_B1GQ', 'USD'], ['VC_INV_MKT', 'OTHER'], [',_T,', ',SEED,'], [',A,0,', ',F,0,'], ['0.049246900565299165', '-1'], ['0.049246900565299165', 'NaN'], [',2025,', ',2026,']]) {
+  assert.throws(() => prepareVentureData(ventureSource.replace(ventureLine, ventureLine.replace(before, after)), ventureMetadata), /Unexpected venture|Invalid.*venture/);
+}
+assert.throws(() => prepareVentureData(ventureSource.split(/\r?\n/).filter(line => !line.includes(',ITA,')).join('\n'), ventureMetadata), /Missing venture/);
+const ventureMissing = prepareVentureData(ventureSource.replace(ventureLine, ventureLine.replace('0.049246900565299165', '')), ventureMetadata);
+assert.equal(ventureMissing.commonYear, 2024, 'The selected year must have all nine countries');
+assert.ok(!ventureMissing.series[0].points.some(p => p.year === 2025), 'A blank observation is missing, never zero');
+assert.match(renderVentureChart(ventureMissing), /data-country="ITA" data-value="">n.d.<\/td>/);
+const ventureGap = structuredClone(venture);
+ventureGap.series[0].points = ventureGap.series[0].points.filter(p => p.year !== 2020);
+assert.equal((pensionPath(ventureGap.series[0].points, year => year, value => value).match(/M/g) || []).length, 2);
+assert.equal((renderVentureChart(venture).match(/class="venture-line"/g) || []).length, 9);
+assert.ok(html.includes(renderVentureChart(venture)), 'Chart and accessible table match the preserved source');
+console.log(`New-business investment checks passed: nine countries, ${venture.firstYear}–${venture.lastYear}, original source fingerprint and values, units, missing years, duplicates and forecast rejection.`);

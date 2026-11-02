@@ -10,6 +10,7 @@
     "refresh-data": "node scripts/refresh-data.mjs",
     "refresh-regional-data": "node scripts/refresh-regional-data.mjs",
     "refresh-wage-data": "node scripts/refresh-wage-data.mjs",
-    "refresh-pension-data": "node scripts/refresh-pension-data.mjs"
+    "refresh-pension-data": "node scripts/refresh-pension-data.mjs",
+    "refresh-venture-data": "node scripts/refresh-venture-data.mjs"
   }
 }

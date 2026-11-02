@@ -1,0 +1,63 @@
+.venture-view { --vc-italy: var(--ink); --vc-us: #256a9a; --vc-sweden: #a64c59; --vc-switzerland: #87602a; --vc-uk: #557a36; --vc-netherlands: #21818b; --vc-spain: #805ca0; --vc-france: #af5534; --vc-germany: #73736e; }
+@media screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .venture-view { --vc-us: #7eadd4; --vc-sweden: #e9939e; --vc-switzerland: #cfaa66; --vc-uk: #9ebd7a; --vc-netherlands: #76c4cb; --vc-spain: #b59bd3; --vc-france: #e89b7e; --vc-germany: #b8b8af; }
+}
+@media screen {
+  :root[data-theme="dark"] .venture-view { --vc-us: #7eadd4; --vc-sweden: #e9939e; --vc-switzerland: #cfaa66; --vc-uk: #9ebd7a; --vc-netherlands: #76c4cb; --vc-spain: #b59bd3; --vc-france: #e89b7e; --vc-germany: #b8b8af; }
+}
+[data-venture-country="ITA"] { --country-color: var(--vc-italy); }
+[data-venture-country="USA"] { --country-color: var(--vc-us); }
+[data-venture-country="SWE"] { --country-color: var(--vc-sweden); }
+[data-venture-country="CHE"] { --country-color: var(--vc-switzerland); }
+[data-venture-country="GBR"] { --country-color: var(--vc-uk); }
+[data-venture-country="NLD"] { --country-color: var(--vc-netherlands); }
+[data-venture-country="ESP"] { --country-color: var(--vc-spain); }
+[data-venture-country="FRA"] { --country-color: var(--vc-france); }
+[data-venture-country="DEU"] { --country-color: var(--vc-germany); }
+.venture-definition { margin: 0; max-width: 760px; font-size: 13px; line-height: 1.65; color: var(--muted); }
+.venture-definition a { margin-left: 8px; font-size: 11px; }
+.venture-chart-heading { display: flex; justify-content: space-between; align-items: baseline; margin: 28px 0 24px; font-size: 11px; color: var(--muted); }
+.venture-chart-heading p { margin: 0; }
+.venture-selected-year { margin-left: 6px; font-size: 20px; font-weight: 400; color: var(--ink); font-variant-numeric: tabular-nums; }
+.venture-chart { padding: 0 146px 32px 48px; }
+.venture-plot { position: relative; height: 360px; cursor: crosshair; }
+.venture-plot > svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.venture-line, .venture-endpoint { fill: none; stroke: var(--country-color); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+[data-venture-country="ITA"] .venture-line { stroke-width: 3.2; }
+.venture-endpoint { stroke-width: 5; }
+.venture-grid { position: absolute; width: 100%; border-top: 1px solid var(--line); }
+.venture-grid > span { position: absolute; right: calc(100% + 14px); transform: translateY(-50%); font-size: 11px; color: var(--muted); }
+.venture-crosshair { position: absolute; top: 0; height: 100%; border-left: 1px solid var(--crosshair); pointer-events: none; }
+.venture-crosshair > span { position: absolute; left: -4px; width: 7px; height: 7px; border-radius: 50%; background: var(--country-color); outline: 2px solid var(--canvas); transform: translateY(-50%); }
+.venture-x-axis { position: absolute; top: calc(100% + 15px); width: 100%; }
+.venture-x-axis > span { position: absolute; transform: translateX(-50%); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.venture-end-labels { position: absolute; left: 100%; top: 0; width: 142px; height: 100%; pointer-events: none; }
+.venture-end-labels > div { position: absolute; left: 0; width: 100%; }
+.venture-end-labels span { position: absolute; left: 38px; transform: translateY(-50%); font-size: 12px; white-space: nowrap; }
+.venture-end-labels [data-venture-country="ITA"] span { font-weight: 600; }
+.venture-leader { position: absolute; left: 5px; top: 0; width: 28px; height: 1px; overflow: visible; }
+.venture-leader path { fill: none; stroke: var(--country-color); stroke-width: 1; opacity: .55; }
+.venture-legend { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 24px; margin: 28px 0 22px; }
+.venture-legend > div { border-top: 1px solid var(--line); padding-top: 12px; }
+.venture-legend dt { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+.venture-legend svg { width: 26px; height: 10px; flex-shrink: 0; overflow: visible; }
+.venture-legend path { fill: none; stroke: var(--country-color); stroke-width: 2; }
+.venture-legend dd { margin: 7px 0 0 34px; font-size: 22px; letter-spacing: -.5px; font-variant-numeric: tabular-nums; }
+.venture-legend [data-venture-country="ITA"] dt { color: var(--ink); font-weight: 600; }
+.venture-legend [data-venture-country="ITA"] path { stroke-width: 3.2; }
+.venture-legend [data-venture-country="ITA"] dd { font-weight: 600; }
+.venture-caveat { max-width: 760px; margin: 0; font-size: 11px; line-height: 1.65; color: var(--muted); }
+.venture-table { min-width: 850px; }
+.venture-table th:first-child { position: sticky; left: 0; background: var(--canvas); padding-right: 12px; }
+@media (max-width: 720px) {
+  .venture-definition { font-size: 12px; }
+  .venture-chart { padding-left: 42px; padding-right: 14px; }
+  .venture-plot { height: 280px; }
+  .venture-end-labels { display: none; }
+  .venture-grid > span { right: calc(100% + 10px); }
+  .venture-x-axis > span { font-size: 10px; }
+  .venture-legend { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; }
+}
+@media print {
+  .venture-chart, .venture-legend { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}

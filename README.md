@@ -1,6 +1,6 @@
 # italia in numeri
 
-A minimal Italian-language website about public spending, G7 pension spending, regional balances and real wages. Static HTML, CSS and JavaScript; no runtime dependencies, third-party fonts, tracking or external requests on page load. Charts, map, tables, sources and category details work without JavaScript. JavaScript adds the unit switch, interactive regional selection and wage/pension year controls.
+A minimal Italian-language website about public spending, G7 pension spending, regional balances, real wages and equity investment in young businesses. Static HTML, CSS and JavaScript; no runtime dependencies, third-party fonts, tracking or external requests on page load. Charts, map, tables, sources and category details work without JavaScript. JavaScript adds the unit switch, interactive regional selection and chart year controls.
 
 ## Local development
 
@@ -87,9 +87,22 @@ npm run check
 
 Review source revisions and observation statuses before publication. The parser accepts normal observations (`A`) only and requires review for forecasts, estimates or breaks. The refresh uses the OECD's documented query structure with wildcard fixed dimensions, then validates every returned dimension. New vintages may require updating the pinned verified-year checks in `scripts/check.mjs` after review.
 
+## Investment in young businesses
+
+“Quanto investiamo nelle nuove imprese” follows wages and compares the nine countries in the reference chart: Italy, the US, Sweden, Switzerland, the UK, the Netherlands, Spain, France and Germany. OECD `DSD_VC@DF_VC_INV` provides total venture capital investment (market statistics `VC_INV_MKT`, all stages `_T`) as a percentage of GDP (`PT_B1GQ`, annual, multiplier 0). These published ratios are used directly. This is equity financing in young businesses with growth potential, including early and later stages; it does not cover every form of new-business financing.
+
+The November 2026 snapshot covers 2007–2025, with all nine countries available in every year. The default is the latest common year, 2025. Italy has a thicker line; patterns and colors distinguish countries. Desktop labels identify line endpoints, and a responsive legend shows the selected year's values to three decimals. Hover, tap or focus the plot and use arrows/Home/End to explore years. The chart, complete table, CSV and sources also work without JavaScript. Missing observations remain `n.d.` and break the line. OECD's warning about differing definitions, collection methods, coverage and representativeness is visible alongside the chart and explained in the methodology.
+
+`src/venture-data.mjs` validates dimensions, units, normal observation status, duplicates and completed calendar years. The original export and URL, retrieval timestamp and SHA-256 are preserved in `dist/data/venture/`; the build generates `venture.json` and `investimenti-nuove-imprese.csv`. The refresh query pins its end period to 2025; review a newer completed year before extending it in `src/venture-data.mjs` and updating the verified observations in `scripts/check.mjs`.
+
+```sh
+npm run refresh-venture-data
+npm run check
+```
+
 ## Design direction
 
-Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal neutral palette and restrained typography, with color identifying country lines and regional balances. Do not use eyebrows (small introductory labels above headings) anywhere on this website. Do not end section titles with periods; retain question marks where appropriate. The main sections, in order, are “A cosa vanno le tue tasse”, “Quanto spendiamo in pensioni”, “Il potere d'acquisto del tuo stipendio” and “Quanto contribuiscono le regioni al bilancio”. They are equal peer sections: share their heading scale, spacing, dividers and right-aligned chevron. All four start expanded and collapse independently using native details/summary, including without JavaScript. Retain chart selections when collapsing. Keep generic introductory copy absent and the spending chart helper sentence visually hidden. Show retrieval notes in the sources section. The default spending chart unit is billions of euros. Do not add a spending-total callout, header sources link, generic sources introduction or footer tagline.
+Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal neutral palette and restrained typography, with color identifying country lines and regional balances. Do not use eyebrows (small introductory labels above headings) anywhere on this website. Do not end section titles with periods; retain question marks where appropriate. The main sections, in order, are “A cosa vanno le tue tasse”, “Quanto spendiamo in pensioni”, “Il potere d'acquisto del tuo stipendio”, “Quanto investiamo nelle nuove imprese” and “Quanto contribuiscono le regioni al bilancio”. They are equal peer sections: share their heading scale, spacing, dividers and right-aligned chevron. All five start expanded and collapse independently using native details/summary, including without JavaScript. Retain chart selections when collapsing. Keep generic introductory copy absent and the spending chart helper sentence visually hidden. Show retrieval notes in the sources section. The default spending chart unit is billions of euros. Do not add a spending-total callout, header sources link, generic sources introduction or footer tagline.
 
 ## Section navigation
 

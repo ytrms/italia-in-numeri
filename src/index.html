@@ -8,9 +8,9 @@
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" />
     <script src="./theme.js"></script>
     <title>Italia in Numeri</title>
-    <meta name="description" content="Spesa pubblica, pensioni a confronto nel G7, saldi delle regioni e potere d’acquisto dei salari italiani. Grafici interattivi, dati scaricabili e fonti verificabili." />
+    <meta name="description" content="Spesa pubblica, pensioni nel G7, salari reali, investimenti nelle nuove imprese e saldi regionali. Grafici interattivi, dati scaricabili e fonti verificabili." />
     <meta property="og:title" content="Italia in Numeri" />
-    <meta property="og:description" content="Spesa pubblica, pensioni nel G7, saldi regionali e salari reali italiani. Dati Eurostat, CPT, OCSE e Commissione europea, in chiaro." />
+    <meta property="og:description" content="Spesa pubblica, pensioni nel G7, salari reali, nuove imprese e saldi regionali. Dati Eurostat, CPT, OCSE e Commissione europea, in chiaro." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta property="og:url" content="https://italia.lorenzogravina.com/" />
@@ -18,8 +18,10 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./pensions.css" />
+    <link rel="stylesheet" href="./venture.css" />
     <script type="module" src="./app.js"></script>
     <script type="module" src="./pensions.js"></script>
+    <script type="module" src="./venture.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#grafico">Vai al grafico</a>
@@ -35,6 +37,7 @@
           <li><a href="#grafico">A cosa vanno le tue tasse</a></li>
           <li><a href="#pensioni">Quanto spendiamo in pensioni</a></li>
           <li><a href="#salari">Il potere d'acquisto del tuo stipendio</a></li>
+          <li><a href="#nuove-imprese">Quanto investiamo nelle nuove imprese</a></li>
           <li><a href="#regioni">Quanto contribuiscono le regioni al bilancio</a></li>
           <li><a href="#fonti">Fonti e metodo</a></li>
         </ul>
@@ -91,6 +94,13 @@
             </div>
             <div id="wage-charts">{{WAGE_CHARTS}}</div>
           </div>
+        </details>
+
+        <details class="stat-section" id="nuove-imprese" open>
+          <summary class="section-heading">
+            <h2 id="venture-title"><span>Quanto investiamo nelle nuove imprese</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
+          </summary>
+          <div class="section-content">{{VENTURE_CHART}}</div>
         </details>
 
         <details class="stat-section" id="regioni" open>
@@ -154,13 +164,14 @@
             <h2 id="sources-title"><span>Fonti e metodo</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
           </summary>
           <div class="source-content section-content">
-            <p class="latest-note">Spesa nazionale: {{YEAR}}, verifica del {{RETRIEVED_DATE}}.<br />Pensioni G7: {{PENSION_FIRST_YEAR}}–{{PENSION_LAST_YEAR}}, ultimo anno comune {{PENSION_COMMON_YEAR}}, verifica del {{PENSION_RETRIEVED_DATE}}.<br />Saldi territoriali: {{REGIONAL_YEAR}}, verifica del {{REGIONAL_RETRIEVED_DATE}}.<br />Salari OCSE: fino al {{WAGE_LAST_YEAR}}, verifica del {{WAGE_OECD_RETRIEVED_DATE}}.<br />Salari e contributi AMECO: verifica del {{WAGE_RETRIEVED_DATE}}.<br />Ultimi anni completi nelle rispettive fonti.</p>
+            <p class="latest-note">Spesa nazionale: {{YEAR}}, verifica del {{RETRIEVED_DATE}}.<br />Pensioni G7: {{PENSION_FIRST_YEAR}}–{{PENSION_LAST_YEAR}}, ultimo anno comune {{PENSION_COMMON_YEAR}}, verifica del {{PENSION_RETRIEVED_DATE}}.<br />Nuove imprese: {{VENTURE_FIRST_YEAR}}–{{VENTURE_LAST_YEAR}}, verifica del {{VENTURE_RETRIEVED_DATE}}.<br />Saldi territoriali: {{REGIONAL_YEAR}}, verifica del {{REGIONAL_RETRIEVED_DATE}}.<br />Salari OCSE: fino al {{WAGE_LAST_YEAR}}, verifica del {{WAGE_OECD_RETRIEVED_DATE}}.<br />Salari e contributi AMECO: verifica del {{WAGE_RETRIEVED_DATE}}.<br />Ultimi anni completi nelle rispettive fonti.</p>
             <div class="source-links">
               <a href="https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en" target="_blank" rel="noopener noreferrer"><span>Eurostat <small>Spesa per funzione · gov_10a_exp</small></span><span aria-hidden="true">↗</span></a>
               <a href="https://www.istat.it/scheda-qualita/spese-della-pubblica-amministrazione-per-funzione/" target="_blank" rel="noopener noreferrer"><span>Istat <small>Come vengono prodotti i dati italiani</small></span><span aria-hidden="true">↗</span></a>
               <a href="{{CPT_CATALOG}}" target="_blank" rel="noopener noreferrer"><span>Conti Pubblici Territoriali <small>Entrate e spese per regione</small></span><span aria-hidden="true">↗</span></a>
               <a href="{{WAGE_OECD_SOURCE}}" target="_blank" rel="noopener noreferrer"><span>OCSE <small>Salari medi annui reali · dal 1990</small></span><span aria-hidden="true">↗</span></a>
               <a href="{{PENSION_SOURCE}}" target="_blank" rel="noopener noreferrer"><span>OCSE <small>SOCX · spesa pensionistica pubblica nel G7</small></span><span aria-hidden="true">↗</span></a>
+              <a href="{{VENTURE_SOURCE}}" target="_blank" rel="noopener noreferrer"><span>OCSE <small>Investimenti nel capitale delle nuove imprese</small></span><span aria-hidden="true">↗</span></a>
               <a href="{{WAGE_AMECO_SOURCE}}" target="_blank" rel="noopener noreferrer"><span>Commissione europea <small>AMECO · redditi reali per dipendente dal 1960</small></span><span aria-hidden="true">↗</span></a>
             </div>
             <details class="method">
@@ -186,6 +197,18 @@
                 <p><strong>Fonte e calcolo.</strong> Dataset DSD_SOCX_AGG@DF_PUB_OLD: frequenza annuale, fonte pubblica (ES10), prestazioni monetarie (C), vecchiaia e superstiti (TP01), percentuale del PIL (PT_B1GQ). Usiamo i rapporti pubblicati dall’OCSE senza conversioni di valuta o ribasamenti. Gli arrotondamenti sono solo visivi. Passa sul grafico o tocca un punto per leggere un anno alla volta; la tabella e il CSV riportano tutte le osservazioni.</p>
                 <p class="snapshot-note">Verifica: {{PENSION_RETRIEVED_DATE}}. Copia dei dati disponibili alla verifica, non un aggiornamento in tempo reale.</p>
                 <p class="raw-links"><a href="./data/pensions/oecd.csv" download>Originale OCSE (CSV) ↓</a><a href="{{PENSION_API_URL}}" target="_blank" rel="noopener noreferrer">Query OCSE ↗</a></p>
+              </div>
+            </details>
+            <details class="method" id="metodo-nuove-imprese">
+              <summary>Come confrontare gli investimenti nelle nuove imprese <span class="plus" aria-hidden="true"></span></summary>
+              <div class="method-body">
+                <p><strong>Che cosa misuriamo.</strong> Capitali investiti in imprese giovani con potenziale di crescita, in cambio di una quota della società. Il totale OCSE comprende le fasi iniziali e quelle successive di sviluppo. Non comprende tutti i finanziamenti alle nuove imprese: per esempio, i normali prestiti bancari restano esclusi.</p>
+                <p><strong>Quali paesi e anni.</strong> Italia, Stati Uniti, Svezia, Svizzera, Regno Unito, Paesi Bassi, Spagna, Francia e Germania, dal {{VENTURE_FIRST_YEAR}} al {{VENTURE_LAST_YEAR}}. Il confronto riguarda questi nove paesi; ciascuna linea rappresenta un paese. Il {{VENTURE_COMMON_YEAR}} è l’ultimo anno disponibile per tutti e viene selezionato all’apertura.</p>
+                <p><strong>Il limite del confronto.</strong> L’OCSE segnala che non esiste una definizione internazionale uniforme: le tipologie di investimento incluse e i metodi di raccolta cambiano tra paesi. I dati provengono in genere dalle associazioni nazionali o regionali del settore, spesso con fornitori commerciali; copertura e rappresentatività possono differire. Le distanze tra linee vanno lette con questa cautela.</p>
+                <p><strong>Fonte e calcolo.</strong> Dataset OCSE DSD_VC@DF_VC_INV, statistiche di mercato (VC_INV_MKT), tutte le fasi di sviluppo (_T), frequenza annuale e percentuale del PIL (PT_B1GQ). Usiamo i rapporti pubblicati dalla fonte, senza conversioni o ribasamenti. Il denominatore è il PIL del paese, non il totale degli investimenti. La scala parte da zero; gli anni mancanti interrompono le linee e compaiono come n.d. Gli arrotondamenti a tre decimali riguardano solo la visualizzazione.</p>
+                <p><strong>Come esplorarlo.</strong> Passa sul grafico, tocca un punto oppure selezionalo con Tab e usa le frecce per cambiare anno. I nomi accanto alle linee indicano l’ultimo dato disponibile; i valori sotto il grafico seguono l’anno selezionato. La tabella e il CSV contengono tutti gli anni e i paesi.</p>
+                <p class="snapshot-note">Verifica: {{VENTURE_RETRIEVED_DATE}}. Copia dei dati disponibili alla verifica, non un aggiornamento in tempo reale.</p>
+                <p class="raw-links"><a href="./data/venture/oecd.csv" download>Originale OCSE (CSV) ↓</a><a href="{{VENTURE_API_URL}}" target="_blank" rel="noopener noreferrer">Query OCSE ↗</a></p>
               </div>
             </details>
             <details class="method" id="metodo-regioni">

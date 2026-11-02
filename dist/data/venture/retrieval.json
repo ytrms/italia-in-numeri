@@ -1,0 +1,6 @@
+{
+  "retrievedAt": "2026-11-02T11:24:15.006Z",
+  "oecdUrl": "https://sdmx.oecd.org/public/rest/data/OECD.SDD.TPS,DSD_VC@DF_VC_INV,1.0/USA+SWE+CHE+GBR+NLD+ESP+FRA+DEU+ITA.._T.PT_B1GQ.A?startPeriod=2007&endPeriod=2025&format=csvfile",
+  "structureUrl": "https://sdmx.oecd.org/public/rest/dataflow/OECD.SDD.TPS/DSD_VC@DF_VC_INV/1.0?references=all",
+  "sha256": "a845f7011181671bf9d816c22bf06e39c19c29e0557b4193b5d5f5582a977a92"
+}
