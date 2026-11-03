@@ -1,0 +1,170 @@
+{
+  "retrievedAt": "2026-11-03T16:05:02.601516+00:00",
+  "url": "https://www.econstor.eu/bitstream/10419/319679/1/GLO-DP-1620.pdf",
+  "sha256": "2bb616ea49be5a0473d87b15110c3717eaf6776d02f3a1cfd59dcd1074b573a8",
+  "publicationYear": 2025,
+  "pdfPage": 25,
+  "printedPage": 24,
+  "figure": 10,
+  "method": "Extended-concept vector bars calibrated to the 0 and 1 axis ticks; rounded to 0.1 percentage point. Beneficiary share is the complement to 100. Ten results independently checked against the conclusion on printed p. 34.",
+  "source": "Christl, M. & Köppl-Turyna, M. (2025), Net Fiscal Contributions in the EU — The role of indirect taxation and in-kind benefits, GLO Discussion Paper 1620.",
+  "year": 2022,
+  "precision": 1,
+  "sources": {
+    "paper": "https://www.econstor.eu/bitstream/10419/319679/1/GLO-DP-1620.pdf#page=25",
+    "publication": "https://euromod-web.jrc.ec.europa.eu/research/publications/net-fiscal-contributions-eu-role-indirect-taxation-and-kind-benefits",
+    "journal": "https://doi.org/10.1111/kykl.70009"
+  },
+  "countries": [
+    {
+      "code": "IT",
+      "name": "Italia",
+      "contributors": 39.4,
+      "beneficiaries": 60.6
+    },
+    {
+      "code": "EL",
+      "name": "Grecia",
+      "contributors": 40.7,
+      "beneficiaries": 59.3
+    },
+    {
+      "code": "IE",
+      "name": "Irlanda",
+      "contributors": 41.8,
+      "beneficiaries": 58.2
+    },
+    {
+      "code": "AT",
+      "name": "Austria",
+      "contributors": 42.6,
+      "beneficiaries": 57.4
+    },
+    {
+      "code": "PL",
+      "name": "Polonia",
+      "contributors": 43.2,
+      "beneficiaries": 56.8
+    },
+    {
+      "code": "HU",
+      "name": "Ungheria",
+      "contributors": 43.3,
+      "beneficiaries": 56.7
+    },
+    {
+      "code": "FR",
+      "name": "Francia",
+      "contributors": 44.6,
+      "beneficiaries": 55.4
+    },
+    {
+      "code": "BE",
+      "name": "Belgio",
+      "contributors": 46.8,
+      "beneficiaries": 53.2
+    },
+    {
+      "code": "ES",
+      "name": "Spagna",
+      "contributors": 47.7,
+      "beneficiaries": 52.3
+    },
+    {
+      "code": "NL",
+      "name": "Paesi Bassi",
+      "contributors": 48.2,
+      "beneficiaries": 51.8
+    },
+    {
+      "code": "SE",
+      "name": "Svezia",
+      "contributors": 48.3,
+      "beneficiaries": 51.7
+    },
+    {
+      "code": "FI",
+      "name": "Finlandia",
+      "contributors": 49.3,
+      "beneficiaries": 50.7
+    },
+    {
+      "code": "HR",
+      "name": "Croazia",
+      "contributors": 49.3,
+      "beneficiaries": 50.7
+    },
+    {
+      "code": "PT",
+      "name": "Portogallo",
+      "contributors": 49.5,
+      "beneficiaries": 50.5
+    },
+    {
+      "code": "BG",
+      "name": "Bulgaria",
+      "contributors": 49.6,
+      "beneficiaries": 50.4
+    },
+    {
+      "code": "CZ",
+      "name": "Cechia",
+      "contributors": 49.9,
+      "beneficiaries": 50.1
+    },
+    {
+      "code": "RO",
+      "name": "Romania",
+      "contributors": 51,
+      "beneficiaries": 49
+    },
+    {
+      "code": "DE",
+      "name": "Germania",
+      "contributors": 51.3,
+      "beneficiaries": 48.7
+    },
+    {
+      "code": "LU",
+      "name": "Lussemburgo",
+      "contributors": 53,
+      "beneficiaries": 47
+    },
+    {
+      "code": "SI",
+      "name": "Slovenia",
+      "contributors": 53,
+      "beneficiaries": 47
+    },
+    {
+      "code": "DK",
+      "name": "Danimarca",
+      "contributors": 53.1,
+      "beneficiaries": 46.9
+    },
+    {
+      "code": "SK",
+      "name": "Slovacchia",
+      "contributors": 53.5,
+      "beneficiaries": 46.5
+    },
+    {
+      "code": "EE",
+      "name": "Estonia",
+      "contributors": 54.7,
+      "beneficiaries": 45.3
+    },
+    {
+      "code": "LV",
+      "name": "Lettonia",
+      "contributors": 56.9,
+      "beneficiaries": 43.1
+    },
+    {
+      "code": "LT",
+      "name": "Lituania",
+      "contributors": 58,
+      "beneficiaries": 42
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # italia in numeri
 
-A minimal Italian-language website about public spending, G7 pension spending, regional balances, real wages, equity investment in young businesses and the CNEL youth migration comparison. Static HTML, CSS and JavaScript; no runtime dependencies, third-party fonts, tracking or external requests on page load. Charts, map, tables, sources and category details work without JavaScript. JavaScript adds the unit switch, interactive regional selection and chart year controls.
+A minimal Italian-language website about public spending, household fiscal balances, G7 pension spending, regional balances, real wages, equity investment in young businesses and the CNEL youth migration comparison. Static HTML, CSS and JavaScript; no runtime dependencies, third-party fonts, tracking or external requests on page load. Charts, map, tables, sources and category details work without JavaScript. JavaScript adds the unit switch, interactive regional selection and chart year controls.
 
 ## Local development
 
@@ -122,9 +122,29 @@ npm run check
 
 The helper pins the reviewed PDF fingerprints and table cell positions. Source revisions require reviewing the reports, updating the extractor, and verifying the values and caveats together. Recovery does not deploy.
 
+## Household fiscal balances
+
+“Quante famiglie ricevono più di quanto versano” follows the public spending section. The 100% stacked bars compare the 25 EU countries in Figure 10 of Christl and Köppl-Turyna (2025), *Net Fiscal Contributions in the EU*, GLO Discussion Paper 1620, printed p. 24 (PDF p. 25). These are EUROMOD estimates for the **2022 tax-benefit system**, using the extended income concept; 2025 is the publication year. Cyprus and Malta are absent from this figure. Pensions and cash benefits, imputed health/education services, income taxes, social contributions (including employers') and VAT enter the balance. It is a household share and a one-year comparison, not a lifetime account or a share of public money.
+
+`scripts/recover-fiscal-data.py` recovers the original PDF's vector bar coordinates, calibrates them to the labelled 0 and 1 ticks, maps the country labels and rounds contributor shares to 0.1 percentage point. Ten values are independently checked against numerical statements in the conclusion. Beneficiary shares are the complement to 100; the figure does not distinguish exact-zero balances. The full PDF is used temporarily, not redistributed. `dist/data/fiscal/` preserves its URL, SHA-256, retrieval date, numerical geometry and recovered shares. New source fingerprints require review before extraction.
+
+`src/fiscal-data.mjs` validates the period, concept, complete country coverage and agreement between the shares and source geometry. `src/fiscal-chart.mjs` produces the chart and accessible table; `src/fiscal.css` supports mobile, themes and print. The chart needs no JavaScript. The Node build generates `fiscal.json` and `famiglie-saldo-fiscale.csv` without network or Python. Italy is emphasized and countries are sorted by beneficiary share.
+
+For source recovery only, install `pdfplumber==0.11.8` in a Python environment:
+
+```sh
+python3 scripts/recover-fiscal-data.py
+# Or reuse a local copy of the original paper:
+python3 scripts/recover-fiscal-data.py --pdf /absolute/path/GLO-DP-1620.pdf
+npm run build
+npm run check
+```
+
+This is a historical study snapshot, not an automatically refreshed annual series.
+
 ## Design direction
 
-Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal neutral palette and restrained typography, with color identifying country lines and regional balances. Do not use eyebrows (small introductory labels above headings) anywhere on this website. Do not end section titles with periods; retain question marks where appropriate. The main sections, in order, are “A cosa vanno le tue tasse”, “Quanto spendiamo in pensioni”, “Il potere d'acquisto del tuo stipendio”, “Quanto investiamo nelle nuove imprese”, “Quali paesi attirano i giovani” and “Quanto contribuiscono le regioni al bilancio”. They are equal peer sections: share their heading scale, spacing, dividers and right-aligned chevron. All six start expanded and collapse independently using native details/summary, including without JavaScript. Retain chart selections when collapsing. Keep generic introductory copy absent and the spending chart helper sentence visually hidden. Show retrieval notes in the sources section. The default spending chart unit is billions of euros. Do not add a spending-total callout, header sources link, generic sources introduction or footer tagline.
+Use the name “italia in numeri” without punctuation, keeping “italia” bold in the wordmark. Maintain a minimal neutral palette and restrained typography, with color identifying country lines and regional balances. Do not use eyebrows (small introductory labels above headings) anywhere on this website. Do not end section titles with periods; retain question marks where appropriate. The main sections, in order, are “A cosa vanno le tue tasse”, “Quante famiglie ricevono più di quanto versano”, “Quanto spendiamo in pensioni”, “Il potere d'acquisto del tuo stipendio”, “Quanto investiamo nelle nuove imprese”, “Quali paesi attirano i giovani” and “Quanto contribuiscono le regioni al bilancio”. They are equal peer sections: share their heading scale, spacing, dividers and right-aligned chevron. All seven start expanded and collapse independently using native details/summary, including without JavaScript. Retain chart selections when collapsing. Keep generic introductory copy absent and the spending chart helper sentence visually hidden. Show retrieval notes in the sources section. The default spending chart unit is billions of euros. Do not add a spending-total callout, header sources link, generic sources introduction or footer tagline.
 
 ## Section navigation
 

@@ -1,0 +1,41 @@
+.fiscal-view { --fiscal-beneficiary: #527989; --fiscal-beneficiary-ink: #fff; --fiscal-contributor: #e1e5e6; --fiscal-contributor-ink: #28383f; --fiscal-label: 155px; }
+@media screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .fiscal-view { --fiscal-beneficiary: #87b1c0; --fiscal-beneficiary-ink: #18272d; --fiscal-contributor: #424b4e; --fiscal-contributor-ink: #f0f0ed; }
+}
+@media screen {
+  :root[data-theme="dark"] .fiscal-view { --fiscal-beneficiary: #87b1c0; --fiscal-beneficiary-ink: #18272d; --fiscal-contributor: #424b4e; --fiscal-contributor-ink: #f0f0ed; }
+}
+.fiscal-definition { max-width: 800px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.fiscal-definition a { margin-left: 8px; font-size: 11px; }
+.fiscal-legend { display: flex; flex-wrap: wrap; gap: 12px 26px; margin: 25px 0 22px; font-size: 12px; }
+.fiscal-legend > span { display: flex; align-items: center; gap: 8px; }
+.fiscal-legend i { width: 13px; height: 13px; flex: 0 0 13px; }
+.fiscal-beneficiary-key { background: var(--fiscal-beneficiary); }
+.fiscal-contributor-key { background: var(--fiscal-contributor); border: 1px solid var(--baseline); }
+.fiscal-axis, .fiscal-row { display: grid; grid-template-columns: var(--fiscal-label) minmax(0, 1fr); align-items: center; gap: 16px; }
+.fiscal-axis { margin-bottom: 12px; color: var(--muted); font-size: 11px; }
+.fiscal-axis > div { display: flex; justify-content: space-between; }
+.fiscal-rows { padding: 0; margin: 0; list-style: none; }
+.fiscal-row { min-height: 33px; }
+.fiscal-country { font-size: 13px; line-height: 1.3; }
+.fiscal-bar { display: flex; min-width: 0; height: 25px; font-variant-numeric: tabular-nums; font-size: 12px; }
+.fiscal-bar > span { display: flex; align-items: center; justify-content: center; }
+.fiscal-beneficiaries { background: var(--fiscal-beneficiary); color: var(--fiscal-beneficiary-ink); }
+.fiscal-contributors { background: var(--fiscal-contributor); color: var(--fiscal-contributor-ink); border-left: 1px solid var(--canvas); }
+.fiscal-italy { margin-bottom: 6px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.fiscal-italy .fiscal-country, .fiscal-italy .fiscal-bar { font-weight: 700; }
+.fiscal-italy .fiscal-bar { outline: 1px solid var(--ink); outline-offset: 2px; }
+.fiscal-caveat { max-width: 800px; margin: 22px 0 0; font-size: 12px; line-height: 1.65; color: var(--muted); }
+.fiscal-table { min-width: 480px; }
+@media (max-width: 600px) {
+  .fiscal-view { --fiscal-label: 105px; }
+  .fiscal-axis, .fiscal-row { gap: 10px; }
+  .fiscal-country, .fiscal-definition { font-size: 12px; }
+  .fiscal-bar { font-size: 11px; }
+  .fiscal-row { min-height: 32px; }
+  .fiscal-legend { gap: 12px 20px; font-size: 11px; }
+}
+@media print {
+  .fiscal-bar, .fiscal-legend i { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .fiscal-row { break-inside: avoid; }
+}

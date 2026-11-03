@@ -8,9 +8,9 @@
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181818" />
     <script src="./theme.js"></script>
     <title>Italia in Numeri</title>
-    <meta name="description" content="Spesa pubblica, pensioni nel G7, salari reali, nuove imprese, migrazioni dei giovani e saldi regionali. Grafici interattivi, dati scaricabili e fonti verificabili." />
+    <meta name="description" content="Spesa pubblica, saldo fiscale delle famiglie, pensioni, salari reali, nuove imprese, migrazioni dei giovani e saldi regionali. Grafici, dati scaricabili e fonti verificabili." />
     <meta property="og:title" content="Italia in Numeri" />
-    <meta property="og:description" content="Spesa pubblica, pensioni nel G7, salari reali, nuove imprese, migrazioni dei giovani e saldi regionali. Dati Eurostat, CPT, OCSE, CNEL e Commissione europea, in chiaro." />
+    <meta property="og:description" content="Spesa pubblica, saldo fiscale delle famiglie, pensioni, salari reali, nuove imprese, migrazioni dei giovani e saldi regionali. Dati e studi con fonti verificabili." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta property="og:url" content="https://italia.lorenzogravina.com/" />
@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./pensions.css" />
     <link rel="stylesheet" href="./venture.css" />
     <link rel="stylesheet" href="./migration.css" />
+    <link rel="stylesheet" href="./fiscal.css" />
     <script type="module" src="./app.js"></script>
     <script type="module" src="./pensions.js"></script>
     <script type="module" src="./venture.js"></script>
@@ -37,6 +38,7 @@
         <button class="nav-toggle" type="button" aria-expanded="true" aria-controls="section-nav-links" hidden><span>Indice</span><svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></button>
         <ul id="section-nav-links">
           <li><a href="#grafico">A cosa vanno le tue tasse</a></li>
+          <li><a href="#famiglie">Quante famiglie ricevono più di quanto versano</a></li>
           <li><a href="#pensioni">Quanto spendiamo in pensioni</a></li>
           <li><a href="#salari">Il potere d'acquisto del tuo stipendio</a></li>
           <li><a href="#nuove-imprese">Quanto investiamo nelle nuove imprese</a></li>
@@ -75,6 +77,13 @@
           </div>
           <p class="sr-only" id="unit-announcement" aria-live="polite"></p>
           </div>
+        </details>
+
+        <details class="stat-section" id="famiglie" open>
+          <summary class="section-heading">
+            <h2 id="fiscal-title"><span>Quante famiglie ricevono più di quanto versano</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
+          </summary>
+          <div class="section-content">{{FISCAL_CHART}}</div>
         </details>
 
         <details class="stat-section" id="pensioni" open>
@@ -174,7 +183,7 @@
             <h2 id="sources-title"><span>Fonti e metodo</span><svg class="section-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6" /></svg></h2>
           </summary>
           <div class="source-content section-content">
-            <p class="latest-note">Spesa nazionale: {{YEAR}}, verifica del {{RETRIEVED_DATE}}.<br />Pensioni G7: {{PENSION_FIRST_YEAR}}–{{PENSION_LAST_YEAR}}, ultimo anno comune {{PENSION_COMMON_YEAR}}, verifica del {{PENSION_RETRIEVED_DATE}}.<br />Nuove imprese: {{VENTURE_FIRST_YEAR}}–{{VENTURE_LAST_YEAR}}, verifica del {{VENTURE_RETRIEVED_DATE}}.<br />Giovani: confronto CNEL 2011–2023, verifica del {{MIGRATION_RETRIEVED_DATE}}.<br />Saldi territoriali: {{REGIONAL_YEAR}}, verifica del {{REGIONAL_RETRIEVED_DATE}}.<br />Salari OCSE: fino al {{WAGE_LAST_YEAR}}, verifica del {{WAGE_OECD_RETRIEVED_DATE}}.<br />Salari e contributi AMECO: verifica del {{WAGE_RETRIEVED_DATE}}.<br />Ultimi anni completi nelle rispettive fonti, salvo il confronto storico CNEL.</p>
+            <p class="latest-note">Spesa nazionale: {{YEAR}}, verifica del {{RETRIEVED_DATE}}.<br />Famiglie: stime sul sistema {{FISCAL_YEAR}}, studio del 2025, verifica del {{FISCAL_RETRIEVED_DATE}}.<br />Pensioni G7: {{PENSION_FIRST_YEAR}}–{{PENSION_LAST_YEAR}}, ultimo anno comune {{PENSION_COMMON_YEAR}}, verifica del {{PENSION_RETRIEVED_DATE}}.<br />Nuove imprese: {{VENTURE_FIRST_YEAR}}–{{VENTURE_LAST_YEAR}}, verifica del {{VENTURE_RETRIEVED_DATE}}.<br />Giovani: confronto CNEL 2011–2023, verifica del {{MIGRATION_RETRIEVED_DATE}}.<br />Saldi territoriali: {{REGIONAL_YEAR}}, verifica del {{REGIONAL_RETRIEVED_DATE}}.<br />Salari OCSE: fino al {{WAGE_LAST_YEAR}}, verifica del {{WAGE_OECD_RETRIEVED_DATE}}.<br />Salari e contributi AMECO: verifica del {{WAGE_RETRIEVED_DATE}}.<br />Ultimi anni completi nelle rispettive fonti, salvo i confronti storici CNEL e sulle famiglie.</p>
             <div class="source-links">
               <a href="https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table?lang=en" target="_blank" rel="noopener noreferrer"><span>Eurostat <small>Spesa per funzione · gov_10a_exp</small></span><span aria-hidden="true">↗</span></a>
               <a href="https://www.istat.it/scheda-qualita/spese-della-pubblica-amministrazione-per-funzione/" target="_blank" rel="noopener noreferrer"><span>Istat <small>Come vengono prodotti i dati italiani</small></span><span aria-hidden="true">↗</span></a>
@@ -183,6 +192,7 @@
               <a href="{{PENSION_SOURCE}}" target="_blank" rel="noopener noreferrer"><span>OCSE <small>SOCX · spesa pensionistica pubblica nel G7</small></span><span aria-hidden="true">↗</span></a>
               <a href="{{VENTURE_SOURCE}}" target="_blank" rel="noopener noreferrer"><span>OCSE <small>Investimenti nel capitale delle nuove imprese</small></span><span aria-hidden="true">↗</span></a>
               <a href="{{MIGRATION_FIGURE_SOURCE}}" target="_blank" rel="noopener noreferrer"><span>CNEL / REF Ricerche <small>Giovani expat · confronto su dati Eurostat</small></span><span aria-hidden="true">↗</span></a>
+              <a href="{{FISCAL_PUBLICATION}}" target="_blank" rel="noopener noreferrer"><span>Christl e Köppl-Turyna <small>Saldo fiscale delle famiglie · studio EUROMOD</small></span><span aria-hidden="true">↗</span></a>
               <a href="{{WAGE_AMECO_SOURCE}}" target="_blank" rel="noopener noreferrer"><span>Commissione europea <small>AMECO · redditi reali per dipendente dal 1960</small></span><span aria-hidden="true">↗</span></a>
             </div>
             <details class="method">
@@ -196,6 +206,17 @@
                 <p><strong>Il debito.</strong> Gli interessi e le spese di emissione sono spesa pubblica; il rimborso del capitale è un’operazione finanziaria e non fa parte di questo totale. <a href="https://ec.europa.eu/eurostat/en/web/government-finance-statistics/methodology" target="_blank" rel="noopener noreferrer">Metodo Eurostat ↗</a></p>
                 <p class="snapshot-note">Verifica: {{RETRIEVED_DATE}}. Aggiornamento del dataset Eurostat: {{UPDATED_DATE}}. Questa data riguarda il dataset, non necessariamente ogni singola osservazione italiana.</p>
                 <p class="raw-links"><a href="./data/eurostat-raw.json" download>Snapshot originale (JSON) ↓</a><a href="{{API_URL}}" target="_blank" rel="noopener noreferrer">Query Eurostat ↗</a></p>
+              </div>
+            </details>
+            <details class="method" id="metodo-famiglie">
+              <summary>Come confrontare il saldo fiscale delle famiglie <span class="plus" aria-hidden="true"></span></summary>
+              <div class="method-body">
+                <p><strong>Fonte e anno.</strong> Christl e Köppl-Turyna (2025), GLO Discussion Paper 1620, figura 10 (p. 24; pagina 25 del PDF), concetto esteso. Sono stime EUROMOD sul sistema fiscale del {{FISCAL_YEAR}}, non dati del 2025. <a href="{{FISCAL_PAPER}}" target="_blank" rel="noopener noreferrer">Documento originale ↗</a> · <a href="{{FISCAL_JOURNAL}}" target="_blank" rel="noopener noreferrer">Articolo in Kyklos ↗</a></p>
+                <p><strong>Che cosa entra nel saldo.</strong> Imposte sul reddito, contributi sociali (anche dei datori di lavoro) e IVA, meno pensioni, sussidi e altri trasferimenti monetari e il valore imputato di sanità e istruzione. Le pensioni sono trattate come trasferimenti. Il perimetro non comprende ogni entrata e spesa pubblica.</p>
+                <p><strong>Quote e precisione.</strong> Quote delle famiglie, non delle persone o degli euro. Le contribuenti nette hanno versamenti superiori ai benefici. Recuperiamo le barre vettoriali della figura e arrotondiamo a 0,1 punti percentuali. La quota beneficiaria è il complemento al 100%; eventuali saldi nulli non sono distinti dalla fonte.</p>
+                <p><strong>Copertura e limiti.</strong> 25 paesi UE; Cipro e Malta non compaiono nella figura. Il confronto riflette un anno e dipende dalle ipotesi su IVA e servizi pubblici. Non misura il saldo nell’intera vita di una famiglia.</p>
+                <p class="snapshot-note">Verifica: {{FISCAL_RETRIEVED_DATE}}. Confronto storico da uno studio, non aggiornato automaticamente.</p>
+                <p class="raw-links"><a href="./data/fiscal/published-shares.json" download>Quote recuperate (JSON) ↓</a><a href="./data/fiscal/source-geometry.json" download>Geometria numerica della fonte (JSON) ↓</a></p>
               </div>
             </details>
             <details class="method" id="metodo-pensioni">

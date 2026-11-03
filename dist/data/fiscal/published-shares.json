@@ -1,0 +1,108 @@
+{
+  "year": 2022,
+  "unit": "percent_households",
+  "concept": "extended_income",
+  "precision": 1,
+  "observations": [
+    {
+      "code": "IT",
+      "contributors": 39.4
+    },
+    {
+      "code": "EL",
+      "contributors": 40.7
+    },
+    {
+      "code": "IE",
+      "contributors": 41.8
+    },
+    {
+      "code": "AT",
+      "contributors": 42.6
+    },
+    {
+      "code": "PL",
+      "contributors": 43.2
+    },
+    {
+      "code": "HU",
+      "contributors": 43.3
+    },
+    {
+      "code": "FR",
+      "contributors": 44.6
+    },
+    {
+      "code": "BE",
+      "contributors": 46.8
+    },
+    {
+      "code": "ES",
+      "contributors": 47.7
+    },
+    {
+      "code": "NL",
+      "contributors": 48.2
+    },
+    {
+      "code": "SE",
+      "contributors": 48.3
+    },
+    {
+      "code": "FI",
+      "contributors": 49.3
+    },
+    {
+      "code": "HR",
+      "contributors": 49.3
+    },
+    {
+      "code": "PT",
+      "contributors": 49.5
+    },
+    {
+      "code": "BG",
+      "contributors": 49.6
+    },
+    {
+      "code": "CZ",
+      "contributors": 49.9
+    },
+    {
+      "code": "RO",
+      "contributors": 51.0
+    },
+    {
+      "code": "DE",
+      "contributors": 51.3
+    },
+    {
+      "code": "LU",
+      "contributors": 53.0
+    },
+    {
+      "code": "SI",
+      "contributors": 53.0
+    },
+    {
+      "code": "DK",
+      "contributors": 53.1
+    },
+    {
+      "code": "SK",
+      "contributors": 53.5
+    },
+    {
+      "code": "EE",
+      "contributors": 54.7
+    },
+    {
+      "code": "LV",
+      "contributors": 56.9
+    },
+    {
+      "code": "LT",
+      "contributors": 58.0
+    }
+  ]
+}

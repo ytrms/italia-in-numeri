@@ -9,6 +9,14 @@ import { prepareVentureData, ventureCsv } from '../src/venture-data.mjs';
 import { renderVentureChart } from '../src/venture-chart.mjs';
 import { prepareMigrationData, migrationCsv } from '../src/migration-data.mjs';
 import { renderMigrationChart } from '../src/migration-chart.mjs';
+import { prepareFiscalData, fiscalCsv } from '../src/fiscal-data.mjs';
+import { renderFiscalChart } from '../src/fiscal-chart.mjs';
+
+const fiscal = prepareFiscalData(
+  JSON.parse(await readFile(new URL('../dist/data/fiscal/published-shares.json', import.meta.url), 'utf8')),
+  JSON.parse(await readFile(new URL('../dist/data/fiscal/source-geometry.json', import.meta.url), 'utf8')),
+  JSON.parse(await readFile(new URL('../dist/data/fiscal/retrieval.json', import.meta.url), 'utf8')),
+);
 
 const migration = prepareMigrationData(
   JSON.parse(await readFile(new URL('../dist/data/migration/published-table.json', import.meta.url), 'utf8')),
@@ -75,6 +83,8 @@ const rows = data.categories.map(category => {
 
 let html = await readFile(new URL('../src/index.html', import.meta.url), 'utf8');
 const replacements = {
+  FISCAL_CHART: renderFiscalChart(fiscal), FISCAL_YEAR: fiscal.year, FISCAL_RETRIEVED_DATE: date(fiscal.retrievedAt),
+  FISCAL_PAPER: escape(fiscal.sources.paper), FISCAL_PUBLICATION: escape(fiscal.sources.publication), FISCAL_JOURNAL: escape(fiscal.sources.journal),
   MIGRATION_CHART: renderMigrationChart(migration), MIGRATION_RETRIEVED_DATE: date(migration.retrievedAt),
   MIGRATION_TABLE_SOURCE: escape(migration.sources.table), MIGRATION_FIGURE_SOURCE: escape(migration.sources.figure),
   MIGRATION_DEPARTURES_TOTAL: n(migration.totals.departures), MIGRATION_ARRIVALS_TOTAL: n(migration.totals.arrivals),
@@ -106,7 +116,9 @@ html = html.replace(/\{\{([A-Z_]+)\}\}/g, (_, key) => {
 html = html.replace('class="chart"', `class="chart" data-share-maximum="${shareMaximum}" data-amount-maximum="${amountMaximum}" data-total="${data.total / 1000}"`);
 await mkdir(new URL('../dist', import.meta.url), { recursive: true });
 await writeFile(new URL('../dist/index.html', import.meta.url), html);
-for (const name of ['styles.css', 'app.js', 'theme.js', 'favicon.svg', 'pensions.css', 'pensions.js', 'venture.css', 'venture.js', 'migration.css', 'migration.js']) await copyFile(new URL(`../src/${name}`, import.meta.url), new URL(`../dist/${name}`, import.meta.url));
+for (const name of ['styles.css', 'app.js', 'theme.js', 'favicon.svg', 'pensions.css', 'pensions.js', 'venture.css', 'venture.js', 'migration.css', 'migration.js', 'fiscal.css']) await copyFile(new URL(`../src/${name}`, import.meta.url), new URL(`../dist/${name}`, import.meta.url));
+await writeFile(new URL('../dist/data/fiscal.json', import.meta.url), JSON.stringify(fiscal, null, 2) + '\n');
+await writeFile(new URL('../dist/data/famiglie-saldo-fiscale.csv', import.meta.url), fiscalCsv(fiscal));
 await writeFile(new URL('../dist/data/spending.json', import.meta.url), JSON.stringify(data, null, 2) + '\n');
 await writeFile(new URL('../dist/data/regions.json', import.meta.url), JSON.stringify(regional, null, 2) + '\n');
 await writeFile(new URL('../dist/data/wages.json', import.meta.url), JSON.stringify(wages, null, 2) + '\n');

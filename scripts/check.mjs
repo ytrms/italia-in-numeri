@@ -11,6 +11,7 @@ import { prepareVentureData, ventureCsv } from '../src/venture-data.mjs';
 import { renderVentureChart } from '../src/venture-chart.mjs';
 import { prepareMigrationData, migrationCsv } from '../src/migration-data.mjs';
 import { renderMigrationChart } from '../src/migration-chart.mjs';
+import { prepareFiscalData, fiscalCsv } from '../src/fiscal-data.mjs';
 
 const raw = JSON.parse(await readFile(new URL('../dist/data/eurostat-raw.json', import.meta.url), 'utf8'));
 const published = JSON.parse(await readFile(new URL('../dist/data/spending.json', import.meta.url), 'utf8'));
@@ -210,3 +211,32 @@ assert.ok(migrationHtml.includes('left:89.66666666666666%;top:93.66666666666667%
 assert.ok(html.includes(migrationHtml));
 assert.ok(html.includes('115,2%') && html.includes('108,9%'), 'Source aggregation limits are visible in the method');
 console.log('Youth migration checks passed: 11 published country observations, source PDF fingerprints, period/age/unit validation, unmodified source totals, published indices, accessible table and CSV.');
+
+const fiscalRaw = JSON.parse(await readFile(new URL('../dist/data/fiscal/published-shares.json', import.meta.url), 'utf8'));
+const fiscalGeometry = JSON.parse(await readFile(new URL('../dist/data/fiscal/source-geometry.json', import.meta.url), 'utf8'));
+const fiscalMetadata = JSON.parse(await readFile(new URL('../dist/data/fiscal/retrieval.json', import.meta.url), 'utf8'));
+const fiscal = prepareFiscalData(fiscalRaw, fiscalGeometry, fiscalMetadata);
+assert.deepEqual(JSON.parse(await readFile(new URL('../dist/data/fiscal.json', import.meta.url), 'utf8')), fiscal);
+assert.equal(await readFile(new URL('../dist/data/famiglie-saldo-fiscale.csv', import.meta.url), 'utf8'), fiscalCsv(fiscal));
+// Written results in the conclusion independently validate the calibration,
+// country mapping and rounding of the recovered vector bars.
+for (const [code, value] of Object.entries({ IT: 39.4, EL: 40.7, IE: 41.8, AT: 42.6, PL: 43.2, DK: 53.1, SK: 53.5, EE: 54.7, LV: 56.9, LT: 58.0 })) {
+  assert.equal(fiscal.countries.find(c => c.code === code).contributors, value, 'Recovered share agrees with the paper’s written result');
+}
+assert.equal(fiscal.countries[0].beneficiaries, 60.6);
+assert.equal(fiscal.countries[0].code, 'IT');
+assert.ok(fiscal.countries.every((c, i, all) => Math.abs(c.beneficiaries + c.contributors - 100) < 1e-10 && (i === 0 || c.beneficiaries <= all[i - 1].beneficiaries)), 'Every bar totals 100 and countries follow the displayed ranking');
+for (const change of [r => { r.year = 2025; }, r => { r.unit = 'percent_people'; }, r => { r.concept = 'disposable_income'; }, r => { r.observations[0].contributors = null; }, r => { r.observations[0].contributors = 39; }, r => { r.observations[1] = r.observations[0]; }, r => { r.observations.pop(); }]) {
+  const changed = structuredClone(fiscalRaw);
+  change(changed);
+  assert.throws(() => prepareFiscalData(changed, fiscalGeometry, fiscalMetadata), /fiscal/);
+}
+assert.throws(() => prepareFiscalData(fiscalRaw, { ...fiscalGeometry, oneY: fiscalGeometry.zeroY + 1 }, fiscalMetadata), /fiscal source scale/);
+const changedGeometry = structuredClone(fiscalGeometry);
+changedGeometry.bars[0].top -= 1;
+assert.throws(() => prepareFiscalData(fiscalRaw, changedGeometry, fiscalMetadata), /source geometry/);
+const fiscalSection = html.split('id="famiglie" open>')[1].split('</ol>')[0];
+assert.deepEqual([...fiscalSection.matchAll(/data-fiscal-country="([A-Z]+)"/g)].map(match => match[1]), fiscal.countries.map(c => c.code), 'All 25 source countries appear once in chart order');
+assert.ok(fiscalSection.includes('60,6%') && fiscalSection.includes('39,4%'), 'The Italian bar uses the source precision');
+assert.ok(html.includes('id="metodo-famiglie"') && html.includes('eventuali saldi nulli') && html.includes('sistema fiscale del 2022'), 'Definitions, complement convention and reference year accompany the chart');
+console.log('Household fiscal checks passed: 25 countries, 2022 policy year, vector calibration, ten independently published values, complementary shares, invalid-input rejection and reproducible CSV.');
